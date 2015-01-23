@@ -8,46 +8,6 @@
 
 ### 1. Master branch. Always stable.
 
-### 2. Dev branch. Always change. In this branch developer can make changes. And deployed them into github and dev server and test, After hi can merge the dev branch with master branch if QA allow doing this.
-
-> Module list:
-
-> 0. (Done) Meta Box (http://www.deluxeblogtips.com/meta-box/)
-
-> 1. (Done) Google Maps plugin (Need research what plugin will confirm the aim)
-
-> 2. (Done) Facebook/Twitter comment left (need research plugin)
-
-> 3. (Done) NextGen Gallery (http://wordpress.org/plugins/nextgen-gallery/)
-
-> 4. (Done) Event Manager (http://demo.wp-events-plugin.com/)
-
-> 5. (Done) BuddyPress (https://buddypress.org/)
-
-> 6. (Done) BuddyPress  social networks (http://wordpress.org/plugins/buddypress-social/)
-
-> 7. (Done) BuddyPress WP-FB-Autoconnect (https://wordpress.org/plugins/wp-fb-autoconnect/)
-
-> 8. Advanced WordPress Email Delivery (http://codecanyon.net/item/advanced-wordpress-email-delivery-/1290390?ref=wpexplorer&ref=wpexplorer&clickthrough_id=232274901&redirect_back=true) looks like it cost 15$
-
-> 9. (Done) XML Sitemap Generator (http://wordpress.org/plugins/google-sitemap-generator/)
-
-> 10. (Done) w3 Total Cache (https://wordpress.org/plugins/w3-total-cache/)
-
-> 11. (Done) All in One SEO Pack (http://wordpress.org/plugins/all-in-one-seo-pack/)
-
-> 12. (Done) WordPress SEO by Yoast (http://wordpress.org/plugins/wordpress-seo/)
-
-> 13. (Done) SEO Friendly Images (http://wordpress.org/plugins/seo-image/)
-
-> 14. (Done) User Role Editor (https://wordpress.org/plugins/user-role-editor/)
-
-> 15. (Done). YouTube ShortCode (https://wordpress.org/plugins/youtube-shortcode/installation/)
-
-> 16. (Always keep in plugin folder. Don't remove) Yaarly Site Blogs (http://www.yaarly.com/) (Active)
-
---------------------------------------------
-
 ## For developers:
 --------------------------------------------
 
@@ -57,9 +17,9 @@
 1. When you clone repo, create the wp-config.php file by copy wp-config-sample.php and write your database credentials.
 1. When you make hotfix, format it into new branch on you local machine.
 1. Defined constant below in wp-config.php new file
-    >  define('WP_HOME','http://schneps.local');
+    >  define('WP_HOME','http://star-network.local');
     >
-    >  define('WP_SITEURL','http://schneps.local');
+    >  define('WP_SITEURL','http://star-network.local');
 
 --------------------------------------------    
 # Composer WordPress Skeleton
