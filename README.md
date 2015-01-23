@@ -11,9 +11,6 @@
 ## For developers:
 --------------------------------------------
 
-### After deploy and plugin installed and activate, please find file wp-content/plugins/buddypress/bp-core/bp-core-filters.php and replace line 393 on this <code>/Users/maxim/Sites/schneps/wp-content/plugins/buddypress/bp-core/bp-core-filters.php</code>
---------------------------------------------
-
 1. When you clone repo, create the wp-config.php file by copy wp-config-sample.php and write your database credentials.
 1. When you make hotfix, format it into new branch on you local machine.
 1. Defined constant below in wp-config.php new file
