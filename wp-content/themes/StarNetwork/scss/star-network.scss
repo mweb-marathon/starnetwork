@@ -1,0 +1,610 @@
+@import "mixin";
+
+body.page-template-star_networking_homepage-php {
+  background: white;
+}
+
+.header-wrapper-star-network-header {
+  .header-wrapper-bg-color {
+    header {
+      .logo-with-menu-wrapper {
+        .logo {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  .header-main-menu-wrapper {
+    .header-main-menu {
+      > .menu {
+        height: 30px;
+      }
+    }
+    #menu-star-network-menu {
+      > li {
+        > .dropdown {
+          margin-left: 6px;
+          .dropdown {
+            margin-left: 0;
+            margin-top: -1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.star-network-attend-pages {
+  h1 {
+    color: $default-red;
+    @include fontCall("DINNextLTPro-Regular", 50);
+  }
+  .main-content {
+    .categories {
+      box-sizing: border-box;
+      margin-top: 25px;
+      height: 55px;
+      .waitMe_container {
+        height: inherit;
+      }
+      &.mobile {
+        ul {
+          li {
+            margin: 0;
+            border: 1px solid #d64949;
+            width: 100%;
+          }
+        }
+      }
+      &.float-none {
+        float: none;
+      }
+      ul {
+        display: table;
+        padding: 0;
+        margin: 0;
+        height: 55px;
+        li {
+          height: 55px;
+          display: table-cell;
+          margin-left: -5px;
+          border: 1px solid $default-red;
+          border-right: 0;
+          text-align: center;
+          position: relative;
+          vertical-align: middle;
+          &:last-child {
+            border-right: 1px solid $default-red;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+          a {
+            text-transform: uppercase;
+            padding: 10px 10px 7px 10px;
+            display: block;
+            line-height: 18px;
+            @include fontCall("DINNextLTPro-Light", 16);
+            color: $default-gray;
+          }
+          &:hover, &.current-category {
+            background: $default-red;
+            a {
+              color: white;
+            }
+            &:after {
+              top: 100%;
+              left: 50%;
+              border: solid transparent;
+              content: " ";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+              border-color: rgba(214, 73, 73, 0);
+              border-top-color: $default-red;
+              border-width: 7px;
+              margin-left: -8px;
+            }
+          }
+        }
+        li.current-category {
+          background: $default-red;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .filter {
+    .filter-wrapper {
+      .filter-text {
+        color: $default-light-gray;
+        @include fontCall("DINNextLTPro-Regular", 16);
+        text-transform: uppercase;
+      }
+      .buttons {
+        text-transform: uppercase;
+        color: $default-gray;
+        label {
+          @include fontCall("DINNextLTPro-Regular", 22);
+          line-height: 20px;
+          &.disabled {
+            color: gray;
+            cursor: default;
+          }
+
+          input {
+            display: none;
+            &:checked {
+              & + span {
+                background: white;
+                &:before {
+                  content: "";
+                  display: block;
+                  width: 8px;
+                  height: 8px;
+                  -webkit-border-radius: 1000px;
+                  border-radius: 1000px;
+                  background: $default-red;
+                  position: relative;
+                }
+              }
+            }
+          }
+
+          .custom {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: -1px;
+            vertical-align: middle;
+            border: solid 1px #000000;
+            background: transparent;
+            .hidden-field {
+              margin-left: -99999px;
+              position: absolute;
+              visibility: hidden;
+              display: none;
+
+            }
+            &.radio {
+              -webkit-border-radius: 1000px;
+              border-radius: 1000px;
+              padding: 3px;
+              margin-top: -3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.star-network-home-pages {
+  .page-header {
+    height: 460px;
+    position: relative;
+    margin-bottom: 40px;
+    .page-header-text-wrapper {
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      .page-header-text {
+        padding: 0 20px;
+        background: rgba(255, 255, 255, .9);
+        border: 1px solid $default-light-gray;
+        width: 740px;
+        display: inline-block;
+        .title {
+          text-align: left;
+          color: $default-red;
+          @include fontCall("DINNextLTPro-Regular", 50);
+          line-height: 45px;
+          margin-top: 10px;
+        }
+        .text {
+          text-align: left;
+          @include fontCall("DINNextLTPro-Regular", 17);
+          a {
+            color: $default-red;
+          }
+        }
+      }
+    }
+  }
+
+  .page-header-site-statistic {
+    margin-top: 40px;
+    background: $default-red;
+    ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style: none;
+      display: table;
+      li {
+        width: 33%;
+        display: table-cell;
+        @include fontCall("DINNextLTPro-Medium", 25);
+        color: #000000;
+        text-align: center;
+        text-transform: uppercase;
+
+        .number {
+          @include fontCall("DINNextLTPro-Medium", 60);
+          vertical-align: middle;
+        }
+      }
+    }
+
+  }
+}
+
+#waitMeSpot.waitMe_container {
+  margin-top: 40px;
+}
+
+.star-network-homepage-content-wrapper {
+  background: #f2f2f2;
+  height: 680px;
+  overflow: hidden;
+  .waitMe_container {
+    height: inherit;
+  }
+  #content {
+    position: relative;
+    margin: 40px auto;
+    padding: 20px 0;
+    height: inherit;
+  }
+}
+
+.single-event-wrapper {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+    .bg-color {
+      background-color: transparent;
+    }
+  }
+
+  .event-start-date {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    background: $default-gray;
+    color: white;
+    z-index: 3;
+    left: 0.9375rem;
+    .date {
+      line-height: 20px;
+      padding: 10px 15px;
+      .month {
+        @include fontCall("DINNextLTPro-Regular", 17);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .day {
+        @include fontCall("DINNextLTPro-Regular", 28);
+      }
+    }
+    .rsvp {
+      text-align: center;
+      padding: 5px 0 3px 0;
+      background: $default-red;
+      @include fontCall("DINNextLTPro-Regular", 13);
+      text-transform: uppercase;
+    }
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    left: 0.9375rem;
+    right: 0.9375rem;
+    .no-image {
+      @include noImage(300);
+    }
+  }
+  .bg-color {
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0.9375rem;
+    right: 0.9375rem;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .title {
+    left: 2.5rem;
+    right: 0.9375rem;
+    z-index: 4;
+    position: absolute;
+    top: 100px;
+    @include fontCall("DINNextLTPro-Light", 30);
+    a {
+      color: white;
+    }
+  }
+
+  .footer {
+    border-top: 2px solid $default-red;
+    position: absolute;
+    bottom: 0;
+    left: 0.9375rem;
+    right: 0.9375rem;
+    z-index: 5;
+    background: $default-light-gray;
+
+    @include fontCall("DINNextLTPro-Medium", 16);
+    color: $default-gray;
+
+    &.qns {
+      padding: 15px;
+    }
+
+    &.brooklyn {
+      padding: 9px 15px 10px 15px;
+    }
+    .footer-text {
+      margin-left: 15px;
+    }
+  }
+}
+
+.star-network-homepage-content {
+  .single-event-wrapper {
+    &:last-child {
+      float: left;
+    }
+    &:nth-child(3n) {
+      float: right;
+    }
+  }
+}
+
+.main-content-data {
+  .spots-wrapper {
+    margin-top: 60px;
+    .single-event-wrapper {
+      &:last-child {
+        float: left;
+      }
+      &:nth-child(3n) {
+        float: right;
+      }
+    }
+  }
+}
+
+.footer-wrapper-star-network {
+  margin-top: 40px;
+  #footer {
+    .footer-menu {
+      background: none;
+      ul {
+        li {
+          @include fontCall("DINNextLTPro-Light", 18);
+        }
+      }
+    }
+  }
+  .menu-star-network-menu-main-footer-left-container {
+    li {
+      a {
+        float: left;
+      }
+      &:after {
+        content: "/";
+        float: left;
+        margin-top: 3px;
+        padding: 0 10px;
+        line-height: 25px;
+        color: white;
+      }
+      &:last-of-type {
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  a {
+    width: 17px;
+    height: 42px;
+    display: block;
+    background: url($image-path + 'arrow-sprite.png') no-repeat center;
+  }
+
+  &.left {
+    left: -20px;
+    a {
+      background-position: 0 0;
+      &:hover {
+        background-position: 0 -43px;
+      }
+    }
+  }
+
+  &.right {
+    right: -20px;
+    a {
+      background-position: -18px 0;
+      &:hover {
+        background-position: -18px -43px;
+      }
+    }
+  }
+}
+
+/* Star Network Additional Page. Start */
+.star-main-content-wrapper {
+  #content {
+    margin-top: 0;
+    padding-top: 40px;
+    .star-network-content {
+      background: rgba(255, 255, 255, .9);
+      padding: 50px 190px;
+      border: 1px solid #c2c2c2;
+      .star-network-additional-page-title {
+        @include fontCall("DINNextLTPro-Regular", 50);
+        color: $default-red;
+        text-align: center;
+        line-height: 45px;
+        margin-top: 10px;
+      }
+      .star-network-additional-page-sublime {
+        @include fontCall("DINNextLTPro-Regular", 30);
+        color: $default-gray;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Star Network Additional Page. End */
+
+.form-wrapper {
+  padding: 0 95px;
+  #newsletter-form, #speak-form, #nominate-form, #sponsor-form {
+    label.error {
+      display: none !important;
+    }
+
+
+    input[type="text"],
+    input[type="email"] {
+      background: #f2f2f2;
+      border: 1px solid #e1e1e1;
+      @include fontCall("DINNextLTPro-Light", 21);
+      padding: 30px 20px 28px 20px;
+      color: #707070;
+      border-radius: 10px;
+      margin: 0 0 1rem 0;
+      &.error {
+        border: 1px solid red;
+      }
+    }
+
+    .fieldset {
+      color: #707070;
+      @include fontCall("DINNextLTPro-Light", 21);
+    }
+
+    .select-list {
+      label {
+        color: #707070;
+        @include fontCall("DINNextLTPro-Light", 21);
+      }
+      select {
+        color: #707070;
+        border-radius: 10px;
+        height: 60px;
+        background-color: #f2f2f2;
+        background-image:  url('../img/select-bg.jpg');
+        background-repeat: no-repeat;
+        border: 1px solid #e1e1e1;
+        background-position: right 20px center;
+        @include fontCall("DINNextLTPro-Light", 21);
+        &.error {
+          border: 1px solid red;
+        }
+      }
+    }
+
+    .checkboxes {
+      .checkboxes-title {
+        @include fontCall("DINNextLTPro-Regular", 18);
+        color: #464646;
+        margin-bottom: 20px;
+        margin-top: 25px;
+      }
+      > div {
+        margin-bottom: 10px;
+      }
+      label {
+        @include fontCall("DINNextLTPro-Light", 21);
+        color: #707070;
+        input {
+          display: none;
+        }
+        .custom.checkbox {
+          border: 1px solid #636363;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          background: white;
+          margin-bottom: -2px;
+          margin-right: 15px;
+        }
+        input:checked + span:before {
+          content: "";
+          display: block;
+          width: 18px;
+          height: 18px;
+          background: #d64949;
+          position: relative;
+        }
+      }
+    }
+    .submit {
+      margin-top: 65px;
+      text-align: center;
+      input {
+        border: none;
+        @include fontCall("DINNextLTPro-Light", 24);
+        text-transform: capitalize;
+        color: white;
+        background: $default-red;
+        padding: 22px 100px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .textarea {
+      label {
+        color: #707070;
+        @include fontCall("DINNextLTPro-Light", 21);
+      }
+      textarea {
+        background: #f2f2f2;
+        border: 1px solid #e1e1e1;
+        @include fontCall("DINNextLTPro-Light", 21);
+        padding: 30px 20px 28px 20px;
+        color: #707070;
+        border-radius: 10px;
+        height: 200px;
+        resize: none;
+        &.error {
+          border: 1px solid red;
+        }
+      }
+
+    }
+  }
+}
+
+.ajax-success {
+  color: #676767;
+  @include fontCall("DINNextLTPro-Light", 28);
+  text-align: center;
+}

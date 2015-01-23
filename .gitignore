@@ -1,0 +1,12 @@
+/shared
+/wp-local-config.php
+/sql-dump-*.sql
+/db-sync
+/wp
+/vendor
+/nbproject
+composer.lock
+.DS_Store
+/nbproject
+/logs
+/.idea

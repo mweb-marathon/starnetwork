@@ -1,0 +1,113 @@
+@import "mixin";
+@import "spots/entry";
+@import "post/post";
+@import "general";
+@import "buddypress/buddypress";
+
+form li span {
+  margin: 0 .3em 0 0;
+  padding: 0;
+  float: left;
+  color: #444;
+}
+
+form.rightLabel .desc {
+  padding-top: 2px;
+}
+
+input.text, input.search, textarea.textarea {
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+}
+
+label {
+  margin: 0;
+  padding-top: 3px;
+  clear: both;
+  font-size: 85%;
+  line-height: 160%;
+  color: #444;
+  display: block;
+}
+
+.leftLabel .desc, .rightLabel .desc {
+  float: left;
+  width: 31%;
+  margin: 0 15px 0 0;
+}
+
+.rightLabel .desc {
+  text-align: right;
+}
+
+.noI form li, .altInstruct form li {
+  width: auto !important;
+}
+.leftLabel li, .rightLabel li {
+  width: 74% !important;
+  padding-top: 9px;
+}
+.wufoo li {
+  width: 64%;
+}
+form li {
+  margin: 0;
+  padding: 6px 1% 9px 1%;
+  clear: both;
+  background-color: transparent;
+  position: relative;
+  -webkit-transition: background-color 350ms ease-out;
+  -moz-transition: background-color 350ms ease-out;
+  -o-transition: background-color 350ms ease-out;
+  transition: background-color 350ms ease-out;
+}
+
+form ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+input.text, input.search, input.file, textarea.textarea, select.select {
+  font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+  font-size: 100%;
+  color: #333;
+  margin: 0;
+  padding: 2px 0;
+}
+
+form.rightLabel .desc {
+  padding-top: 2px;
+}
+.rightLabel .desc {
+  text-align: right;
+}
+.leftLabel .desc, .rightLabel .desc {
+  float: left;
+  width: 31%;
+  margin: 0 15px 0 0;
+}
+label.desc, legend.desc {
+  font-size: 95%;
+  font-weight: bold;
+  color: #222;
+  line-height: 150%;
+  margin: 0;
+  padding: 0 0 3px 0;
+  border: none;
+  display: block;
+  white-space: normal;
+  width: 100%;
+}
+
+.leftLabel li div, .rightLabel li div {
+  float: left;
+  width: 65%;
+}
+form li div {
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
