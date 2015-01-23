@@ -263,7 +263,7 @@ function star_networking_settings_page()
                                                    value="<?php echo $val['event']; ?>" placeholder="Event"/>
 
                                             <input class="event_id" id="inp<?php echo $key; ?>" type="hidden"
-                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>[event_id]"
+                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event_id]"
                                                    value="<?php echo $val['event_id']; ?>"/>
                                         </div>
                                     </div>
