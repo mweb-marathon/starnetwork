@@ -25,10 +25,11 @@ get_header('star_network'); ?>
                     <div class="post-info-additional">
                         <h1 class="headline"><?php echo get_the_title(); ?></h1>
                     </div>
+                    <div class="image text-center">
+                        <?php echo get_the_post_thumbnail(); ?>
+                    </div>
                 </div>
-                <div class="image">
 
-                </div>
 
                 <div class="under-image-wrapper">
                     <ul class="date-time-info">
