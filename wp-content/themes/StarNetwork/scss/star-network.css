@@ -210,7 +210,7 @@ body.page-template-star_networking_homepage-php {
       border: 1px solid #c2c2c2;
       width: 740px;
       display: inline-block; }
-      .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .title {
+      .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .title a {
         text-align: left;
         color: #d64949;
         font-family: "DINNextLTPro-Regular", serif;
@@ -218,7 +218,8 @@ body.page-template-star_networking_homepage-php {
         font-weight: normal;
         font-style: normal;
         line-height: 45px;
-        margin-top: 10px; }
+        margin-top: 10px;
+        display: block; }
       .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .text {
         text-align: left;
         font-family: "DINNextLTPro-Regular", serif;
@@ -445,6 +446,240 @@ body.page-template-star_networking_homepage-php {
       font-style: normal;
       color: #464646;
       text-align: center; }
+.star-main-content-wrapper.single-event-page #content {
+  padding-top: 195px; }
+  .star-main-content-wrapper.single-event-page #content .star-network-content {
+    padding: 0;
+    border: none; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title {
+      padding: 65px 130px 10px;
+      background: black;
+      margin-top: 0;
+      color: white;
+      font-family: "DINNextLTPro-Light", serif;
+      font-size: 50px;
+      font-weight: normal;
+      font-style: normal;
+      position: relative; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title .event-type {
+        position: absolute;
+        width: 168px;
+        height: 168px;
+        top: -60%;
+        left: 0;
+        right: 0;
+        margin: auto; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title .event-type.kings {
+          background: url("../img/event-type/kings.jpg") no-repeat; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title .event-additional-info {
+        margin: 0;
+        padding: 0;
+        list-style: none; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title .event-additional-info li {
+          display: inline-block;
+          color: #d64949;
+          font-family: "DINNextLTPro-Light", serif;
+          font-size: 26px;
+          font-weight: normal;
+          font-style: normal;
+          margin-right: 20px; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .event-method {
+      padding: 20px;
+      text-align: center;
+      background: #464646 url("../img/header-bg-dark.png"); }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button {
+        border-radius: 10px;
+        margin: 0 20px 0 0;
+        font-family: "DINNextLTPro-Light", serif;
+        font-size: 24px;
+        font-weight: normal;
+        font-style: normal;
+        width: 210px;
+        text-align: center;
+        padding: 12px 0 10px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.red {
+          background: #d64949; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.yellow {
+          background: #deb437; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content {
+      padding: 50px 190px;
+      border: 1px solid #c2c2c2;
+      border-top: none;
+      border-bottom: none; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .excerpt p {
+        font-family: "DINNextLTPro-Light", serif;
+        font-size: 30px;
+        font-weight: normal;
+        font-style: normal;
+        color: #464646;
+        line-height: 30px; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p {
+        font-family: "DINNextLTPro-Light", serif;
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        color: #464646;
+        line-height: 22px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p a {
+          color: #d64949; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree {
+      background: #f2f2f2; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title {
+        font-family: "DINNextLTPro-Light", serif;
+        font-size: 36px;
+        font-weight: normal;
+        font-style: normal;
+        color: #d64949;
+        text-align: center; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title:before, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title:after {
+          content: "\2022"; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data {
+        padding: 0 190px;
+        display: inline-block; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul {
+          list-style: none;
+          padding: 0;
+          margin: 0; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li {
+            width: 170px;
+            display: inline-block;
+            margin: 0 15px 30px 0;
+            text-align: center;
+            vertical-align: top; }
+            .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li:nth-of-type(4n) {
+              margin-right: 0; }
+            .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .image img {
+              margin-bottom: -20px; }
+            .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .image .headshot {
+              text-transform: uppercase;
+              display: inline;
+              padding: 5px;
+              background: black;
+              color: white; }
+            .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .name {
+              font-family: "DINNextLTPro-Light", serif;
+              font-size: 18px;
+              font-weight: normal;
+              font-style: normal;
+              color: #d64949;
+              line-height: 18px;
+              text-transform: capitalize;
+              margin-top: 10px;
+              word-wrap: break-word; }
+              .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .name a {
+                font-family: "DINNextLTPro-Light", serif;
+                font-size: 18px;
+                font-weight: normal;
+                font-style: normal;
+                color: #d64949;
+                line-height: 18px;
+                text-transform: capitalize;
+                margin-top: 10px;
+                word-wrap: break-word; }
+            .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .title, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .company {
+              color: #464646;
+              font-family: "DINNextLTPro-Light", serif;
+              font-size: 14px;
+              font-weight: normal;
+              font-style: normal;
+              text-transform: capitalize; }
+              .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .title a, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li .company a {
+                color: #464646;
+                font-family: "DINNextLTPro-Light", serif;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                text-transform: capitalize; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info {
+      border: 1px solid #c2c2c2;
+      border-top: none;
+      padding: 50px 190px; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-title {
+        font-family: "DINNextLTPro-Light", serif;
+        font-size: 36px;
+        font-weight: normal;
+        font-style: normal;
+        color: #d64949;
+        text-align: center; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-data ul {
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        padding: 0; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-data ul li {
+          margin: 0 14px 30px 0;
+          text-align: center;
+          display: inline-block;
+          width: 170px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-data ul.regular-wrapper li, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-data ul.gold-wrapper li {
+          width: 170px;
+          display: inline-block; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content {
+        text-align: center;
+        border-top: 1px solid #c2c2c2;
+        border-bottom: 1px solid #c2c2c2;
+        padding: 20px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button {
+          border-radius: 10px;
+          margin: 0 20px 0 0;
+          font-family: "DINNextLTPro-Light", serif;
+          font-size: 24px;
+          font-weight: normal;
+          font-style: normal;
+          width: 210px;
+          text-align: center;
+          padding: 12px 0 10px; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.red {
+            background: #d64949; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.yellow {
+            background: #deb437; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper {
+        display: inline-block;
+        margin: 60px 0;
+        width: 100%; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-title {
+          font-family: "DINNextLTPro-UltraLight", serif;
+          font-size: 24px;
+          font-weight: normal;
+          font-style: normal;
+          color: white;
+          background: #d64949;
+          text-align: center;
+          padding: 10px 0 8px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper #map_canvas {
+          float: left; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-info {
+          margin-left: 150px;
+          padding: 15px 25px;
+          background: #f2f2f2;
+          min-height: 150px;
+          max-height: 150px; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-info .location-name {
+            font-family: "DINNextLTPro-UltraLight", serif;
+            font-size: 28px;
+            font-weight: normal;
+            font-style: normal;
+            margin-bottom: 10px;
+            line-height: 26px; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-info .location-address {
+            font-family: "DINNextLTPro-UltraLight", serif;
+            font-size: 21px;
+            font-weight: normal;
+            font-style: normal;
+            width: 165px;
+            line-height: 22px;
+            margin-bottom: 10px; }
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-info .location-q,
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper .event-map-info .location-n {
+            padding: 5px 7px 4px 8px;
+            display: inline-block;
+            background: #ffcd08;
+            text-transform: uppercase;
+            border-radius: 50%;
+            color: white;
+            font-size: 15px;
+            line-height: 17px; }
 
 /* Star Network Additional Page. End */
 .form-wrapper {
@@ -575,5 +810,86 @@ body.page-template-star_networking_homepage-php {
   font-weight: normal;
   font-style: normal;
   text-align: center; }
+
+.bx-wrapper .bx-viewport {
+  box-shadow: none;
+  border: none;
+  background: none; }
+.bx-wrapper .bx-prev, .bx-wrapper .bx-next {
+  background: url("../img/arrow-sprite.png") no-repeat center;
+  width: 17px !important;
+  height: 42px !important; }
+.bx-wrapper .bx-prev {
+  left: -40px;
+  background-position: 0 0; }
+  .bx-wrapper .bx-prev:hover {
+    background-position: 0 -43px; }
+.bx-wrapper .bx-next {
+  right: -20px;
+  background-position: -18px 0; }
+  .bx-wrapper .bx-next:hover {
+    background-position: -18px -43px; }
+
+.extra-post-header {
+  border: 1px solid #c2c2c2;
+  border-bottom: none;
+  padding: 25px;
+  position: relative; }
+  .extra-post-header h1 {
+    color: #d64949;
+    font-family: "DINNextLTPro-Regular", serif;
+    font-size: 50px;
+    font-weight: normal;
+    font-style: normal; }
+
+.under-image-wrapper {
+  border: 1px solid #c2c2c2;
+  border-top: none;
+  padding: 25px; }
+  .under-image-wrapper .date-time-info {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px; }
+    .under-image-wrapper .date-time-info li {
+      margin: 0 5px;
+      display: inline-block;
+      font-family: "DINNextLTPro-UltraLight", serif;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal; }
+      .under-image-wrapper .date-time-info li:first-child {
+        margin-left: 0; }
+  .under-image-wrapper .extra-post-content {
+    font-family: "DINNextLTPro-UltraLight", serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    color: #464646; }
+    .under-image-wrapper .extra-post-content a {
+      font-family: "DINNextLTPro-Regular", serif;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      color: #d64949; }
+  .under-image-wrapper .social-share-icons.single-customize {
+    margin-top: 15px; }
+    .under-image-wrapper .social-share-icons.single-customize .social-share-title {
+      margin-bottom: 15px;
+      font-family: "DINNextLTPro-Medium", serif;
+      font-size: 24px;
+      font-weight: normal;
+      font-style: normal;
+      color: #d64949; }
+
+.post-social-button .post-social-button-wrapper {
+  background: #ebebeb;
+  padding: 10px 10px; }
+
+.post-social-button {
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: 50px;
+  margin-left: 0px; }
 
 /*# sourceMappingURL=star-network.css.map */

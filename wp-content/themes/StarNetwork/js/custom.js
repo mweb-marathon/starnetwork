@@ -24,4 +24,27 @@ jQuery(document).ready(function ($) {
         automatic: 1,
         centercontrols: false
     });
+
+    var people_honoree = $('.people-honoree-data');
+
+    if (people_honoree.find('>div').length > 0) {
+        people_honoree.bxSlider({
+            slideWidth: 750,
+            minSlides: 1,
+            maxSlides: 1,
+            infiniteLoop: false,
+            pager: false,
+            hideControlOnEnd: true
+        });
+    }
+
+    var post_social_button = $('#post-social-button');
+
+    if (post_social_button.length > 0) {
+        post_social_button.theiaStickySidebar({
+            additionalMarginTop: 90
+        });
+    }
+
+
 });

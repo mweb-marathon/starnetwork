@@ -5,11 +5,14 @@
  */
 
 $JS_ARRAY = array(
+    'google-maps',
     'jquery.validate.min',
     'waitMe',
     'bjsq-1.3.min',
+    'jquery.bxslider.min',
     'jquery.jcarousel.min',
     'foundation/vendor/modernizr',
+    'theia-sticky-sidebar',
     'classie',
     'custom',
 );

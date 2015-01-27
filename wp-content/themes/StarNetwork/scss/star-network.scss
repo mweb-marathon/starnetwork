@@ -201,11 +201,14 @@ body.page-template-star_networking_homepage-php {
         width: 740px;
         display: inline-block;
         .title {
-          text-align: left;
-          color: $default-red;
-          @include fontCall("DINNextLTPro-Regular", 50);
-          line-height: 45px;
-          margin-top: 10px;
+          a {
+            text-align: left;
+            color: $default-red;
+            @include fontCall("DINNextLTPro-Regular", 50);
+            line-height: 45px;
+            margin-top: 10px;
+            display: block;
+          }
         }
         .text {
           text-align: left;
@@ -478,6 +481,266 @@ body.page-template-star_networking_homepage-php {
       }
     }
   }
+
+  &.single-event-page {
+    #content {
+      padding-top: 195px;
+      .star-network-content {
+        padding: 0;
+        border: none;
+        .star-network-additional-page-title {
+          padding: 65px 130px 10px;
+          background: black;
+          margin-top: 0;
+          color: white;
+          @include fontCall("DINNextLTPro-Light", 50);
+          position: relative;
+          .event-type {
+            position: absolute;
+            width: 168px;
+            height: 168px;
+            top: -60%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            &.kings {
+              background: url("../img/event-type/kings.jpg") no-repeat;
+            }
+          }
+          .event-additional-info {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+              display: inline-block;
+              color: $default-red;
+              @include fontCall("DINNextLTPro-Light", 26);
+              margin-right: 20px;
+            }
+          }
+        }
+        .event-method {
+          padding: 20px;
+          text-align: center;
+          background: $default-gray url("../img/header-bg-dark.png");
+          button {
+            border-radius: 10px;
+            margin: 0 20px 0 0;
+            @include fontCall("DINNextLTPro-Light", 24);
+            width: 210px;
+            text-align: center;
+            padding: 12px 0 10px;
+            &.red {
+              background: $default-red;
+            }
+            &.yellow {
+              background: #deb437;
+            }
+          }
+        }
+
+        .star-network-additional-page-content {
+          padding: 50px 190px;
+          border: 1px solid $default-light-gray;
+          border-top: none;
+          border-bottom: none;
+          .excerpt {
+            p {
+              @include fontCall("DINNextLTPro-Light", 30);
+              color: $default-gray;
+              line-height: 30px;
+            }
+          }
+          .content {
+            p {
+              @include fontCall("DINNextLTPro-Light", 18);
+              color: $default-gray;
+              line-height: 22px;
+              a {
+                color: $default-red;
+              }
+            }
+          }
+        }
+
+        .star-network-additional-event-honoree {
+          background: #f2f2f2;
+          .people-honoree-wrapper {
+            .people-honoree-title {
+              @include fontCall("DINNextLTPro-Light", 36);
+              color: $default-red;
+              text-align: center;
+              &:before, &:after {
+                content: "\2022";
+              }
+            }
+            .people-honoree-data {
+              padding: 0 190px;
+              display: inline-block;
+              ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                li {
+                  width: 170px;
+                  display: inline-block;
+                  margin: 0 15px 30px 0;
+                  text-align: center;
+                  vertical-align: top;
+                  &:nth-of-type(4n) {
+                    margin-right: 0;
+                  }
+                  .image {
+                    img {
+                      margin-bottom: -20px;
+                    }
+                    .headshot {
+                      text-transform: uppercase;
+                      display: inline;
+                      padding: 5px;
+                      background: black;
+                      color: white;
+                    }
+                  }
+                  .name {
+                    a {
+                      @include fontCall("DINNextLTPro-Light", 18);
+                      color: $default-red;
+                      line-height: 18px;
+                      text-transform: capitalize;
+                      margin-top: 10px;
+                      word-wrap: break-word;
+                    }
+                    @include fontCall("DINNextLTPro-Light", 18);
+                    color: $default-red;
+                    line-height: 18px;
+                    text-transform: capitalize;
+                    margin-top: 10px;
+                    word-wrap: break-word;
+                  }
+                  .title, .company {
+                    color: $default-gray;
+                    @include fontCall("DINNextLTPro-Light", 14);
+                    text-transform: capitalize;
+                    a {
+                      color: $default-gray;
+                      @include fontCall("DINNextLTPro-Light", 14);
+                      text-transform: capitalize;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .star-network-additional-event-info {
+          border: 1px solid $default-light-gray;
+          border-top: none;
+          padding: 50px 190px;
+          .event-sponsor-wrapper {
+            .event-sponsor-title {
+              @include fontCall("DINNextLTPro-Light", 36);
+              color: $default-red;
+              text-align: center;
+            }
+            .event-sponsor-data {
+              ul {
+                list-style: none;
+                width: 100%;
+                margin: 0;
+                text-align: center;
+                li {
+                  margin: 0 14px 30px 0;
+                  text-align: center;
+                  display: inline-block;
+                  width: 170px;
+                }
+                padding: 0;
+                &.presenting-wrapper {
+//                  img {
+//                    width: 100%;
+//                    height: 115px;
+//                  }
+                }
+                &.regular-wrapper, &.gold-wrapper {
+                  li {
+                    width: 170px;
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+          }
+          .event-method-after-content {
+            text-align: center;
+            border-top: 1px solid $default-light-gray;
+            border-bottom: 1px solid $default-light-gray;
+            padding: 20px;
+            button {
+              border-radius: 10px;
+              margin: 0 20px 0 0;
+              @include fontCall("DINNextLTPro-Light", 24);
+              width: 210px;
+              text-align: center;
+              padding: 12px 0 10px;
+              &.red {
+                background: $default-red;
+              }
+              &.yellow {
+                background: #deb437;
+              }
+            }
+          }
+
+          .event-map-wrapper {
+            display: inline-block;
+            margin: 60px 0;
+            width: 100%;
+            .event-map-title {
+              @include fontCall("DINNextLTPro-UltraLight", 24);
+              color: white;
+              background: $default-red;
+              text-align: center;
+              padding: 10px 0 8px;
+            }
+            #map_canvas {
+              float: left;
+            }
+            .event-map-info {
+              margin-left: 150px;
+              padding: 15px 25px;
+              background: #f2f2f2;
+              min-height: 150px;
+              max-height: 150px;
+              .location-name {
+                @include fontCall("DINNextLTPro-UltraLight", 28);
+                margin-bottom: 10px;
+                line-height: 26px;
+              }
+              .location-address {
+                @include fontCall("DINNextLTPro-UltraLight", 21);
+                width: 165px;
+                line-height: 22px;
+                margin-bottom: 10px;
+              }
+              .location-q,
+              .location-n {
+                padding: 5px 7px 4px 8px;
+                display: inline-block;
+                background: #ffcd08;
+                text-transform: uppercase;
+                border-radius: 50%;
+                color: white;
+                font-size: 15px;
+                line-height: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Star Network Additional Page. End */
@@ -488,7 +751,6 @@ body.page-template-star_networking_homepage-php {
     label.error {
       display: none !important;
     }
-
 
     input[type="text"],
     input[type="email"] {
@@ -519,7 +781,7 @@ body.page-template-star_networking_homepage-php {
         border-radius: 10px;
         height: 60px;
         background-color: #f2f2f2;
-        background-image:  url('../img/select-bg.jpg');
+        background-image: url('../img/select-bg.jpg');
         background-repeat: no-repeat;
         border: 1px solid #e1e1e1;
         background-position: right 20px center;
@@ -607,4 +869,94 @@ body.page-template-star_networking_homepage-php {
   color: #676767;
   @include fontCall("DINNextLTPro-Light", 28);
   text-align: center;
+}
+
+.bx-wrapper {
+  .bx-viewport {
+    box-shadow: none;
+    border: none;
+    background: none;
+  }
+
+  .bx-prev, .bx-next {
+    background: url($image-path + 'arrow-sprite.png') no-repeat center;
+    width: 17px !important;
+    height: 42px !important;
+  }
+
+  .bx-prev {
+    left: -40px;
+    background-position: 0 0;
+    &:hover {
+      background-position: 0 -43px;
+    }
+  }
+
+  .bx-next {
+    right: -20px;
+    background-position: -18px 0;
+    &:hover {
+      background-position: -18px -43px;
+    }
+  }
+}
+
+
+.extra-post-header {
+  border: 1px solid #c2c2c2;
+  border-bottom: none;
+  padding: 25px;
+  position: relative;
+  h1 {
+    color: $default-red;
+    @include fontCall("DINNextLTPro-Regular", 50);
+  }
+}
+
+.under-image-wrapper {
+  border: 1px solid #c2c2c2;
+  border-top: none;
+  padding: 25px;
+  .date-time-info {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    li {
+      &:first-child {
+        margin-left: 0;
+      }
+      margin: 0 5px;
+      display: inline-block;
+      @include fontCall("DINNextLTPro-UltraLight", 18);
+    }
+  }
+  .extra-post-content {
+    @include fontCall("DINNextLTPro-UltraLight", 18);
+    color: #464646;
+    a {
+      @include fontCall("DINNextLTPro-Regular", 18);
+      color: $default-red;
+    }
+  }
+  .social-share-icons.single-customize {
+    margin-top: 15px;
+    .social-share-title {
+      margin-bottom: 15px;
+      @include fontCall("DINNextLTPro-Medium", 24);
+      color: #d64949;
+    }
+  }
+}
+
+.post-social-button .post-social-button-wrapper {
+  background: #ebebeb;
+  padding: 10px 10px;
+}
+
+.post-social-button {
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: 50px;
+  margin-left: 0px;
 }

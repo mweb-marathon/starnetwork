@@ -7,6 +7,9 @@
 $theme_directory = get_stylesheet_directory();
 require_once($theme_directory . '/additional/star_networking_settings/star_networking_settings.php');
 require_once($theme_directory . '/classes/change_submenu_ul_class.php');
+require_once($theme_directory . '/additional/meta_box/meta_box.php');
+require_once($theme_directory . '/inc/extra/extra_function.php');
+
 
 function wp_gear_manager_admin_scripts()
 {
@@ -35,6 +38,7 @@ function _widgets_init()
 
     register_sidebar();
 }
+
 
 add_action('widgets_init', '_widgets_init');
 
@@ -167,6 +171,32 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
 }
 
 
+function schneps_get_posts_by_date($template = false, $post_per_page = 6, $category_name = false)
+{
+    $not_sticky = array(
+        'post_type' => array('post'),
+        'posts_per_page' => $post_per_page,
+        'order_by' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish'
+    );
+
+    $wp_query_not_sticky = new WP_Query($not_sticky);
+    if ($wp_query_not_sticky->have_posts()) {
+        while ($wp_query_not_sticky->have_posts()) {
+            $wp_query_not_sticky->the_post();
+
+            if ($template) {
+                get_template_part('includes/event/' . $template . '-block');
+            } else {
+                get_template_part('includes/single-block');
+            }
+        }
+    }
+    wp_reset_query();
+}
+
+
 function get_image_for_spot()
 {
     $thumb = '';
@@ -188,6 +218,30 @@ function get_image_for_spot()
             </div>
         <?php endif; ?>
     </a>
+<?php
+}
+
+function get_image_for_sponsor_people()
+{
+    $thumb = '';
+    $width = 360;
+    $height = 180;
+    $classtext = '';
+    $titletext = get_the_title();
+
+    $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
+    $thumb = $thumbnail["thumb"];
+
+    ?>
+
+    <?php if ($thumb): ?>
+    <?php print_thumbnail($thumb, true, $titletext, $width, $height, $classtext); ?>
+<?php else: ?>
+    <div class="no-image">
+        No Image
+    </div>
+<?php endif; ?>
+
 <?php
 }
 
@@ -346,9 +400,9 @@ function star_network_send_form_email()
 
     $str = '';
 
-    foreach ($post as $key=>$item) {
+    foreach ($post as $key => $item) {
 
-        if(is_array($item)) {
+        if (is_array($item)) {
             $item = implode(', ', $item);
         }
         $str .= $key . ": " . $item . "\n";
@@ -382,4 +436,257 @@ function star_network_attend_event_category($child_of = 6)
             </li>
         <?php endforeach; ?>
     </ul>
-<?php }
+<?php
+}
+
+function get_event_map_($event_id, $limit = 2)
+{
+    global $wpdb;
+//    $results = $wpdb->get_results("SELECT * FROM `wp_em_locations` WHERE `post_id` = '" . ($event_id+1) . "' LIMIT 1", OBJECT);
+    $results = $wpdb->get_results("SELECT p.*, t.* FROM wp_em_events p RIGHT JOIN wp_em_locations t ON p.location_id = t.location_id WHERE p.post_id = '" . ($event_id) . "' LIMIT 1", OBJECT);
+
+    if (count($results) > 0) {
+        $address = $results[0]->location_address;
+        $map_link = $results[0]->location_latitude . ', ' . $results[0]->location_longitude;
+
+
+        ?>
+
+        <div id="map_canvas" style="width:150px;height:150px;"></div>
+        <div class="event-map-info">
+            <div class="location-name">
+                <?php echo $results[0]->location_name; ?>
+            </div>
+            <div class="location-address">
+                <?php echo $results[0]->location_address; ?>
+            </div>
+            <span class="location-n">n</span>
+            <span class="location-q">q</span>
+        </div>
+
+
+        <script>
+            function initialize() {
+                var myLatlng = new google.maps.LatLng(<?php echo $map_link; ?>);
+                var address = "<?php echo $address; ?>";
+                var mapOptions = {
+                    zoom: 14,
+                    center: myLatlng,
+                    streetViewControl: false,
+                    zoomControl: false,
+                    mapTypeControl: false,
+                    overviewMapControl: false
+                };
+
+                var iconBase = location.origin + '/wp-content/themes/StarNetwork/img/';
+
+                var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: address
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Hello World!',
+                    icon: iconBase + 'schneps-map-marker.png'
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+//            infowindow.open(map, marker);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+    <?php
+    }
+}
+
+
+/* Adds a box to the main column on the Post and Page edit screens */
+
+/* Prints the box content */
+function dynamic_inner_sponsor_box($post)
+{
+    wp_nonce_field(plugin_basename(__FILE__), 'dynamic_sponsor_noncename');
+    ?>
+    <div id="meta_inner_sponsor">
+        <?php
+        $sponsor_sponsor = get_post_meta($post->ID, 'event_sponsor', true);
+        $c = 0;
+        if (!empty($sponsor_sponsor) && count($sponsor_sponsor) > 0) {
+            foreach ($sponsor_sponsor as $value) {
+                if (isset($value['sponsor'])) {
+                    printf('<p> Sponsor<input type="text" name="event_sponsor[%1$s][sponsor]" value="%2$s"><input type="text" name="event_sponsor[%1$s][id]" value="%3$s"/><span class="remove-sponsor">%4$s</span></p>', $c, $value['sponsor'], $value['id'], __('Remove Sponsor'));
+                    $c = $c + 1;
+                }
+            }
+        }
+        ?>
+        <span id="sponsor-sponsor"></span>
+        <span class="add-sponsor"><?php _e('Add Sponsor'); ?></span>
+        <script>
+            var $ = jQuery.noConflict();
+            $(document).ready(function () {
+                $(function () {
+                    var availableSponsor = <?php echo schneps_get_sponsor_for_event_array();?>;
+
+                    $(document).on("focus keyup", "input.sponsor", function (event) {
+                        $(this).autocomplete({
+                            source: availableSponsor,
+                            select: function (event, ui) {
+                                event.preventDefault();
+                                this.value = ui.item.label;
+                                $(this).next().val(ui.item.value);
+                            },
+                            focus: function (event, ui) {
+                                event.preventDefault();
+                                this.value = ui.item.label;
+                                $(this).next().val(ui.item.value);
+                            }
+                        });
+                    })
+                });
+
+
+                var count = <?php echo $c; ?>;
+                $(".add-sponsor").click(function () {
+                    count = count + 1;
+
+                    $('#sponsor-sponsor').append('<p> Sponsor <input type="text"  class="sponsor" name="event_sponsor[' + count + '][sponsor]" value="" class="sponsor" /><input type="text" name="event_sponsor[' + count + '][id]"><span class="remove-sponsor">Remove Sponsor</span></p>');
+                    return false;
+                });
+                $(".remove-sponsor").live('click', function () {
+                    $(this).parent().remove();
+                });
+            });
+        </script>
+    </div>
+<?php
+}
+
+/* When the post is saved, saves our custom data */
+function dynamic_save_sponsor_data($post_id)
+{
+    // verify if this is an auto save routine.
+    // If it is our form has not been submitted, so we dont want to do anything
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return;
+
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if (!isset($_POST['dynamic_sponsor_noncename']))
+        return;
+
+    if (!wp_verify_nonce($_POST['dynamic_sponsor_noncename'], plugin_basename(__FILE__)))
+        return;
+
+    // OK, we're authenticated: we need to find and save the data
+
+    $place = $_POST['event_sponsor'];
+
+    update_post_meta($post_id, 'event_sponsor', $place);
+}
+
+
+function get_single_event_additional_people_data($data)
+{
+    $ids = array();
+    if ($data) {
+        foreach ($data as $value) {
+            $ids[] = $value['id'];
+        }
+        $not_sticky = array(
+            'post_type' => 'people',
+            'order_by' => 'date',
+            'order' => 'DESC',
+            'post_status' => 'publish',
+            'post__in' => $ids
+        );
+
+        $i = 0;
+        $wp_query_not_sticky = new WP_Query($not_sticky);
+        if ($wp_query_not_sticky->have_posts()) {
+            echo '<div><ul>';
+            while ($wp_query_not_sticky->have_posts()) {
+
+                if ($i && $i % 8 == 0) {
+                    echo '</ul></div><div><ul>';
+                }
+                $i++;
+                $wp_query_not_sticky->the_post();
+                get_template_part('includes/event/star_network_single_event-people');
+            }
+            echo '</ul></div>';
+        }
+        wp_reset_query();
+    }
+}
+
+function get_single_event_additional_sponsor_data($data)
+{
+    $ids = array();
+    $sort_data = array();
+    if ($data) {
+        foreach ($data as $value) {
+            $ids[] = $value['id'];
+        }
+        $not_sticky = array(
+            'post_type' => 'sponsor',
+            'order_by' => 'date',
+            'order' => 'DESC',
+            'post_status' => 'publish',
+            'post__in' => $ids
+        );
+        $wp_query_not_sticky = new WP_Query($not_sticky);
+        if ($wp_query_not_sticky->have_posts()) {
+            while ($wp_query_not_sticky->have_posts()) {
+                $wp_query_not_sticky->the_post();
+                $post_meta = get_post_meta(get_the_ID());
+                $post_type = $post_meta['schneps_sponsor_sponsor_type'][0];
+
+                $sort_data[$post_type][] = get_the_ID();
+            }
+
+            if (count($sort_data['presenting']) > 0) {
+                echo '<div class="event-sponsor-title">Presenting Sponsors</div>';
+                echo '<ul class="presenting-wrapper">';
+                foreach ($sort_data['presenting'] as $val) {
+                    echo '<li class="presenting">' . get_the_post_thumbnail($val) . '</li>';
+                }
+                echo '</ul>';
+            }
+
+            if (count($sort_data['gold']) > 0) {
+                echo '<div class="event-sponsor-title">Gold Sponsors</div>';
+                echo '<ul class="gold-wrapper">';
+                foreach ($sort_data['gold'] as $val) {
+                    echo '<li class="gold">' . get_the_post_thumbnail($val) . '</li>';
+                }
+                echo '</ul>';
+            }
+
+            if (count($sort_data['regular']) > 0) {
+                echo '<div class="event-sponsor-title">Sponsors</div>';
+                echo '<ul class="regular-wrapper">';
+                foreach ($sort_data['regular'] as $val) {
+                    echo '<li class="regular">' . get_the_post_thumbnail($val) . '</li>';
+                }
+                echo '</ul>';
+            }
+        }
+        wp_reset_query();
+    }
+}
+
+function crop_text($text, $length = 30, $after = '...')
+{
+    if (strlen($text) > $length) {
+        return substr($text, 0, $length) . ' ' . $after;
+    }
+
+    return $text;
+}

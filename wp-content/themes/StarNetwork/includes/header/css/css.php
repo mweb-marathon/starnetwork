@@ -10,12 +10,14 @@ $CSS_ARRAY = array(
     'waitMe',
     'jquery.fancybox',
     'foundation/foundation',
+    'bxslider/jquery.bxslider',
 
 );
 
 $SCSS_ARRAY = array(
     'app',
-    'star-network'
+    'star-network',
+    'spots/entry'
 );
 
 function include_css_file($file, $folder)
@@ -28,4 +30,4 @@ foreach ($CSS_ARRAY as $css) {
 }
 foreach ($SCSS_ARRAY as $scss) {
     include_css_file($scss, 'scss');
-}?>
+}

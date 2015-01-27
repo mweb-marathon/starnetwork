@@ -72,6 +72,7 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-homepage-statistic-unique-visitors-number');
         register_setting('star_networking-home-page-group', 'star-network-form-email');
         register_setting('star_networking-home-page-group', 'star-network-form-email-send-success');
+        register_setting('star_networking-home-page-group', 'star-network-people-title-on-event-page');
     }
 
 
@@ -92,9 +93,49 @@ function schneps_get_event_by_date_array()
     if ($wp_query->have_posts()) {
         while ($wp_query->have_posts()) {
             $wp_query->the_post();
-
             $data[] = array('value' => get_the_ID(), 'label' => get_the_title());
 
+        }
+    }
+    wp_reset_query();
+
+    return json_encode($data);
+}
+
+function schneps_get_people_for_event_array() {
+    $data = array();
+    $not_sticky = array(
+        'post_type' => array('people'),
+        'order_by' => 'date',
+        'order' => 'DESC',
+    );
+
+    $wp_query = new WP_Query($not_sticky);
+    if ($wp_query->have_posts()) {
+        while ($wp_query->have_posts()) {
+            $wp_query->the_post();
+            $data[] = array('value' => get_the_ID(), 'label' => get_the_title());
+
+        }
+    }
+    wp_reset_query();
+
+    return json_encode($data);
+}
+
+function schneps_get_sponsor_for_event_array() {
+    $data = array();
+    $not_sticky = array(
+        'post_type' => array('sponsor'),
+        'order_by' => 'date',
+        'order' => 'DESC',
+    );
+
+    $wp_query = new WP_Query($not_sticky);
+    if ($wp_query->have_posts()) {
+        while ($wp_query->have_posts()) {
+            $wp_query->the_post();
+            $data[] = array('value' => get_the_ID(), 'label' => get_the_title());
 
         }
     }
@@ -120,6 +161,7 @@ function star_networking_settings_page()
     $star_network_homepage_statistic_unique_visitors_number = get_option('star-network-homepage-statistic-unique-visitors-number');
     $star_network_form_email = get_option('star-network-form-email');
     $star_network_form_email_send_success = get_option('star-network-form-email-send-success');
+    $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
     ?>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -182,6 +224,15 @@ function star_networking_settings_page()
                             <input type="text" class="form-email-success" id="form-email-success"
                                    name="star-network-form-email-send-success"
                                    value="<?php echo $star_network_form_email_send_success; ?>"/>
+                        </div>
+
+                        <div class="people-title-on-event-page">
+                            <label for="people-title-on-event-page">
+                                People on event page:
+                            </label>
+                            <input type="text" class="form-email-success" id="people-title-on-event-page"
+                                   name="star-network-people-title-on-event-page"
+                                   value="<?php echo $star_network_people_title_on_event_page; ?>"/>
                         </div>
 
                     </div>

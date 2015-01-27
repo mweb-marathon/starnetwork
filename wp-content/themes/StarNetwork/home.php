@@ -30,7 +30,7 @@ $star_network_homepage_statistic_unique_visitors_number = get_option('star-netwo
                             <div class="page-header-text-wrapper">
                                 <div class="page-header-text">
                                     <div class="title">
-                                        <?php echo $current_post->post_title; ?>
+                                        <a href="<?php echo get_permalink($single_carousel_image['event_id']) ?>"><?php echo $current_post->post_title; ?></a>
                                     </div>
                                     <div class="text">
                                         <?php echo $current_post->post_excerpt; ?>
