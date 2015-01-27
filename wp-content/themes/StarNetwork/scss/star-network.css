@@ -892,4 +892,32 @@ body.page-template-star_networking_homepage-php {
   width: 50px;
   margin-left: 0px; }
 
+.extra-post-gallery {
+  position: relative; }
+  .extra-post-gallery .bjqs-controls {
+    position: absolute;
+    width: 100%;
+    top: 45%; }
+    .extra-post-gallery .bjqs-controls li {
+      background: url("../img/arrow-sprite.png") no-repeat center;
+      width: 17px !important;
+      height: 42px !important;
+      position: absolute; }
+      .extra-post-gallery .bjqs-controls li a {
+        width: inherit;
+        height: inherit;
+        display: inline-block; }
+      .extra-post-gallery .bjqs-controls li.bjqs-prev {
+        left: -40px;
+        background-position: 0 0; }
+        .extra-post-gallery .bjqs-controls li.bjqs-prev:hover {
+          background-position: 0 -43px; }
+      .extra-post-gallery .bjqs-controls li.bjqs-next {
+        background-position: -18px 0;
+        right: -40px;
+        position: absolute;
+        top: 0; }
+        .extra-post-gallery .bjqs-controls li.bjqs-next:hover {
+          background-position: -18px -43px; }
+
 /*# sourceMappingURL=star-network.css.map */

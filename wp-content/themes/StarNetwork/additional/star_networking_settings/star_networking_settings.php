@@ -83,8 +83,7 @@ function schneps_get_event_by_date_array()
 {
     $data = array();
     $not_sticky = array(
-        'post_type' => array('event'),
-        'posts_per_page' => 6,
+        'post_type' => array('event', 'post'),
         'order_by' => 'date',
         'order' => 'DESC',
     );
