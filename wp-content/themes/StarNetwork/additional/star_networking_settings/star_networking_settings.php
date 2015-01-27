@@ -310,7 +310,7 @@ function star_networking_settings_page()
                                         <div class="event-input input">
                                             <input class="event" id="inp<?php echo $key; ?>" type="text"
                                                    name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event]"
-                                                   value="<?php echo $val['event']; ?>" placeholder="Event"/>
+                                                   value="<?php echo $val['event']; ?>" placeholder="Event or Post"/>
 
                                             <input class="event_id" id="inp<?php echo $key; ?>" type="hidden"
                                                    name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event_id]"

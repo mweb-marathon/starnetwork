@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
             '</div>' +
             '<div class="event-block">' +
             '<div class="link-text text">Event: </div>' +
-            '<div class="event-input input"><input class="event" id="inp' + col_inputs + '" type="text" name="star_network_images[' + col_inputs + '][event]" value="" placeholder="Event"/><input class="event_id" id="inp' + col_inputs + '" type="hidden" name="star_network_images[' + col_inputs + '][event_id]" value=""/>' +
+            '<div class="event-input input"><input class="event" id="inp' + col_inputs + '" type="text" name="star_network_images[' + col_inputs + '][event]" value="" placeholder="Event or Post"/><input class="event_id" id="inp' + col_inputs + '" type="hidden" name="star_network_images[' + col_inputs + '][event_id]" value=""/>' +
             '</div>' +
             '</div>' +
             '<div class="sortable-handler"></div>' +

@@ -651,7 +651,7 @@ function get_single_event_additional_sponsor_data($data)
                 $sort_data[$post_type][] = get_the_ID();
             }
 
-            if (count($sort_data['presenting']) > 0) {
+            if (!empty($sort_data['presenting'])) {
                 echo '<div class="event-sponsor-title">Presenting Sponsors</div>';
                 echo '<ul class="presenting-wrapper">';
                 foreach ($sort_data['presenting'] as $val) {
@@ -660,7 +660,7 @@ function get_single_event_additional_sponsor_data($data)
                 echo '</ul>';
             }
 
-            if (count($sort_data['gold']) > 0) {
+            if (!empty($sort_data['gold'])) {
                 echo '<div class="event-sponsor-title">Gold Sponsors</div>';
                 echo '<ul class="gold-wrapper">';
                 foreach ($sort_data['gold'] as $val) {
@@ -669,7 +669,7 @@ function get_single_event_additional_sponsor_data($data)
                 echo '</ul>';
             }
 
-            if (count($sort_data['regular']) > 0) {
+            if (!empty($sort_data['regular'])) {
                 echo '<div class="event-sponsor-title">Sponsors</div>';
                 echo '<ul class="regular-wrapper">';
                 foreach ($sort_data['regular'] as $val) {
