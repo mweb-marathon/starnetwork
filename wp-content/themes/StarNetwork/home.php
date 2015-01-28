@@ -43,20 +43,23 @@ $star_network_homepage_statistic_unique_visitors_number = get_option('star-netwo
             </ul>
         </div>
         <div class="page-header-site-statistic large-12 columns">
-            <ul>
-                <li class="">
-                    <span class="number"><?php echo $star_network_homepage_statistic_publications_number; ?></span>
-                    publications
-                </li>
-                <li class="">
-                    <span class="number"><?php echo $star_network_homepage_statistic_annual_events_number; ?></span>
-                    annual events
-                </li>
-                <li class="">
-                    <span class="number"><?php echo $star_network_homepage_statistic_unique_visitors_number; ?></span>
-                    unique visitors
-                </li>
-            </ul>
+            <a href="/contact-us">
+                <ul>
+                    <li class="">
+                        <span class="number"><?php echo $star_network_homepage_statistic_publications_number; ?></span>
+                        publications
+                    </li>
+                    <li class="">
+                        <span class="number"><?php echo $star_network_homepage_statistic_annual_events_number; ?></span>
+                        annual events
+                    </li>
+                    <li class="">
+                        <span class="number"><?php echo $star_network_homepage_statistic_unique_visitors_number; ?></span>
+                        unique visitors
+                    </li>
+                </ul>
+            </a>
+
         </div>
     </div>
 
