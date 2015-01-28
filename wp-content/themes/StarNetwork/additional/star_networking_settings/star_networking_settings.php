@@ -13,7 +13,7 @@ function star_networking_create_menu()
 {
 
     //create new top-level menu
-    add_menu_page('Star Network Settings', 'Star Network Manager', 'administrator', __FILE__, 'star_networking_settings_page');
+    add_menu_page('Star Network Settings', 'Homepage Manager', 'administrator', __FILE__, 'star_networking_settings_page');
 
     //call register settings function
     add_action('admin_init', 'star_networking_settings');

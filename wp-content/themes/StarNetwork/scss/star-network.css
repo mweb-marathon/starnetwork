@@ -534,6 +534,7 @@ body.page-template-star_networking_homepage-php {
         .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title:before, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title:after {
           content: "\2022"; }
       .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data {
+        text-align: cv;
         padding: 0 190px;
         display: inline-block; }
         .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul {
