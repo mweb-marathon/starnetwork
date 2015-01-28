@@ -58,20 +58,6 @@ function schneps_sponsor_register_meta_boxes( $meta_boxes )
 
         // List of meta fields
         'fields' => array(
-
-            array(
-                'name'     => __( 'Sponsor Type', 'rwmb' ),
-                'id'       => "{$prefix}sponsor_type",
-                'type'     => 'select',
-                // Array of 'value' => 'Label' pairs for select box
-                'options'  => array(
-                    'presenting' => __( 'Presenting Sponsor', 'rwmb' ),
-                    'gold' => __( 'Gold Sponsor', 'rwmb' ),
-                    'regular' => __( 'Regular Sponsor', 'rwmb' ),
-                ),
-                'placeholder' => __( 'Select Sponsor Type', 'rwmb' ),
-            ),
-
             array(
                 // Field name - Will be used as label
                 'name'  => __( 'Link', 'rwmb' ),
@@ -83,18 +69,12 @@ function schneps_sponsor_register_meta_boxes( $meta_boxes )
         ),
         'validation' => array(
             'rules' => array(
-                "{$prefix}sponsor_type" => array(
-                    'required'  => true
-                ),
                 "{$prefix}link" => array(
                     'required'  => true
                 ),
             ),
             // optional override of default jquery.validate messages
             'messages' => array(
-                "{$prefix}sponsor_type" => array(
-                    'required'  => __( 'Select one is required', 'rwmb' )
-                ),
                 "{$prefix}link" => array(
                     'required'  => __( 'Link is required', 'rwmb' )
                 ),

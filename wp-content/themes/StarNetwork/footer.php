@@ -109,7 +109,7 @@ jQuery(document).ready(function ($) {
 
 
     var nominate_form = $('#nominate-form');
-    if(nominate_form.length > 0) {
+    if (nominate_form.length > 0) {
         nominate_form.validate({
             submitHandler: function (form) {
                 sendStarNetwork_form(nominate_form, $(form));
@@ -118,7 +118,7 @@ jQuery(document).ready(function ($) {
     }
 
     var speak_form = $('#speak-form');
-    if(speak_form.length > 0) {
+    if (speak_form.length > 0) {
         speak_form.validate({
             submitHandler: function (form) {
                 sendStarNetwork_form(speak_form, $(form));
@@ -150,12 +150,15 @@ jQuery(document).ready(function ($) {
             "action=star_network_send_form_email&" + form.serialize(),
             function () {
                 waitMe();
-                selector.html('');
             },
             function (html) {
                 waitMe('hide');
-                if (html !== '') {
-                    selector.html('<div class="ajax-success">' + html + '</div>');
+                if (html === 'error') {
+                    $('#defaultReal').addClass('error');
+                } else {
+                    if (html !== '') {
+                        selector.html('<div class="ajax-success">' + html + '</div>');
+                    }
                 }
             }
         );

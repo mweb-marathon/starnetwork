@@ -390,33 +390,67 @@ function star_network_calendar_filter()
 add_action('wp_ajax_star_network_calendar_filter', 'star_network_calendar_filter'); // for logged in user
 add_action('wp_ajax_nopriv_star_network_calendar_filter', 'star_network_calendar_filter');
 
+function rpHash($value)
+{
+    $hash = 5381;
+    $value = strtoupper($value);
+    for ($i = 0; $i < strlen($value); $i++) {
+        $hash = (leftShift32($hash, 5) + $hash) + ord(substr($value, $i));
+    }
+    return $hash;
+}
+
+// Perform a 32bit left shift
+function leftShift32($number, $steps)
+{
+    // convert to binary (string)
+    $binary = decbin($number);
+    // left-pad with 0's if necessary
+    $binary = str_pad($binary, 32, "0", STR_PAD_LEFT);
+    // left shift manually
+    $binary = $binary . str_repeat("0", $steps);
+    // get the last 32 bits
+    $binary = substr($binary, strlen($binary) - 32);
+    // if it's a positive number return it
+    // otherwise return the 2's complement
+    return ($binary{0} == "0" ? bindec($binary) :
+        -(pow(2, 31) - bindec(substr($binary, 1))));
+}
+
 
 function star_network_send_form_email()
 {
     $post = $_POST;
 
-    array_pop($post);
-    array_shift($post);
+    if (rpHash($_POST['defaultReal']) == $_POST['defaultRealHash']) {
+        array_pop($post);
+        array_shift($post);
 
-    $str = '';
+        $str = '';
 
-    foreach ($post as $key => $item) {
+        foreach ($post as $key => $item) {
 
-        if (is_array($item)) {
-            $item = implode(', ', $item);
+            if (is_array($item)) {
+                $item = implode(', ', $item);
+            }
+            $str .= $key . ": " . $item . "\n";
         }
-        $str .= $key . ": " . $item . "\n";
+
+        $subject = "Web Form Submission From: Star Network";
+        $headers = 'From: admin@starnetwork.org' . "\r\n" .
+            'Reply-To: do-not-reply@starnetwork.org' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail(get_option('star-network-form-email'), $subject, $str, $headers);
+
+        echo get_option('star-network-form-email-send-success');
+
+        exit;
+    } else {
+        echo 'error';
+        exit;
     }
 
-    $subject = "Web Form Submission From: Star Network";
-    $headers = 'From: admin@starnetwork.org' . "\r\n" .
-        'Reply-To: do-not-reply@starnetwork.org' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    mail(get_option('star-network-form-email'), $subject, $str, $headers);
 
-    echo get_option('star-network-form-email-send-success');
-
-    exit;
 }
 
 add_action('wp_ajax_star_network_send_form_email', 'star_network_send_form_email'); // for logged in user
@@ -506,98 +540,22 @@ function get_event_map_($event_id, $limit = 2)
 }
 
 
-/* Adds a box to the main column on the Post and Page edit screens */
-
-/* Prints the box content */
-function dynamic_inner_sponsor_box($post)
-{
-    wp_nonce_field(plugin_basename(__FILE__), 'dynamic_sponsor_noncename');
-    ?>
-    <div id="meta_inner_sponsor">
-        <?php
-        $sponsor_sponsor = get_post_meta($post->ID, 'event_sponsor', true);
-        $c = 0;
-        if (!empty($sponsor_sponsor) && count($sponsor_sponsor) > 0) {
-            foreach ($sponsor_sponsor as $value) {
-                if (isset($value['sponsor'])) {
-                    printf('<p> Sponsor<input type="text" name="event_sponsor[%1$s][sponsor]" value="%2$s"><input type="text" name="event_sponsor[%1$s][id]" value="%3$s"/><span class="remove-sponsor">%4$s</span></p>', $c, $value['sponsor'], $value['id'], __('Remove Sponsor'));
-                    $c = $c + 1;
-                }
-            }
-        }
-        ?>
-        <span id="sponsor-sponsor"></span>
-        <span class="add-sponsor"><?php _e('Add Sponsor'); ?></span>
-        <script>
-            var $ = jQuery.noConflict();
-            $(document).ready(function () {
-                $(function () {
-                    var availableSponsor = <?php echo schneps_get_sponsor_for_event_array();?>;
-
-                    $(document).on("focus keyup", "input.sponsor", function (event) {
-                        $(this).autocomplete({
-                            source: availableSponsor,
-                            select: function (event, ui) {
-                                event.preventDefault();
-                                this.value = ui.item.label;
-                                $(this).next().val(ui.item.value);
-                            },
-                            focus: function (event, ui) {
-                                event.preventDefault();
-                                this.value = ui.item.label;
-                                $(this).next().val(ui.item.value);
-                            }
-                        });
-                    })
-                });
-
-
-                var count = <?php echo $c; ?>;
-                $(".add-sponsor").click(function () {
-                    count = count + 1;
-
-                    $('#sponsor-sponsor').append('<p> Sponsor <input type="text"  class="sponsor" name="event_sponsor[' + count + '][sponsor]" value="" class="sponsor" /><input type="text" name="event_sponsor[' + count + '][id]"><span class="remove-sponsor">Remove Sponsor</span></p>');
-                    return false;
-                });
-                $(".remove-sponsor").live('click', function () {
-                    $(this).parent().remove();
-                });
-            });
-        </script>
-    </div>
-<?php
-}
-
-/* When the post is saved, saves our custom data */
-function dynamic_save_sponsor_data($post_id)
-{
-    // verify if this is an auto save routine.
-    // If it is our form has not been submitted, so we dont want to do anything
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-        return;
-
-    // verify this came from the our screen and with proper authorization,
-    // because save_post can be triggered at other times
-    if (!isset($_POST['dynamic_sponsor_noncename']))
-        return;
-
-    if (!wp_verify_nonce($_POST['dynamic_sponsor_noncename'], plugin_basename(__FILE__)))
-        return;
-
-    // OK, we're authenticated: we need to find and save the data
-
-    $place = $_POST['event_sponsor'];
-
-    update_post_meta($post_id, 'event_sponsor', $place);
-}
-
-
 function get_single_event_additional_people_data($data)
 {
+    $people_role = array(
+        'emcee' => 'Emcee',
+        'special_honoree' => 'Special Honoree(s)',
+        'keynote_speaker' => 'Keynote Speaker',
+        'moderator' => 'Moderator',
+        'honorees' => 'Honorees',
+        'speakers' => 'Speakers'
+    );
     $ids = array();
+    $t = array();
     if ($data) {
         foreach ($data as $value) {
             $ids[] = $value['id'];
+            $t[$value['id']] = $value['people_role'];
         }
         $not_sticky = array(
             'post_type' => 'people',
@@ -618,7 +576,35 @@ function get_single_event_additional_people_data($data)
                 }
                 $i++;
                 $wp_query_not_sticky->the_post();
-                get_template_part('includes/event/star_network_single_event-people');
+                $post_meta = get_post_meta(get_the_ID());
+                $name = get_the_title();
+
+
+                $company = $post_meta['schneps_people_company_or_organization'][0];
+
+                if (!empty($post_meta['schneps_people_link'][0])) {
+                    $name = '<a href="' . $post_meta['schneps_people_link'][0] . '">' . $name . '</a>';
+                }
+
+                if (!empty($post_meta['schneps_people_company_link'][0])) {
+                    $company = '<a href="' . $post_meta['schneps_people_company_link'][0] . '">' . $company . '</a>';
+                }
+                ?>
+                <li>
+                    <div class="image">
+                        <?php get_image_for_sponsor_people(); ?>
+                        <div class="headshot">
+                            <?php echo $people_role[$t[get_the_ID()]]; ?>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <?php echo $name; ?>
+                    </div>
+                    <div class="company">
+                        <?php echo $company; ?>
+                    </div>
+                </li>
+            <?php
             }
             echo '</ul></div>';
         }
@@ -630,9 +616,11 @@ function get_single_event_additional_sponsor_data($data)
 {
     $ids = array();
     $sort_data = array();
+    $sponsor_meta = array();
     if ($data) {
         foreach ($data as $value) {
             $ids[] = $value['id'];
+            $sort_data[$value['sponsor_role']][] = $value['id'];
         }
         $not_sticky = array(
             'post_type' => 'sponsor',
@@ -646,16 +634,13 @@ function get_single_event_additional_sponsor_data($data)
             while ($wp_query_not_sticky->have_posts()) {
                 $wp_query_not_sticky->the_post();
                 $post_meta = get_post_meta(get_the_ID());
-                $post_type = $post_meta['schneps_sponsor_sponsor_type'][0];
-
-                $sort_data[$post_type][] = get_the_ID();
+                $sponsor_meta[get_the_ID()] = $post_meta;
             }
-
             if (!empty($sort_data['presenting'])) {
                 echo '<div class="event-sponsor-title">Presenting Sponsors</div>';
                 echo '<ul class="presenting-wrapper">';
                 foreach ($sort_data['presenting'] as $val) {
-                    echo '<li class="presenting">' . get_the_post_thumbnail($val) . '</li>';
+                    echo '<li class="presenting"><a href="' . $sponsor_meta[$val]['schneps_sponsor_link'][0] . '">' . get_the_post_thumbnail($val) . '</a></li>';
                 }
                 echo '</ul>';
             }
@@ -664,7 +649,7 @@ function get_single_event_additional_sponsor_data($data)
                 echo '<div class="event-sponsor-title">Gold Sponsors</div>';
                 echo '<ul class="gold-wrapper">';
                 foreach ($sort_data['gold'] as $val) {
-                    echo '<li class="gold">' . get_the_post_thumbnail($val) . '</li>';
+                    echo '<li class="gold"><a href="' . $sponsor_meta[$val]['schneps_sponsor_link'][0] . '">' . get_the_post_thumbnail($val) . '</a></li>';
                 }
                 echo '</ul>';
             }
@@ -673,7 +658,7 @@ function get_single_event_additional_sponsor_data($data)
                 echo '<div class="event-sponsor-title">Sponsors</div>';
                 echo '<ul class="regular-wrapper">';
                 foreach ($sort_data['regular'] as $val) {
-                    echo '<li class="regular">' . get_the_post_thumbnail($val) . '</li>';
+                    echo '<li class="regular"><a href="' . $sponsor_meta[$val]['schneps_sponsor_link'][0] . '">' . get_the_post_thumbnail($val) . '</a></li>';
                 }
                 echo '</ul>';
             }

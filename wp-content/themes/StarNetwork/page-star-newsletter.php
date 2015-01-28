@@ -92,6 +92,11 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                         </label>
                                     </div>
                                 </div>
+
+                                <div class="data captcha">
+                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code" required="" aria-required="true"  maxlength="6"/>
+                                </div>
+
                                 <div class="submit-news-letter-btn submit">
                                     <input type="submit" value="submit" name="submit" class="news-letter-email-submit"/>
                                 </div>

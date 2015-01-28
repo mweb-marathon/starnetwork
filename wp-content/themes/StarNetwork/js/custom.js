@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
         nexttext: '',
         prevtext: '',
         showcontrols: 1,
-        automatic: 1,
+        automatic: 0,
         centercontrols: false
     });
 
@@ -46,5 +46,6 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    $('#defaultReal').realperson();
 
 });

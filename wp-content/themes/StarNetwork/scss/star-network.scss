@@ -595,6 +595,7 @@ body.page-template-star_networking_homepage-php {
                       margin-bottom: -20px;
                     }
                     .headshot {
+                      font-size: 15px;
                       text-transform: uppercase;
                       display: inline;
                       padding: 5px;
@@ -996,6 +997,40 @@ body.page-template-star_networking_homepage-php {
         }
       }
     }
+  }
+}
 
+.realperson-text {
+  font-family: "Courier New",monospace;
+  font-size: 6px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 3px;
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+}
+
+.realperson-challenge {
+  float: left;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+#defaultReal {
+  width: 363px;
+}
+
+.realperson-regen {
+  font-size: 0;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAP1JREFUSIntlL9KxEAQh79Zo3BwYKGVkJB4hXYKQSvhCrH1AQ4Ln8BWH0J8JrGySW0jB3cn6BsE1L2x0uLYMRvSKOQr58/vNwy7Az09DWw0Fax1NLgC3oHXjjq/cg2UVlKM+CWwHesgIhNVPQdeVnOJ0bCvqjeR+keqSkjcNGjBMXAC3FoFLhRU1bdIg03grv1cfxAZMw6uO7iib3az7JSIv1KWZbJIF4etDIq0OJvO5/eAbzKo61qc8+EXGRTPiguHfxKRpdGkn879nAkRWXfe++fZ7HG1NuyayEOyHAyGW8OpNXVVVR9WLoo8z/dGO6O0k0iEyQH2Oen5J3wBuEg17WbXsWcAAAAASUVORK5CYII=') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-top: -10px;
+  cursor: pointer;
+  opacity: .5;
+  &:hover {
+    opacity: 1;
   }
 }

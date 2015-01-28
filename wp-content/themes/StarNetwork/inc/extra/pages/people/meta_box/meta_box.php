@@ -58,23 +58,6 @@ function schneps_people_register_meta_boxes( $meta_boxes )
 
         // List of meta fields
         'fields' => array(
-
-            array(
-                'name'     => __( 'Role', 'rwmb' ),
-                'id'       => "{$prefix}event_associated",
-                'type'     => 'select',
-                // Array of 'value' => 'Label' pairs for select box
-                'options'  => array(
-                    'emcee' => __( 'Emcee', 'rwmb' ),
-                    'special_honoree' => __( 'Special Honoree(s)', 'rwmb' ),
-                    'keynote_speaker' => __( 'Keynote Speaker', 'rwmb' ),
-                    'moderators' => __( 'Moderators', 'rwmb' ),
-                    'honorees' => __( 'Honorees', 'rwmb' ),
-                    'speakers' => __( 'Speakers', 'rwmb' ),
-                ),
-                'placeholder' => __( 'Select an Associated Event with', 'rwmb' ),
-            ),
-
             array(
                 // Field name - Will be used as label
                 'name'  => __( 'Company or Organization', 'rwmb' ),
@@ -102,27 +85,12 @@ function schneps_people_register_meta_boxes( $meta_boxes )
         ),
         'validation' => array(
             'rules' => array(
-                "{$prefix}event_associated" => array(
-                    'required'  => true
-                ),
-                "{$prefix}headshot" => array(
-                    'required'  => true
-                ),
-                "{$prefix}first_name" => array(
-                    'required'  => true
-                ),
-                "{$prefix}last_name" => array(
-                    'required'  => true
-                ),
                 "{$prefix}company_or_organization" => array(
                     'required'  => true
                 ),
             ),
             // optional override of default jquery.validate messages
             'messages' => array(
-                "{$prefix}event_associated" => array(
-                    'required'  => __( 'Select one is required', 'rwmb' )
-                ),
                 "{$prefix}company_or_organization" => array(
                     'required'  => __( 'Company or Organization is required', 'rwmb' )
                 ),

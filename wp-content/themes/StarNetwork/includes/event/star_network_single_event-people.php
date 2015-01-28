@@ -7,6 +7,9 @@ $post_meta = get_post_meta(get_the_ID());
 $post_type = get_post_type();
 
 $name = get_the_title();
+
+
+
 $company = $post_meta['schneps_people_company_or_organization'][0];
 
 if(!empty($post_meta['schneps_people_link'][0])) {

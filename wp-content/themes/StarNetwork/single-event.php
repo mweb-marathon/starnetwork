@@ -24,7 +24,7 @@ $is_sponsored = !empty($event_meta['event_post_event_type'][0]) && $event_meta['
 $comment_turn_on = null;
 $sponsored_by = null;
 $event_date_start = $event_meta['_event_start_date'][0];
-$event_location = em_get_location($event_meta['_event_id'][0]);
+$event_location = em_get_location($event_meta['_location_id'][0]);
 $event_date_end = $event_meta['_event_end_date'][0];
 $event_time_start = $event_meta['_event_start_time'][0];
 $event_time_end = $event_meta['_event_end_time'][0];
@@ -86,6 +86,7 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                                         <?php echo $star_network_people_title_on_event_page; ?>
                                     </div>
                                     <div class="people-honoree-data">
+
                                         <?php if (!empty($additional_data['sponsor_people'])): ?>
                                             <?php get_single_event_additional_people_data($additional_data['sponsor_people']); ?>
                                         <?php endif; ?>

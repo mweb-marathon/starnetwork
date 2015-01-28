@@ -13,6 +13,9 @@ $JS_ARRAY = array(
     'jquery.jcarousel.min',
     'foundation/vendor/modernizr',
     'theia-sticky-sidebar',
+    'additional-methods',
+    'jquery.plugin',
+    'jquery.realperson',
     'classie',
     'custom',
 );

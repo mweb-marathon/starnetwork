@@ -16,11 +16,7 @@ get_header('star_network'); ?>
 <!--            </div>-->
 <!--        </div>-->
         <div id="content" class="row site-content" role="main">
-            <?php
-            // Start the Loop.
-            while (have_posts()) : the_post();
-                ?>
-
+            <?php while (have_posts()) : the_post(); ?>
                 <div class="extra-post-header">
                     <div class="post-info-additional">
                         <h1 class="headline"><?php echo get_the_title(); ?></h1>
@@ -29,8 +25,6 @@ get_header('star_network'); ?>
                         <?php echo get_the_post_thumbnail(); ?>
                     </div>
                 </div>
-
-
                 <div class="under-image-wrapper">
                     <ul class="date-time-info">
                         <li>
@@ -49,11 +43,8 @@ get_header('star_network'); ?>
                         <?php echo html_entity_decode(wpautop(get_the_content())); ?>
                     </div>
                 </div>
-
             <?php endwhile;
             ?>
         </div>
-        <!-- #content -->
-    </div><!-- #primary -->
-
+    </div>
 <?php get_footer('star_network');
