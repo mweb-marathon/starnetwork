@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
         nexttext: '',
         prevtext: '',
         showcontrols: 1,
-        automatic: 0,
+        automatic: 1,
         centercontrols: false
     });
 
