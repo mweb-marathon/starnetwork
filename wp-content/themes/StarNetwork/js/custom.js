@@ -22,7 +22,8 @@ jQuery(document).ready(function ($) {
         prevtext: '',
         showcontrols: 1,
         automatic: 1,
-        centercontrols: false
+        centercontrols: false,
+        animspeed: 8000
     });
 
     var people_honoree = $('.people-honoree-data');
