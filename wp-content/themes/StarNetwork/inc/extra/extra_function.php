@@ -39,7 +39,7 @@ function dynamic_inner_people_box()
                         People
                         <input type="text" name="event[<?php echo $c; ?>][people]"
                                value="<?php echo $value['people']; ?>"/>
-                        <input type="hidden" name="event[<?php echo $c; ?>][id]" value="<?php echo $value['id']; ?>"/>
+                        <input type="text" name="event[<?php echo $c; ?>][id]" value="<?php echo $value['id']; ?>"/>
                         <select name="event[<?php echo $c; ?>][people_role]" id="people-role">
                             <option value="emcee" <?php echo $value['people_role'] == 'emcee' ? 'selected' : ''; ?>>
                                 Emcee
@@ -105,7 +105,7 @@ function dynamic_inner_people_box()
                     $('#sponsor-people').append('' +
                         '<p> ' +
                         'People <input type="text"  class="people" name="event[' + count + '][people]" value="" class="people" />' +
-                        '<input type="hidden" name="event[' + count + '][id]">' +
+                        '<input type="text" name="event[' + count + '][id]">' +
                         '<select name="event[' + count + '][people_role]" id="people-role">' +
                         '<option value="emcee">Emcee</option>' +
                         '<option value="special_honoree">Special Honoree(s)</option> ' +
@@ -173,7 +173,7 @@ function dynamic_inner_sponsor_box($post)
                     <p>
                         Sponsor
                         <input type="text" name="event_sponsor[<?php echo $c; ?>][sponsor]" value="<?php echo $value['sponsor']; ?>"/>
-                        <input type="hidden" name="event_sponsor[<?php echo $c; ?>][id]" value="<?php echo $value['id']; ?>"/>
+                        <input type="text" name="event_sponsor[<?php echo $c; ?>][id]" value="<?php echo $value['id']; ?>"/>
                         <select name="event_sponsor[<?php echo $c; ?>][sponsor_role]" id="sponsor-role">
                             <option value="presenting" <?php echo $value['sponsor_role'] == 'presenting' ? 'selected' : ''; ?>>
                                 Presenting Sponsor
@@ -227,7 +227,7 @@ function dynamic_inner_sponsor_box($post)
                     $('#sponsor-sponsor').append('' +
                         '<p> Sponsor ' +
                         '<input type="text"  class="sponsor" name="event_sponsor[' + count + '][sponsor]" value="" class="sponsor" />' +
-                        '<input type="hidden" name="event_sponsor[' + count + '][id]">' +
+                        '<input type="text" name="event_sponsor[' + count + '][id]">' +
                         '<select name="event_sponsor[' + count + '][sponsor_role]" id="sponsor-role">' +
                         '<option value="presenting">Presenting Sponsor</option>' +
                         '<option value="gold">Gold Sponsor</option> ' +
