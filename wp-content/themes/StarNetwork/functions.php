@@ -675,3 +675,15 @@ function crop_text($text, $length = 30, $after = '...')
 
     return $text;
 }
+
+add_filter('gettext', 'custom_enter_title_for_people');
+
+function custom_enter_title_for_people($input)
+{
+    global $post_type;
+
+    if (is_admin() && 'Enter title here' == $input && 'people' == $post_type)
+        return 'Enter name here';
+
+    return $input;
+}
