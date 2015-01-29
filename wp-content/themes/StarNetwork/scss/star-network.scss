@@ -249,7 +249,8 @@ body.page-template-star_networking_homepage-php {
 }
 
 #waitMeSpot.waitMe_container {
-  margin-top: 40px;
+  margin-top: 6px;
+  height: 640px;
 }
 
 .star-network-homepage-content-wrapper {
@@ -381,7 +382,13 @@ body.page-template-star_networking_homepage-php {
 
 .main-content-data {
   .spots-wrapper {
+
     margin-top: 60px;
+    .star-network-homepage-content {
+      height: 640px;
+      display: inline-block;
+      width: 100%;
+    }
     .single-event-wrapper {
       &:last-child {
         float: left;

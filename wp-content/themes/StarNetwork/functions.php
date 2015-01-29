@@ -136,6 +136,38 @@ function schneps_get_header_main_star_network_menu()
     return $primaryNav;
 }
 
+function count_paged_event_per_category($category_name) {
+    $not_sticky = array(
+        'post_type' => array('event'),
+        'posts_per_page' => 6,
+        'order_by' => 'date',
+        'order' => 'DESC',
+        'taxonomy' => 'event-categories',
+        'term' => $category_name,
+        'post_status' => 'publish'
+    );
+
+    $the_query = new WP_Query( $not_sticky );
+    wp_reset_query();
+    return $the_query->max_num_pages;
+}
+
+
+function count_event_per_category($category_name) {
+    $not_sticky = array(
+        'post_type' => array('event'),
+
+        'order_by' => 'date',
+        'order' => 'DESC',
+        'taxonomy' => 'event-categories',
+        'term' => $category_name,
+        'post_status' => 'publish'
+    );
+
+    $the_query = new WP_Query( $not_sticky );
+    wp_reset_query();
+    return $the_query->found_posts;
+}
 
 /* Functionality for home page. End */
 
@@ -153,11 +185,15 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
     if ($category_name && $category_name !== 'all') {
         $not_sticky['taxonomy'] = 'event-categories';
         $not_sticky['term'] = $category_name;
+
     }
+    $i=0;
 
     $wp_query_not_sticky = new WP_Query($not_sticky);
     if ($wp_query_not_sticky->have_posts()) {
         while ($wp_query_not_sticky->have_posts()) {
+            $i++;
+
             $wp_query_not_sticky->the_post();
 
             if ($template) {
@@ -166,7 +202,17 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
                 get_template_part('includes/single-block');
             }
         }
+        if ($category_name && $category_name !== 'all') {
+            $amount_per_category = count_event_per_category($category_name);
+            $paged_per_category = count_paged_event_per_category($category_name);
+            echo '<span class="amount-event-per-category" data-amount-per-category="'. $amount_per_category .'" data-current-paged="'. $paged .'" data-all-paged="'. $paged_per_category .'" data-category-name="'. $category_name .'"></span>';
+        }
     }
+
+
+
+
+
     wp_reset_query();
 }
 

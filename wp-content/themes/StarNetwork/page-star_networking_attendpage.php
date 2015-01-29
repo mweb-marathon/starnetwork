@@ -40,7 +40,7 @@ Template Name: Star Network Attend Page
                 <div class="large-10 columns categories">
                     <div id="waitMe"></div>
                     <div class="content">
-                        <?php star_network_attend_event_category();?>
+                        <?php star_network_attend_event_category(); ?>
                     </div>
                 </div>
             </div>
@@ -48,10 +48,19 @@ Template Name: Star Network Attend Page
 
         </div>
     </div>
-    <div class="row main-content-data">
-        <div id="waitMeSpot"></div>
-        <div class="spots-wrapper columns">
-                <?php schneps_get_event_by_date('star_network', -1, 0);?>
+    <div class="row main-content-data upcoming-event-page-wrapper">
+
+        <div class="spots-wrapper columns" id="content" data-start-event-spots="1">
+            <div id="waitMeSpot"></div>
+            <div class="arrow left hide">
+                <a href="#" class="prev"></a>
+            </div>
+            <div class="star-network-homepage-content">
+                <?php schneps_get_event_by_date('star_network', 6, 1); ?>
+            </div>
+            <div class="arrow right">
+                <a href="#" class="next"></a>
+            </div>
         </div>
     </div>
 

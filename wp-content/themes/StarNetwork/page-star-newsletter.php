@@ -55,6 +55,25 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                         Choose from a selection of our targeted newsletters!
                                     </div>
                                     <div>
+                                        <label for="eating-drinking-networking-events">
+                                            <input type="checkbox" name="cat[eating_drinking]"
+                                                   id="eating-drinking-networking-events"
+                                                   value="Eating & Drinking"/>
+                                            <span class="custom checkbox"></span>
+                                            Eating & Drinking
+
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="kids-education">
+                                            <input type="checkbox" name="cat[kids_education]" id="kids-education"
+                                                   value="Kids & Education"/>
+                                            <span class="custom checkbox"></span>
+                                            Kids & Education
+
+                                        </label>
+                                    </div>
+                                    <div>
                                         <label for="business-news-networking-events">
                                             <input type="checkbox" name="cat[business_news_networking_events]"
                                                    id="business-news-networking-events"
@@ -74,27 +93,19 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                         </label>
                                     </div>
                                     <div>
-                                        <label for="kids-education">
-                                            <input type="checkbox" name="cat[kids_education]" id="kids-education"
-                                                   value="Kids & Education"/>
-                                            <span class="custom checkbox"></span>
-                                            Kids & Education
-
-                                        </label>
-                                    </div>
-                                    <div>
                                         <label for="special-deals-discounts">
-                                            <input type="checkbox" name="cat[healthcare]" id="special-deals-discounts"
+                                            <input type="checkbox" name="cat[special_deals_discounts]" id="special-deals-discounts"
                                                    value="Special Deals & Discounts"/>
                                             <span class="custom checkbox"></span>
-                                            Healthcare
+                                            Special Deals & Discounts
 
                                         </label>
                                     </div>
                                 </div>
 
                                 <div class="data captcha">
-                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code" required="" aria-required="true"  maxlength="6"/>
+                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code"
+                                           required="" aria-required="true" maxlength="6"/>
                                 </div>
 
                                 <div class="submit-news-letter-btn submit">
