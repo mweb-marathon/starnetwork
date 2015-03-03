@@ -278,7 +278,7 @@ body.page-template-star_networking_homepage-php {
   .single-event-wrapper:hover {
     cursor: pointer; }
     .single-event-wrapper:hover .bg-color {
-      background-color: transparent; }
+      background-color: rgba(0, 0, 0, 0.5); }
   .single-event-wrapper .event-start-date {
     display: inline-block;
     position: absolute;
@@ -329,7 +329,7 @@ body.page-template-star_networking_homepage-php {
       text-align: center;
       background: #525252; }
   .single-event-wrapper .bg-color {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 2;
     position: absolute;
     top: 0;
@@ -432,7 +432,7 @@ body.page-template-star_networking_homepage-php {
   margin-top: 0;
   padding-top: 40px; }
   .star-main-content-wrapper #content .star-network-content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(213, 213, 213, 0.9);
     padding: 50px 190px;
     border: 1px solid #c2c2c2; }
     .star-main-content-wrapper #content .star-network-content .star-network-additional-page-title {
@@ -704,7 +704,7 @@ body.page-template-star_networking_homepage-php {
     font-size: 21px;
     font-weight: normal;
     font-style: normal;
-    padding: 30px 20px 28px 20px;
+    height: 60px;
     color: #707070;
     border-radius: 10px;
     margin: 0 0 1rem 0; }
@@ -738,7 +738,8 @@ body.page-template-star_networking_homepage-php {
     font-family: "DINNextLTPro-Light", serif;
     font-size: 21px;
     font-weight: normal;
-    font-style: normal; }
+    font-style: normal;
+    -moz-appearance: none; }
     .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error {
       border: 1px solid red; }
   .form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title {
@@ -897,7 +898,7 @@ body.page-template-star_networking_homepage-php {
   float: left;
   position: relative;
   width: 50px;
-  margin-left: 0px; }
+  margin-left: 30px; }
 
 .extra-post-gallery {
   position: relative; }
@@ -927,8 +928,115 @@ body.page-template-star_networking_homepage-php {
         .extra-post-gallery .bjqs-controls li.bjqs-next:hover {
           background-position: -18px -43px; }
 
+.post-gallery {
+  margin: 0 auto; }
+  .post-gallery .bjqs-controls {
+    margin-top: -97px;
+    width: 100%;
+    bottom: 97px;
+    z-index: 1; }
+    .post-gallery .bjqs-controls li {
+      height: 97px;
+      max-height: 97px;
+      position: absolute; }
+      .post-gallery .bjqs-controls li.bjqs-next {
+        right: 0; }
+        .post-gallery .bjqs-controls li.bjqs-next a {
+          background-position: -74px 0; }
+      .post-gallery .bjqs-controls li a {
+        background-color: #464A4D;
+        background-image: url("../img/gallery-arrows.png");
+        background-repeat: no-repeat;
+        font-size: 0;
+        height: 97px;
+        max-height: 97px;
+        display: block;
+        width: 63px;
+        box-sizing: border-box;
+        background-position: -3px 0; }
+        .post-gallery .bjqs-controls li a:hover {
+          background-color: #686d70; }
+  .post-gallery li.bjqs-slide {
+    background: #000000; }
+    .post-gallery li.bjqs-slide .slider-image-info-wrapper {
+      background: black;
+      margin: 0 62px;
+      padding: 10px;
+      color: #E9E9E9;
+      height: 97px;
+      min-height: 97px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper .s-byline {
+        font: italic 11px/14px "Arial";
+        color: #999;
+        text-align: left;
+        padding: 10px 0 30px;
+        height: 0;
+        filter: alpha(opacity=0);
+        opacity: 0; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable:hover {
+        cursor: pointer; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable:after {
+        content: "Read More \00a0 \00a0 \00a0 \00a0 \00a0";
+        font: 12px/10px "Arial";
+        color: #b6b6b6;
+        display: inline-block;
+        width: 100%;
+        height: 10px;
+        text-align: right;
+        background: url("../img/read-caption.png") right 4px no-repeat;
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px;
+        right: 10px; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable .slider-image-info-description:after {
+        content: ".";
+        color: #000;
+        position: absolute;
+        bottom: 2px;
+        right: -20px;
+        padding: 0 20px;
+        width: 100%;
+        text-align: right;
+        background: url("../img/dots-caption.png") right 0 no-repeat; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable.expanded {
+        height: auto;
+        background: url("../img/trans85.png") 0 0;
+        background: rgba(0, 0, 0, 0.7); }
+        .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable.expanded .slider-image-info-description {
+          height: auto; }
+        .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable.expanded .s-byline {
+          opacity: 1; }
+        .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable.expanded:after {
+          content: "Read Less \00a0 \00a0 \00a0 \00a0 \00a0 ";
+          background: url("../img/read-caption.png") right -11px no-repeat; }
+        .post-gallery li.bjqs-slide .slider-image-info-wrapper.expandable.expanded .slider-image-info-description:after {
+          opacity: 0; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper .slider-image-info-caption {
+        font-family: "DINNextLTPro-Regular", serif;
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        margin-bottom: 5px;
+        margin-right: 55px;
+        min-height: 22px; }
+      .post-gallery li.bjqs-slide .slider-image-info-wrapper .slider-image-info-description {
+        font-family: "DINNextLTPro-Regular", serif;
+        font-size: 13px;
+        font-weight: normal;
+        font-style: normal;
+        position: relative;
+        text-align: justify;
+        line-height: 17px;
+        height: 35px;
+        overflow: hidden; }
+
 .realperson-text {
-  font-family: "Courier New",monospace;
+  font-family: "Courier New", monospace;
   font-size: 6px;
   font-weight: bold;
   letter-spacing: -1px;

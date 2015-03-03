@@ -2331,6 +2331,10 @@ header .primary-menu > li.current-events-item.has-dropdown.not-click:hover ul.dr
               background-position: -100px 0; }
               .header-wrapper-bg-image .header-main-menu-wrapper .auth-link-wrapper ul li.instagram a:hover {
                 background-position: -100px -30px; }
+            .header-wrapper-bg-image .header-main-menu-wrapper .auth-link-wrapper ul li.linkedin a {
+              background-position: -125px 0; }
+              .header-wrapper-bg-image .header-main-menu-wrapper .auth-link-wrapper ul li.linkedin a:hover {
+                background-position: -125px -30px; }
 
   .fixed-header-wrapper-bg-image {
     background: #464646 url("../img/fixed-header-bg.png"); }
@@ -2524,7 +2528,11 @@ header .primary-menu > li.current-events-item.has-dropdown.not-click:hover ul.dr
                 .fixed-header-wrapper-bg-image .fixed-header-wrapper-bg-color .fixed-new-header .fixed-header-menu-title .main-menu-wrapper .header-main-menu-wrapper .auth-link-wrapper ul li.instagram a {
                   background-position: -100px 0; }
                   .fixed-header-wrapper-bg-image .fixed-header-wrapper-bg-color .fixed-new-header .fixed-header-menu-title .main-menu-wrapper .header-main-menu-wrapper .auth-link-wrapper ul li.instagram a:hover {
-                    background-position: -100px -30px; } }
+                    background-position: -100px -30px; }
+                .fixed-header-wrapper-bg-image .fixed-header-wrapper-bg-color .fixed-new-header .fixed-header-menu-title .main-menu-wrapper .header-main-menu-wrapper .auth-link-wrapper ul li.linkedin a {
+                  background-position: -125px 0; }
+                  .fixed-header-wrapper-bg-image .fixed-header-wrapper-bg-color .fixed-new-header .fixed-header-menu-title .main-menu-wrapper .header-main-menu-wrapper .auth-link-wrapper ul li.linkedin a:hover {
+                    background-position: -125px -30px; } }
 .page-wrapper .page-title-wrapper .page-title {
   color: #d64949;
   font-family: "DINNextLTPro-Regular", serif;

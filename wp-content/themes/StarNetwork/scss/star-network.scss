@@ -276,7 +276,7 @@ body.page-template-star_networking_homepage-php {
   &:hover {
     cursor: pointer;
     .bg-color {
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, .5);
     }
   }
 
@@ -322,7 +322,7 @@ body.page-template-star_networking_homepage-php {
     }
   }
   .bg-color {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .7);
     z-index: 2;
     position: absolute;
     top: 0;
@@ -471,7 +471,7 @@ body.page-template-star_networking_homepage-php {
     margin-top: 0;
     padding-top: 40px;
     .star-network-content {
-      background: rgba(255, 255, 255, .9);
+      background: rgba(213, 213, 213, 0.9);
       padding: 50px 190px;
       border: 1px solid #c2c2c2;
       .star-network-additional-page-title {
@@ -667,10 +667,10 @@ body.page-template-star_networking_homepage-php {
                 }
                 padding: 0;
                 &.presenting-wrapper {
-//                  img {
-//                    width: 100%;
-//                    height: 115px;
-//                  }
+                  //                  img {
+                  //                    width: 100%;
+                  //                    height: 115px;
+                  //                  }
                 }
                 &.regular-wrapper, &.gold-wrapper {
                   li {
@@ -766,7 +766,7 @@ body.page-template-star_networking_homepage-php {
       background: #f2f2f2;
       border: 1px solid #e1e1e1;
       @include fontCall("DINNextLTPro-Light", 21);
-      padding: 30px 20px 28px 20px;
+      height: 60px;
       color: #707070;
       border-radius: 10px;
       margin: 0 0 1rem 0;
@@ -795,6 +795,7 @@ body.page-template-star_networking_homepage-php {
         border: 1px solid #e1e1e1;
         background-position: right 20px center;
         @include fontCall("DINNextLTPro-Light", 21);
+        -moz-appearance: none;
         &.error {
           border: 1px solid red;
         }
@@ -910,7 +911,6 @@ body.page-template-star_networking_homepage-php {
   }
 }
 
-
 .extra-post-header {
   border: 1px solid #c2c2c2;
   border-bottom: none;
@@ -967,7 +967,7 @@ body.page-template-star_networking_homepage-php {
   float: left;
   position: relative;
   width: 50px;
-  margin-left: 0px;
+  margin-left: 30px;
 }
 
 .extra-post-gallery {
@@ -1008,8 +1008,139 @@ body.page-template-star_networking_homepage-php {
   }
 }
 
+.post-gallery {
+  margin: 0 auto;
+  .bjqs-controls {
+    margin-top: -97px;
+    width: 100%;
+    bottom: 97px;
+    z-index: 1;
+    li {
+      height: 97px;
+      max-height: 97px;
+      position: absolute;
+      &.bjqs-next {
+        right: 0;
+        a {
+          background-position: -74px 0;
+        }
+      }
+      a {
+        background-color: #464A4D;
+        background-image: url($image-path + "gallery-arrows.png");
+        background-repeat: no-repeat;
+        font-size: 0;
+        height: 97px;
+        max-height: 97px;
+        display: block;
+        width: 63px;
+        box-sizing: border-box;
+        background-position: -3px 0;
+        &:hover {
+          background-color: #686d70;
+        }
+      }
+    }
+  }
+  li.bjqs-slide {
+    background: #000000;
+    a {
+
+    }
+    .slider-image-info-wrapper {
+      background: black;
+      margin: 0 62px;
+      padding: 10px;
+      color: #E9E9E9;
+      height: 97px;
+      min-height: 97px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .s-byline {
+        font: italic 11px/14px "Arial";
+        color: #999;
+        text-align: left;
+        padding: 10px 0 30px;
+        height: 0;
+        filter: alpha(opacity=0);
+        opacity: 0;
+      }
+      &.expandable {
+        &:hover {
+          cursor: pointer;
+        }
+        &:after {
+          content: "Read More \00a0 \00a0 \00a0 \00a0 \00a0";
+          font: 12px/10px "Arial";
+          color: #b6b6b6;
+          display: inline-block;
+          width: 100%;
+          height: 10px;
+          text-align: right;
+          background: url($image-path + "read-caption.png") right 4px no-repeat;
+          cursor: pointer;
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+        }
+        .slider-image-info-description {
+          &:after {
+            content: ".";
+            color: #000;
+            position: absolute;
+            bottom: 2px;
+            right: -20px;
+            padding: 0 20px;
+            width: 100%;
+            text-align: right;
+            background: url($image-path + "dots-caption.png") right 0 no-repeat;
+          }
+        }
+        &.expanded {
+          height: auto;
+          background: url($image-path + "trans85.png") 0 0;
+          background: rgba(0, 0, 0, .70);
+          .slider-image-info-description {
+            height: auto;
+          }
+          .s-byline {
+            opacity: 1;
+          }
+          &:after {
+            content: "Read Less \00a0 \00a0 \00a0 \00a0 \00a0 ";
+            background: url($image-path + "read-caption.png") right -11px no-repeat;
+          }
+          .slider-image-info-description {
+            &:after {
+              opacity: 0;
+            }
+          }
+        }
+      }
+      .slider-image-info-caption {
+        @include fontCall("DINNextLTPro-Regular", 18);
+        margin-bottom: 5px;
+        margin-right: 55px;
+        min-height: 22px;
+
+      }
+      .slider-image-info-description {
+        @include fontCall("DINNextLTPro-Regular", 13);
+        position: relative;
+        text-align: justify;
+        line-height: 17px;
+        height: 35px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
 .realperson-text {
-  font-family: "Courier New",monospace;
+  font-family: "Courier New", monospace;
   font-size: 6px;
   font-weight: bold;
   letter-spacing: -1px;
@@ -1042,3 +1173,4 @@ body.page-template-star_networking_homepage-php {
     opacity: 1;
   }
 }
+

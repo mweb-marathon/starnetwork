@@ -37,7 +37,7 @@ $category = get_the_category();
         </a>
     </div>
     <div class="footer qns">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo.png" alt=""/>
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo-<?php echo $is_sponsored; ?>.png" alt=""/>
         <span class="footer-text"> / Queens / Get Tickets</span>
     </div>
 </div>

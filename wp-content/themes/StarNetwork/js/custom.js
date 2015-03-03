@@ -8,9 +8,6 @@
  */
 
 jQuery(document).ready(function ($) {
-    var URL = window.location.href;
-    var PATHNAME = window.location.pathname;
-    var getUrlPart = PATHNAME.replace(/(^\/|\/$)/g, '').split('/');
 
     $('.extra-post-gallery').bjqs({
         animtype: 'slide',
@@ -24,6 +21,19 @@ jQuery(document).ready(function ($) {
         automatic: 1,
         centercontrols: false,
         animspeed: 8000
+    });
+
+    $('.post-gallery').bjqs({
+        animtype: 'slide',
+        width: 716,
+        height: 574,
+        responsive: true,
+        showmarkers: false,
+        nexttext: '',
+        prevtext: '',
+        showcontrols: 1,
+        automatic: 1,
+        centercontrols: false
     });
 
     var people_honoree = $('.people-honoree-data');
@@ -48,5 +58,10 @@ jQuery(document).ready(function ($) {
     }
 
     $('#defaultReal').realperson();
+
+    $('.slider-image-info-wrapper.expandable').click(function () {
+        var $_this = $(this);
+        $_this.toggleClass('expanded');
+    })
 
 });

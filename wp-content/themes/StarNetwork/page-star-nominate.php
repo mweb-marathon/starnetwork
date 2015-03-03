@@ -67,10 +67,7 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
 
                                 <div class="name-input-wrapper">
                                     <label for="name"></label>
-                                    <input type="text" name="name" required="" aria-required="true" id="name"
-                                           placeholder="First and Last"
-                                           class="speak-name-input"
-                                           value=""/>
+
                                 </div>
 
                                 <div class="title-input-wrapper">
@@ -107,13 +104,13 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
 
                                 <div class="textarea">
                                     <label for="comment">
-                                        Attached Nominee Resume:
+                                        Tell Us More:
                                     </label>
                                     <textarea placeholder="What makes this person a “Star” Nominee? What sets him/her apart?" required="" aria-required="true"  maxlength="150" name="comment" id="comment"></textarea>
                                 </div>
 
                                 <div class="data captcha">
-                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code" required="" aria-required="true"  maxlength="6"/>
+                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Enter Access Code" required="" aria-required="true"  maxlength="6"/>
                                 </div>
 
                                 <div class="submit-news-letter-btn submit">

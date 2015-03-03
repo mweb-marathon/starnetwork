@@ -36,6 +36,7 @@ jQuery(document).ready(function ($) {
     var count = 2;
     var total = <?php echo $wp_query_not_sticky->max_num_pages; ?>;
 
+
     function waitMe(status, block) {
         var waitMe = block || $("#waitMe");
 
@@ -48,6 +49,20 @@ jQuery(document).ready(function ($) {
 
     var star_attend_page = $('.star-network-attend-pages');
     if (star_attend_page.length > 0) {
+        var URL = window.location.href;
+        var PATHNAME = window.location.pathname;
+        var getUrlPart = PATHNAME.replace(/(^\/|\/$)/g, '').split('/');
+
+        var event_location_by_url = getUrlPart.pop();
+
+
+        if (event_location_by_url === 'location-upcoming-events') {
+            $('#radio2').trigger('click', click_on_filter());
+        }
+        click_on_filter();
+    }
+
+    function click_on_filter() {
         $('input', '.filter-wrapper').click(function () {
             var $_this = $(this),
                 $_this_label = $_this.closest('label'),
@@ -86,16 +101,7 @@ jQuery(document).ready(function ($) {
             start_network_homepage_current_page_block.data('start-event-spots', 1);
             var start_network_homepage_current_page_number = start_network_homepage_current_page_block.data('start-event-spots');
 
-            if (start_network_homepage_current_page_number == total) {
-                start_network_homepage_current_page_block.find('.arrow.right').hide();
-                start_network_homepage_current_page_block.find('.arrow.left').show();
-            } else if (start_network_homepage_current_page_number == 1) {
-                start_network_homepage_current_page_block.find('.arrow.right').show();
-                start_network_homepage_current_page_block.find('.arrow.left').hide();
-            } else {
-                start_network_homepage_current_page_block.find('.arrow.right').show();
-                start_network_homepage_current_page_block.find('.arrow.left').show();
-            }
+            left_right_spot_arrows(start_network_homepage_current_page_number, total, start_network_homepage_current_page_block);
 
             $_this.closest('li').addClass('current-category').siblings().removeClass('current-category');
 
@@ -112,8 +118,7 @@ jQuery(document).ready(function ($) {
 
                     if (html === '') {
                         main_spot_upcoming_event_wrapper.show().html('<div class="empty-ajax-request">Sorry. No events for <u>' + category_name + '</u>.</div>');
-                        start_network_homepage_current_page_block.find('.arrow.right').hide();
-                        start_network_homepage_current_page_block.find('.arrow.left').hide();
+                        start_network_homepage_current_page_block.find('.arrow.right, .arrow.left').hide();
                     } else {
                         main_spot_upcoming_event_wrapper.show().html(html);
                         var amount_event_per_category = $('.amount-event-per-category');
@@ -121,8 +126,7 @@ jQuery(document).ready(function ($) {
                         if (amount_event_per_category.length > 0) {
                             var amount_event_per_category_data = amount_event_per_category.data('amount-per-category');
                             if (amount_event_per_category_data <= 6) {
-                                start_network_homepage_current_page_block.find('.arrow.right').hide();
-                                start_network_homepage_current_page_block.find('.arrow.left').hide();
+                                start_network_homepage_current_page_block.find('.arrow.right, .arrow.left').hide();
                             }
                         }
                     }
@@ -169,26 +173,6 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function sendStarNetwork_form(selector, form) {
-        goAjax(
-            "action=star_network_send_form_email&" + form.serialize(),
-            function () {
-                waitMe();
-            },
-            function (html) {
-                waitMe('hide');
-                if (html === 'error') {
-                    $('#defaultReal').addClass('error');
-                } else {
-                    if (html !== '') {
-                        selector.html('<div class="ajax-success">' + html + '</div>');
-                    }
-                }
-            }
-        );
-        return false;
-    }
-
 
     var start_network_homepage_content_wrapper = $('.star-network-homepage-content-wrapper');
 
@@ -207,17 +191,7 @@ jQuery(document).ready(function ($) {
 
             var current_page = start_network_homepage_content.data('start-event-spots');
 
-            if (current_page == total) {
-                start_network_homepage_content.find('.arrow.right').hide();
-                start_network_homepage_content.find('.arrow.left').show();
-            } else if (current_page == 1) {
-                start_network_homepage_content.find('.arrow.right').show();
-                start_network_homepage_content.find('.arrow.left').hide();
-            } else {
-                start_network_homepage_content.find('.arrow.right').show();
-                start_network_homepage_content.find('.arrow.left').show();
-            }
-
+            left_right_spot_arrows(current_page, total, start_network_homepage_content);
 
             goAjax(
                 "action=calendar_events&page=" + current_page,
@@ -251,16 +225,7 @@ jQuery(document).ready(function ($) {
 
             var current_page = star_network_upcoming_event_page_content.data('start-event-spots');
 
-            if (current_page == total) {
-                star_network_upcoming_event_page_content.find('.arrow.right').hide();
-                star_network_upcoming_event_page_content.find('.arrow.left').show();
-            } else if (current_page == 1) {
-                star_network_upcoming_event_page_content.find('.arrow.right').show();
-                star_network_upcoming_event_page_content.find('.arrow.left').hide();
-            } else {
-                star_network_upcoming_event_page_content.find('.arrow.right').show();
-                star_network_upcoming_event_page_content.find('.arrow.left').show();
-            }
+            left_right_spot_arrows(current_page, total, star_network_upcoming_event_page_content);
 
             var amount_event_per_category = $('.amount-event-per-category');
             var link = "action=calendar_events&page=" + current_page;
@@ -284,21 +249,49 @@ jQuery(document).ready(function ($) {
                     if (amount_event_per_category.length > 0) {
                         var current_page = amount_event_per_category.data('current-paged');
                         var all_paged = amount_event_per_category.data('all-paged');
-
-                        if (current_page == all_paged) {
-                            star_network_upcoming_event_page_content.find('.arrow.right').hide();
-                            star_network_upcoming_event_page_content.find('.arrow.left').show();
-                        } else if (current_page == 1) {
-                            star_network_upcoming_event_page_content.find('.arrow.right').show();
-                            star_network_upcoming_event_page_content.find('.arrow.left').hide();
-                        } else if(current_page == 0) {
-                            star_network_upcoming_event_page_content.find('.arrow.right').hide();
-                            star_network_upcoming_event_page_content.find('.arrow.left').hide();
-                        }
+                        left_right_spot_arrows(current_page, all_paged, star_network_upcoming_event_page_content);
                     }
                 }
             );
         })
+
+    }
+
+
+    function left_right_spot_arrows(current, total, selector) {
+
+        if (current == total) {
+            selector.find('.arrow.right').hide();
+            selector.find('.arrow.left').show();
+        } else if (current == 1) {
+            selector.find('.arrow.right').show();
+            selector.find('.arrow.left').hide();
+        } else if (current == 0) {
+            selector.find('.arrow.left, .arrow.right').hide();
+        } else {
+            selector.find('.arrow.right').show();
+            selector.find('.arrow.left').show();
+        }
+    }
+
+    function sendStarNetwork_form(selector, form) {
+        goAjax(
+            "action=star_network_send_form_email&" + form.serialize(),
+            function () {
+                waitMe();
+            },
+            function (html) {
+                waitMe('hide');
+                if (html === 'error') {
+                    $('#defaultReal').addClass('error');
+                } else {
+                    if (html !== '') {
+                        selector.html('<div class="ajax-success">' + html + '</div>');
+                    }
+                }
+            }
+        );
+        return false;
     }
 
 

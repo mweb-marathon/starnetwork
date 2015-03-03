@@ -127,12 +127,12 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                 </div>
 
                                 <div class="textarea">
-                                    <textarea placeholder="Comment box" name="comment" required="" aria-required="true"
+                                    <textarea placeholder="What event or topic is of interest to you?" name="comment" required="" aria-required="true"
                                               id="comment"></textarea>
                                 </div>
 
                                 <div class="data captcha">
-                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code" required="" aria-required="true"  maxlength="6"/>
+                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Enter Access Code" required="" aria-required="true"  maxlength="6"/>
                                 </div>
 
                                 <div class="submit-news-letter-btn submit">

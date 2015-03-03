@@ -81,6 +81,15 @@ $image-path: '../img/';
           }
         }
       }
+
+      &.linkedin {
+        a {
+          background-position: -($auth-icon-width * 5) 0;
+          &:hover {
+            background-position: -($auth-icon-width * 5) -30px;
+          }
+        }
+      }
     }
   }
 }

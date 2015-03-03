@@ -10,20 +10,53 @@
 get_header('star_network'); ?>
 
     <div id="primary" class="content-area">
-<!--        <div class="post-social-button" id="post-social-button">-->
-<!--            <div class="post-social-button-wrapper">-->
-<!--                --><?php //echo do_shortcode('[ssba]'); ?>
-<!--            </div>-->
-<!--        </div>-->
+        <div class="post-social-button" id="post-social-button">
+            <div class="post-social-button-wrapper">
+                <?php echo do_shortcode('[ssba]'); ?>
+            </div>
+        </div>
         <div id="content" class="row site-content" role="main">
-            <?php while (have_posts()) : the_post(); ?>
+            <?php while (have_posts()) : the_post();
+                $story_meta = get_post_meta(get_the_ID());
+                ?>
                 <div class="extra-post-header">
                     <div class="post-info-additional">
                         <h1 class="headline"><?php echo get_the_title(); ?></h1>
                     </div>
-                    <div class="image text-center">
-                        <?php echo get_the_post_thumbnail(); ?>
+                    <div class="image">
+                        <?php if (isset($story_meta['event_post_imgadv']) && count($story_meta['event_post_imgadv']) > 0): ?>
+                            <div class="post-gallery">
+                                <ul class="bjqs">
+                                    <?php foreach ($story_meta['event_post_imgadv'] as $key => $val):
+                                        $attachment_data = wp_get_attachment($val);
+                                        ?>
+                                        <li>
+                                            <a title="<?php echo $attachment_data['caption']; ?>" rel="gallery1"
+                                               href="/slideshow/?type=slideshow&post=<?php echo get_the_ID() ?>&start=<?php echo $key ?>">
+                                                <?php echo wp_get_attachment_image($val, 'full'); ?>
+                                            </a>
+
+                                            <div
+                                                class="slider-image-info-wrapper <?php echo strlen($attachment_data['description']) > 200 ? 'expandable' : ''; ?>">
+                                                <div class="slider-image-info-caption">
+                                                    <?php echo $attachment_data['caption']; ?>
+                                                </div>
+                                                <div class="slider-image-info-description">
+                                                    <?php echo $attachment_data['description']; ?>
+                                                </div>
+                                                <?php if (strlen($attachment_data['description']) > 200): ?>
+                                                    <h4 class="s-byline"></h4>
+                                                <?php endif; ?>
+                                            </div>
+
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
                     </div>
+
+
                 </div>
                 <div class="under-image-wrapper">
                     <ul class="date-time-info">

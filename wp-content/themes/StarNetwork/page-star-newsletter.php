@@ -104,7 +104,7 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                 </div>
 
                                 <div class="data captcha">
-                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Captcha Code"
+                                    <input type="text" id="defaultReal" name="defaultReal" placeholder="Enter Access Code"
                                            required="" aria-required="true" maxlength="6"/>
                                 </div>
 

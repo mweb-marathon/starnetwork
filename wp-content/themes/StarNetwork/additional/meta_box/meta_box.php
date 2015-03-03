@@ -93,7 +93,51 @@ function additional_register_meta_boxes( $meta_boxes )
         ),
     );
 
+    $meta_boxes[] = array(
+        // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+        'id' => 'additional_post_gallery',
 
+        // Meta box title - Will appear at the drag and drop handle bar. Required.
+        'title' => __( 'Custom Fields', 'rwmb' ),
+
+        // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+        'pages' => array('post'),
+
+        // Where the meta box appear: normal (default), advanced, side. Optional.
+        'context' => 'normal',
+
+        // Order of meta box: high (default), low. Optional.
+        'priority' => 'high',
+
+        // Auto save: true, false (default). Optional.
+        'autosave' => true,
+
+        // List of meta fields
+        'fields' => array(
+            array(
+                'name'      => __( 'Related Stories', 'rwmb' ),
+                'id'        => "{$event_prefix}related_story",
+                'type'    => 'post',
+                'field_type' => 'select_advanced',
+                'post_type' => array('post'),
+                'multiple'  => true,
+                'std'       => '',
+                'query_args' => array(
+                    'post_status'    => 'publish',
+                    'posts_per_page' => - 1,
+                ),
+                'placeholder' => __( 'Select a Related Stories', 'rwmb' ),
+
+            ),
+            // IMAGE ADVANCED (WP 3.5+)
+            array(
+                'name'             => __( 'Image Advanced Upload', 'rwmb' ),
+                'id'               => "{$event_prefix}imgadv",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 4,
+            )
+        ),
+    );
 
     return $meta_boxes;
 }
