@@ -747,3 +747,15 @@ function wp_get_attachment($attachment_id)
         'title' => $attachment->post_title
     );
 }
+
+function wp_schneps_get_related_stories_story_page_()
+{
+
+    $loopRelatedStory = 'loop_story_related';
+    get_template_part($loopRelatedStory);
+    wp_reset_query();
+    exit;
+}
+
+add_action('wp_ajax_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');
+add_action('wp_ajax_nopriv_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');

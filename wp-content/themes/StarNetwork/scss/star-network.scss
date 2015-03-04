@@ -1174,3 +1174,46 @@ body.page-template-star_networking_homepage-php {
   }
 }
 
+.post-footer-block {
+  padding: 25px;
+  .related-post-title {
+    @include fontCall("DINNextLTPro-Medium", 30);
+    color: #000000;
+    margin-bottom: 35px;
+  }
+  .related-post-wrapper {
+    margin-bottom: 30px;
+    height: 75px;
+    overflow: hidden;
+    .related-post-thumbnail {
+      height: inherit;
+      overflow: hidden;
+      float: left;
+      img {
+        width: 150px;
+      }
+    }
+    .related-post-headline {
+      margin-left: 150px;
+      padding-left: 20px;
+      word-break: break-all;
+      a {
+        @include fontCall("DINNextLTPro-Medium", 15);
+        color: #464646;
+      }
+    }
+  }
+}
+
+.parent-pageid-9 {
+  .star-main-content-wrapper {
+    #content {
+      width: 100%;
+      .star-network-content {
+        padding: 0;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}

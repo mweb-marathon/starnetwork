@@ -62,6 +62,22 @@ jQuery(document).ready(function ($) {
         click_on_filter();
     }
 
+    var event_single_category = $('.single-event-category');
+    if(event_single_category.length > 0) {
+        var event_single_category_parent = event_single_category.data('parent-single-event-category');
+        var event_single_category_name = event_single_category.data('single-event-category');
+
+        if(event_single_category_parent == 7) {
+
+            $('#radio2').prop('checked', true).next('span').addClass('checked').closest('label').addClass('disabled');
+            $('#radio1').prop('checked', false).next('span').removeClass('checked').closest('label').removeClass('disabled')
+        }
+
+
+
+        $('.categories a[data-category-name="' + event_single_category_name + '"]').trigger('click', click_on_category());
+    }
+
     function click_on_filter() {
         $('input', '.filter-wrapper').click(function () {
             var $_this = $(this),
@@ -88,10 +104,8 @@ jQuery(document).ready(function ($) {
         });
     }
 
-
-    var category = $('.categories');
-    if (category.length > 0) {
-        category.on('click', '.content a', function (evt) {
+    function click_on_category() {
+        $('.categories').on('click', '.content a', function (evt) {
             evt.preventDefault();
             var $_this = $(this),
                 category_name = $_this.data('category-name') !== undefined ? $_this.data('category-name') : 'all',
@@ -133,6 +147,12 @@ jQuery(document).ready(function ($) {
                 }
             );
         })
+    }
+
+
+    var category = $('.categories');
+    if (category.length > 0) {
+        click_on_category();
     }
 
 
@@ -294,6 +314,22 @@ jQuery(document).ready(function ($) {
         return false;
     }
 
+    var relatedStoryOnNewsAndPhotoPage = $('.news-photo-related-list');
+
+
+    if (relatedStoryOnNewsAndPhotoPage.length > 0) {
+
+
+        goAjax(
+            "action=schneps_get_related_stories_story_page_&post_id=" + relatedStoryOnNewsAndPhotoPage.data('post-id') + "",
+            function () {
+                relatedStoryOnNewsAndPhotoPage.waitMe({color: '#525252'}).waitMe('show');
+            },
+            function (html) {
+                relatedStoryOnNewsAndPhotoPage.waitMe('hide').html(html);
+            }
+        );
+    }
 
     function goAjax(data, before, success) {
         $.ajax({

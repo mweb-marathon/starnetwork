@@ -9,7 +9,7 @@
 
 get_header('star_network'); ?>
 
-    <div id="primary" class="content-area">
+    <div id="primary" class="content-area news-photo-wrapper">
         <div class="post-social-button" id="post-social-button">
             <div class="post-social-button-wrapper">
                 <?php echo do_shortcode('[ssba]'); ?>
@@ -55,8 +55,6 @@ get_header('star_network'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
-
-
                 </div>
                 <div class="under-image-wrapper">
                     <ul class="date-time-info">
@@ -75,9 +73,12 @@ get_header('star_network'); ?>
                     <div class="extra-post-content">
                         <?php echo html_entity_decode(wpautop(get_the_content())); ?>
                     </div>
+
                 </div>
             <?php endwhile;
             ?>
         </div>
+
     </div>
+    <div class="row post-footer-block news-photo-related-list" data-post-id="<?php the_ID(); ?>"></div>
 <?php get_footer('star_network');

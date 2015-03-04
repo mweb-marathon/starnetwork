@@ -1065,4 +1065,41 @@ body.page-template-star_networking_homepage-php {
   .realperson-regen:hover {
     opacity: 1; }
 
+.post-footer-block {
+  padding: 25px; }
+  .post-footer-block .related-post-title {
+    font-family: "DINNextLTPro-Medium", serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    margin-bottom: 35px; }
+  .post-footer-block .related-post-wrapper {
+    margin-bottom: 30px;
+    height: 75px;
+    overflow: hidden; }
+    .post-footer-block .related-post-wrapper .related-post-thumbnail {
+      height: inherit;
+      overflow: hidden;
+      float: left; }
+      .post-footer-block .related-post-wrapper .related-post-thumbnail img {
+        width: 150px; }
+    .post-footer-block .related-post-wrapper .related-post-headline {
+      margin-left: 150px;
+      padding-left: 20px;
+      word-break: break-all; }
+      .post-footer-block .related-post-wrapper .related-post-headline a {
+        font-family: "DINNextLTPro-Medium", serif;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        color: #464646; }
+
+.parent-pageid-9 .star-main-content-wrapper #content {
+  width: 100%; }
+  .parent-pageid-9 .star-main-content-wrapper #content .star-network-content {
+    padding: 0;
+    background: none;
+    border: none; }
+
 /*# sourceMappingURL=star-network.css.map */
