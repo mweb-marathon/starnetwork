@@ -122,6 +122,8 @@ jQuery(document).ready(function ($) {
         $(this).parent().remove();
     });
 
+    $('.wp-admin .em-location-data-name th').text('Borough');
+    $('.wp-admin .em-location-data-town th').text('City');
 
 });
 
