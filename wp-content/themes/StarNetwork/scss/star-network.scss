@@ -9,7 +9,7 @@ body.page-template-star_networking_homepage-php {
     header {
       .logo-with-menu-wrapper {
         .logo {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -796,6 +796,9 @@ body.page-template-star_networking_homepage-php {
         background-position: right 20px center;
         @include fontCall("DINNextLTPro-Light", 21);
         -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: "";
+        padding-top: 15px;
         &.error {
           border: 1px solid red;
         }
