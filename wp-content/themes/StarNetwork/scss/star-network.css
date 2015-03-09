@@ -739,7 +739,10 @@ body.page-template-star_networking_homepage-php {
     font-size: 21px;
     font-weight: normal;
     font-style: normal;
-    -moz-appearance: none; }
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+    padding-top: 15px; }
     .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error {
       border: 1px solid red; }
   .form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title {
