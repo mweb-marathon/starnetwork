@@ -8,13 +8,13 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-local-config.php' ) ) {
 } else {
     // ** MySQL settings - You can get this info from your web host ** //
     /** The name of the database for WordPress */
-    define('DB_NAME', 'dev_qns_com');
+    define('DB_NAME', 'starnetwork');
 
     /** MySQL database username */
-    define('DB_USER', 'dev_qns_com');
+    define('DB_USER', 'starnetwork');
 
     /** MySQL database password */
-    define('DB_PASSWORD', 'srHRCE30lVeYKFTggcXo');
+    define('DB_PASSWORD', '5xepmUhzYh7vGbTW');
 
     /** MySQL hostname */
     define('DB_HOST', 'localhost');
@@ -29,12 +29,12 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-local-config.php' ) ) {
     /**
      * Defined WP_HOME address for saving time when deploy into new server
      */
-    define('WP_HOME','http://dev.qns.com/');
+    define('WP_HOME','http://dev.starnetwork.com/');
 
     /**
      * Defined WP_SITEURL address for saving time when deploy into new server
      */
-    define('WP_SITEURL','http://dev.qns.com/wp');
+    define('WP_SITEURL','http://dev.starnetwork.com/wp');
 }
 
 /** Database Charset to use in creating database tables. */
