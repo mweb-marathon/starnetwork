@@ -13,8 +13,9 @@ get_header('star_network'); ?>
 
         <div id="content" class="row site-content" role="main">
             <div id="right-sidebar" class="large-4 columns">
-                <?php schneps_get_left_category_menu(); ?>
-
+                <?php if (is_active_sidebar('left_sidebar')) : ?>
+                    <?php dynamic_sidebar('left_sidebar'); ?>
+                <?php endif; ?>
                 <div style="clear:both"></div>
             </div>
             <div class="large-8 columns">
