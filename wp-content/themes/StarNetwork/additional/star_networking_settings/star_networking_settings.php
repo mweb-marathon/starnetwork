@@ -73,6 +73,8 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-form-email');
         register_setting('star_networking-home-page-group', 'star-network-form-email-send-success');
         register_setting('star_networking-home-page-group', 'star-network-people-title-on-event-page');
+        register_setting('star_networking-home-page-group', 'star-network-footer-info-telephone-number');
+        register_setting('star_networking-home-page-group', 'star-network-footer-info-copyright-info');
     }
 
 
@@ -101,7 +103,8 @@ function schneps_get_event_by_date_array()
     return json_encode($data);
 }
 
-function schneps_get_people_for_event_array() {
+function schneps_get_people_for_event_array()
+{
     $data = array();
     $not_sticky = array(
         'post_type' => array('people'),
@@ -122,7 +125,8 @@ function schneps_get_people_for_event_array() {
     return json_encode($data);
 }
 
-function schneps_get_sponsor_for_event_array() {
+function schneps_get_sponsor_for_event_array()
+{
     $data = array();
     $not_sticky = array(
         'post_type' => array('sponsor'),
@@ -161,6 +165,8 @@ function star_networking_settings_page()
     $star_network_form_email = get_option('star-network-form-email');
     $star_network_form_email_send_success = get_option('star-network-form-email-send-success');
     $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
+    $star_network_footer_info_telephone_number = get_option('star-network-footer-info-telephone-number');
+    $star_network_footer_info_copyright_info = get_option('star-network-footer-info-copyright-info');
     ?>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -260,6 +266,26 @@ function star_networking_settings_page()
                             <input type="text" class="unique-visitors-number" id="unique-visitors-number"
                                    name="star-network-homepage-statistic-unique-visitors-number"
                                    value="<?php echo $star_network_homepage_statistic_unique_visitors_number; ?>"/>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h2>Star Network Footer Info</h2>
+                    <div class="star-network-footer-info">
+                        <div class="telephone-wrapper">
+                            <label for="telephone-number">
+                                Telephone:
+                            </label>
+                            <input type="text" class="telephone-number" id="telephone-number"
+                                   name="star-network-footer-info-telephone-number"
+                                   value="<?php echo $star_network_footer_info_telephone_number; ?>"/>
+                        </div>
+                        <div class="copyright-wrapper">
+                            <label for="copyright-info">
+                                Copyright:
+                            </label>
+                            <input type="text" class="copyright-info" id="copyright-info"
+                                   name="star-network-footer-info-copyright-info"
+                                   value="<?php echo $star_network_footer_info_copyright_info; ?>"/>
                         </div>
                     </div>
                 </div>

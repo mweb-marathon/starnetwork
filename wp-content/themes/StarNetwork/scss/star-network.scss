@@ -365,6 +365,13 @@ body.page-template-star_networking_homepage-php {
     }
     .footer-text {
       margin-left: 15px;
+      a {
+        color: $default-gray;
+        @include fontCall("DINNextLTPro-Medium", 16);
+        &:hover {
+          color: $default-red;
+        }
+      }
     }
   }
 }
@@ -411,6 +418,21 @@ body.page-template-star_networking_homepage-php {
         }
       }
     }
+    .copyright {
+      @include fontCall("DINNextLTPro-Light", 18);
+    }
+    .footer-social-icon {
+      @include headerAuthLink;
+      #menu-main-social-1 {
+        margin-left: 0;
+        li {
+          margin-left: 0;
+          margin-right: 5px;
+        }
+        display: inline-block;
+      }
+    }
+
   }
   .menu-star-network-menu-main-footer-left-container {
     li {
@@ -420,7 +442,7 @@ body.page-template-star_networking_homepage-php {
       &:after {
         content: "/";
         float: left;
-        margin-top: 3px;
+        margin-top: 0;
         padding: 0 10px;
         line-height: 25px;
         color: white;
@@ -530,7 +552,8 @@ body.page-template-star_networking_homepage-php {
           padding: 20px;
           text-align: center;
           background: $default-gray url("../img/header-bg-dark.png");
-          button {
+
+          button, a {
             border-radius: 10px;
             margin: 0 20px 0 0;
             @include fontCall("DINNextLTPro-Light", 24);
@@ -686,7 +709,7 @@ body.page-template-star_networking_homepage-php {
             border-top: 1px solid $default-light-gray;
             border-bottom: 1px solid $default-light-gray;
             padding: 20px;
-            button {
+            button, a {
               border-radius: 10px;
               margin: 0 20px 0 0;
               @include fontCall("DINNextLTPro-Light", 24);
@@ -917,11 +940,14 @@ body.page-template-star_networking_homepage-php {
 .extra-post-header {
   border: 1px solid #c2c2c2;
   border-bottom: none;
-  padding: 25px;
+  padding: 25px 0;
   position: relative;
   h1 {
     color: $default-red;
     @include fontCall("DINNextLTPro-Regular", 50);
+  }
+  .post-info-additional {
+    padding: 25px;
   }
 }
 
@@ -970,7 +996,7 @@ body.page-template-star_networking_homepage-php {
   float: left;
   position: relative;
   width: 50px;
-  margin-left: 30px;
+  margin-left: -50px;
 }
 
 .extra-post-gallery {

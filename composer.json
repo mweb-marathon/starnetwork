@@ -8,6 +8,7 @@
         "wpackagist-plugin/events-manager": "5.5.5",
         "wpackagist-plugin/wp-migrate-db": "0.6.1",
         "wpackagist-plugin/simple-share-buttons-adder": "5.5",
+        "wpackagist-plugin/taxonomy-terms-order": "1.4.1",
         "wpackagist-theme/twentyfourteen": "1.3"
     },
     "repositories": [

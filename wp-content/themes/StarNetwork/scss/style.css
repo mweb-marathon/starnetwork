@@ -927,6 +927,16 @@ header .primary-menu > li.current-events-item.has-dropdown.not-click:hover ul.dr
 .top-headline-story-list a {
   color: #000000; }
 
+.menu-main-footer-container-wrapper .telephone-number {
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal; }
+.menu-main-footer-container-wrapper .menu-main-footer-container {
+  float: left; }
+  .menu-main-footer-container-wrapper .menu-main-footer-container #menu-main-footer {
+    margin-top: 0; }
+
 .menu-main-footer-left-container li a,
 .menu-main-footer-container li a {
   float: left; }
@@ -934,12 +944,9 @@ header .primary-menu > li.current-events-item.has-dropdown.not-click:hover ul.dr
 .menu-main-footer-container li:after {
   content: "/";
   float: left;
-  margin-top: 3px;
+  margin-top: 0;
   padding: 0 10px;
   line-height: 25px; }
-.menu-main-footer-left-container li:last-child:after,
-.menu-main-footer-container li:last-child:after {
-  content: ""; }
 
 #right-sidebar ul {
   padding: 0;

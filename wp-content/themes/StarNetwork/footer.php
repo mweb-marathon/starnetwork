@@ -6,10 +6,26 @@
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/star-network-footer-logo.png" alt=""/>
             </div>
             <div class="large-8 columns">
+                <div class="menu-main-footer-container-wrapper">
+                    <?php
+                    echo schneps_get_footer_top_menu();
+
+                    ?>
+                    <div class="telephone-number"><?php echo get_option('star-network-footer-info-telephone-number'); ?></div>
+                </div>
+                <div class="clearfix"></div>
                 <?php
-                echo schneps_get_footer_top_menu();
                 echo schneps_get_star_network_footer_second_menu();
                 ?>
+                <div class="clearfix"></div>
+                <div class="footer-social-icon">
+                    <?php schneps_get_header_social_menu(); ?>
+                </div>
+                <div class="clearfix"></div>
+                <div class="copyright">
+                    <?php echo get_option('star-network-footer-info-copyright-info'); ?>
+                </div>
+
             </div>
         </div>
     </div>

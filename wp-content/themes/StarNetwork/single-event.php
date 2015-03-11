@@ -30,6 +30,7 @@ $event_time_start = $event_meta['_event_start_time'][0];
 $event_time_end = $event_meta['_event_end_time'][0];
 $event_type = !empty($event_meta['event_post_event_type']) ? $event_meta['event_post_event_type'][0] : '';
 $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
+$ticket_link = !empty($event_meta['event_post_ticket_link'][0]) ? $event_meta['event_post_ticket_link'][0] : false;
 
 $address = '';
 $map_link = '';
@@ -67,7 +68,9 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                         </div>
 
                         <div class="event-method">
-                            <button class="red">Get Tickets</button>
+                            <?php if ($ticket_link): ?>
+                                <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get Tickets</a>
+                            <?php endif; ?>
                             <button class="yellow">Sponsor / Exhibit</button>
                         </div>
 
@@ -102,7 +105,11 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                                     </div>
                                 </div>
                                 <div class="event-method-after-content">
-                                    <button class="red">Get Tickets</button>
+                                    <?php if ($ticket_link): ?>
+                                        <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get
+                                            Tickets</a>
+                                    <?php endif; ?>
+
                                     <button class="yellow">Sponsor / Exhibit</button>
                                 </div>
                                 <div class="event-map-wrapper">

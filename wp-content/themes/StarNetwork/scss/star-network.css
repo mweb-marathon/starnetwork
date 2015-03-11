@@ -368,6 +368,14 @@ body.page-template-star_networking_homepage-php {
       padding: 9px 15px 10px 15px; }
     .single-event-wrapper .footer .footer-text {
       margin-left: 15px; }
+      .single-event-wrapper .footer .footer-text a {
+        color: #464646;
+        font-family: "DINNextLTPro-Medium", serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal; }
+        .single-event-wrapper .footer .footer-text a:hover {
+          color: #d64949; }
 
 .star-network-homepage-content .single-event-wrapper:last-child {
   float: left; }
@@ -394,12 +402,57 @@ body.page-template-star_networking_homepage-php {
       font-size: 18px;
       font-weight: normal;
       font-style: normal; }
+  .footer-wrapper-star-network #footer .copyright {
+    font-family: "DINNextLTPro-Light", serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal; }
+  .footer-wrapper-star-network #footer .footer-social-icon ul {
+    margin: 5px; }
+    .footer-wrapper-star-network #footer .footer-social-icon ul li {
+      margin-left: 5px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li a {
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        box-sizing: border-box;
+        background: url("../img/header-soc-icon-menu.png"); }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.search a {
+        background-position: 0 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.search a:hover {
+          background-position: 0 -30px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.email a {
+        background-position: -25px 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.email a:hover {
+          background-position: -25px -30px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.facebook a {
+        background-position: -50px 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.facebook a:hover {
+          background-position: -50px -30px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.twitter a {
+        background-position: -75px 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.twitter a:hover {
+          background-position: -75px -30px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.instagram a {
+        background-position: -100px 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.instagram a:hover {
+          background-position: -100px -30px; }
+      .footer-wrapper-star-network #footer .footer-social-icon ul li.linkedin a {
+        background-position: -125px 0; }
+        .footer-wrapper-star-network #footer .footer-social-icon ul li.linkedin a:hover {
+          background-position: -125px -30px; }
+  .footer-wrapper-star-network #footer .footer-social-icon #menu-main-social-1 {
+    margin-left: 0;
+    display: inline-block; }
+    .footer-wrapper-star-network #footer .footer-social-icon #menu-main-social-1 li {
+      margin-left: 0;
+      margin-right: 5px; }
   .footer-wrapper-star-network .menu-star-network-menu-main-footer-left-container li a {
     float: left; }
   .footer-wrapper-star-network .menu-star-network-menu-main-footer-left-container li:after {
     content: "/";
     float: left;
-    margin-top: 3px;
+    margin-top: 0;
     padding: 0 10px;
     line-height: 25px;
     color: white; }
@@ -492,7 +545,7 @@ body.page-template-star_networking_homepage-php {
       padding: 20px;
       text-align: center;
       background: #464646 url("../img/header-bg-dark.png"); }
-      .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button {
+      .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button, .star-main-content-wrapper.single-event-page #content .star-network-content .event-method a {
         border-radius: 10px;
         margin: 0 20px 0 0;
         font-family: "DINNextLTPro-Light", serif;
@@ -502,9 +555,9 @@ body.page-template-star_networking_homepage-php {
         width: 210px;
         text-align: center;
         padding: 12px 0 10px; }
-        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.red {
+        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.red, .star-main-content-wrapper.single-event-page #content .star-network-content .event-method a.red {
           background: #d64949; }
-        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.yellow {
+        .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.yellow, .star-main-content-wrapper.single-event-page #content .star-network-content .event-method a.yellow {
           background: #deb437; }
     .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content {
       padding: 50px 190px;
@@ -627,7 +680,7 @@ body.page-template-star_networking_homepage-php {
         border-top: 1px solid #c2c2c2;
         border-bottom: 1px solid #c2c2c2;
         padding: 20px; }
-        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button {
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content a {
           border-radius: 10px;
           margin: 0 20px 0 0;
           font-family: "DINNextLTPro-Light", serif;
@@ -637,9 +690,9 @@ body.page-template-star_networking_homepage-php {
           width: 210px;
           text-align: center;
           padding: 12px 0 10px; }
-          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.red {
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.red, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content a.red {
             background: #d64949; }
-          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.yellow {
+          .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content button.yellow, .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-method-after-content a.yellow {
             background: #deb437; }
       .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-map-wrapper {
         display: inline-block;
@@ -844,7 +897,7 @@ body.page-template-star_networking_homepage-php {
 .extra-post-header {
   border: 1px solid #c2c2c2;
   border-bottom: none;
-  padding: 25px;
+  padding: 25px 0;
   position: relative; }
   .extra-post-header h1 {
     color: #d64949;
@@ -852,6 +905,8 @@ body.page-template-star_networking_homepage-php {
     font-size: 50px;
     font-weight: normal;
     font-style: normal; }
+  .extra-post-header .post-info-additional {
+    padding: 25px; }
 
 .under-image-wrapper {
   border: 1px solid #c2c2c2;
@@ -901,7 +956,7 @@ body.page-template-star_networking_homepage-php {
   float: left;
   position: relative;
   width: 50px;
-  margin-left: 30px; }
+  margin-left: -50px; }
 
 .extra-post-gallery {
   position: relative; }
