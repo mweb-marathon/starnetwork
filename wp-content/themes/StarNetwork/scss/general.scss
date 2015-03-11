@@ -47,6 +47,18 @@ header {
   }
 }
 
+.menu-main-footer-container-wrapper {
+  .telephone-number {
+    @include fontCall("DINNextLTPro-Light", 18);
+  }
+  .menu-main-footer-container {
+    float: left;
+    #menu-main-footer {
+      margin-top: 0;
+    }
+  }
+}
+
 .menu-main-footer-left-container,
 .menu-main-footer-container {
   li {
@@ -56,14 +68,14 @@ header {
     &:after {
       content: "/";
       float: left;
-      margin-top: 3px;
+      margin-top: 0;
       padding: 0 10px;
       line-height: 25px;
     }
   }
   li:last-child {
     &:after {
-      content: "";
+//      content: "";
     }
   }
 }

@@ -7,6 +7,7 @@ $post_meta = get_post_meta(get_the_ID());
 $post_type = get_post_type();
 $is_sponsored = !empty($post_meta['event_post_event_type'][0]) ? $post_meta['event_post_event_type'][0] : false;
 $start_event = $post_meta['_event_start_date'][0];
+$ticket_link = !empty($post_meta['event_post_ticket_link'][0]) ? $post_meta['event_post_ticket_link'][0] : false;
 
 $category = get_the_category();
 ?>
@@ -38,6 +39,6 @@ $category = get_the_category();
     </div>
     <div class="footer qns">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo-<?php echo $is_sponsored; ?>.png" alt=""/>
-        <span class="footer-text"> / Queens / Get Tickets</span>
+        <span class="footer-text"> / Queens <?php if($ticket_link):?>/ <a href="<?php echo $ticket_link; ?>" target="_blank">Get Tickets</a><?php endif; ?></span>
     </div>
 </div>

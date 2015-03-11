@@ -62,17 +62,64 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
                                 </div>
 
                                 <div class="fieldset">
-                                    Nominator Information
-                                </div>
-
-                                <div class="name-input-wrapper">
-                                    <label for="name"></label>
-
+                                    Nominator Information:
                                 </div>
 
                                 <div class="title-input-wrapper">
                                     <label for="title"></label>
                                     <input type="text" name="title" required="" aria-required="true" id="title"
+                                           placeholder="Title"
+                                           class="speak-title-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="company-input-wrapper">
+                                    <label for="company"></label>
+                                    <input type="text" name="company" required="" aria-required="true" id="company"
+                                           placeholder="Company"
+                                           class="speak-company-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="email-input-wrapper">
+                                    <label for="email"></label>
+                                    <input type="email" name="email" required="" aria-required="true" id="email"
+                                           placeholder="Email"
+                                           class="speak-email-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="phone-input-wrapper">
+                                    <label for="phone"></label>
+                                    <input type="text" name="phone" required="" aria-required="true" id="phone"
+                                           placeholder="Phone"
+                                           class="speak-phone-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="fieldset">
+                                    Nominee Information:
+                                </div>
+
+                                <div class="first-input-wrapper">
+                                    <label for="nominee-first"></label>
+                                    <input type="text" name="nominee-first" required="" aria-required="true" id="nominee-first"
+                                           placeholder="First Name"
+                                           class="speak-title-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="first-input-wrapper">
+                                    <label for="nominee-last"></label>
+                                    <input type="text" name="nominee-last" required="" aria-required="true" id="nominee-last"
+                                           placeholder="Last Name"
+                                           class="speak-title-input"
+                                           value=""/>
+                                </div>
+
+                                <div class="title-input-wrapper">
+                                    <label for="nominee-title"></label>
+                                    <input type="text" name="nominee-title" required="" aria-required="true" id="nominee-title"
                                            placeholder="Title"
                                            class="speak-title-input"
                                            value=""/>

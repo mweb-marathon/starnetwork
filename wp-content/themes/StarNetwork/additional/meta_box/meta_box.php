@@ -90,6 +90,11 @@ function additional_register_meta_boxes( $meta_boxes )
                 'type'             => 'image_advanced',
                 'max_file_uploads' => 1,
             ),
+            array(
+                'name'             => __( 'Ticket Link', 'rwmb' ),
+                'id'               => "{$event_prefix}ticket_link",
+                'type'             => 'text',
+            ),
         ),
     );
 

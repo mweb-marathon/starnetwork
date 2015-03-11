@@ -25,7 +25,7 @@ jQuery(document).ready(function ($) {
 
     $('.post-gallery').bjqs({
         animtype: 'slide',
-        width: 716,
+        width: 715,
         height: 574,
         responsive: true,
         showmarkers: false,
