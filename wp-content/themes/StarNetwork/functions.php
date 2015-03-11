@@ -36,7 +36,14 @@ function add_excerpts_to_pages()
 function _widgets_init()
 {
 
-    register_sidebar();
+    register_sidebar( array(
+        'name' => 'Left sidebar',
+        'id' => 'left_sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="rounded">',
+        'after_title' => '</h2>',
+    ) );
 }
 
 
