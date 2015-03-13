@@ -143,3 +143,6 @@
   cursor: move;
 }
 /* Gallery content block. End */
+.em-location-map-404 {
+  display: none !important;
+}
