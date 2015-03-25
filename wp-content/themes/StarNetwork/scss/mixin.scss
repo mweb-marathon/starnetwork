@@ -23,6 +23,24 @@ $default-gray: #464646;
 $default-light-gray: #c2c2c2;
 $image-path: '../img/';
 
+.middle-row {
+  max-width: 45.6rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.small-row {
+  max-width: 34.4rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 @mixin headerAuthLink() {
   $auth-icon-width: 25px;

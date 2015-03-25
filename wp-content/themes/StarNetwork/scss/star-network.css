@@ -1,3 +1,19 @@
+.middle-row {
+  max-width: 45.6rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.small-row {
+  max-width: 34.4rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0; }
+
 .relative {
   position: relative; }
 
@@ -481,29 +497,30 @@ body.page-template-star_networking_homepage-php {
         background-position: -18px -43px; }
 
 /* Star Network Additional Page. Start */
+.star-network-content-wrapper-bg {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #c2c2c2;
+  padding: 0 10px 90px; }
+
 .star-main-content-wrapper #content {
   margin-top: 0;
   padding-top: 40px; }
-  .star-main-content-wrapper #content .star-network-content {
-    background: rgba(213, 213, 213, 0.9);
-    padding: 50px 190px;
-    border: 1px solid #c2c2c2; }
-    .star-main-content-wrapper #content .star-network-content .star-network-additional-page-title {
-      font-family: "DINNextLTPro-Regular", serif;
-      font-size: 50px;
-      font-weight: normal;
-      font-style: normal;
-      color: #d64949;
-      text-align: center;
-      line-height: 45px;
-      margin-top: 10px; }
-    .star-main-content-wrapper #content .star-network-content .star-network-additional-page-sublime {
-      font-family: "DINNextLTPro-Regular", serif;
-      font-size: 30px;
-      font-weight: normal;
-      font-style: normal;
-      color: #464646;
-      text-align: center; }
+  .star-main-content-wrapper #content .star-network-content .star-network-additional-page-title {
+    font-family: "DINNextLTPro-Regular", serif;
+    font-size: 50px;
+    font-weight: normal;
+    font-style: normal;
+    color: #d64949;
+    text-align: center;
+    line-height: 45px;
+    margin-top: 50px; }
+  .star-main-content-wrapper #content .star-network-content .star-network-additional-page-sublime {
+    font-family: "DINNextLTPro-Regular", serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    color: #464646;
+    text-align: center; }
 .star-main-content-wrapper.single-event-page #content {
   padding-top: 195px; }
   .star-main-content-wrapper.single-event-page #content .star-network-content {
@@ -742,130 +759,128 @@ body.page-template-star_networking_homepage-php {
             line-height: 17px; }
 
 /* Star Network Additional Page. End */
-.form-wrapper {
-  padding: 0 95px; }
-  .form-wrapper #newsletter-form label.error, .form-wrapper #speak-form label.error, .form-wrapper #nominate-form label.error, .form-wrapper #sponsor-form label.error {
-    display: none !important; }
-  .form-wrapper #newsletter-form input[type="text"],
-  .form-wrapper #newsletter-form input[type="email"], .form-wrapper #speak-form input[type="text"],
-  .form-wrapper #speak-form input[type="email"], .form-wrapper #nominate-form input[type="text"],
-  .form-wrapper #nominate-form input[type="email"], .form-wrapper #sponsor-form input[type="text"],
-  .form-wrapper #sponsor-form input[type="email"] {
-    background: #f2f2f2;
-    border: 1px solid #e1e1e1;
+.form-wrapper #newsletter-form label.error, .form-wrapper #speak-form label.error, .form-wrapper #nominate-form label.error, .form-wrapper #sponsor-form label.error {
+  display: none !important; }
+.form-wrapper #newsletter-form input[type="text"],
+.form-wrapper #newsletter-form input[type="email"], .form-wrapper #speak-form input[type="text"],
+.form-wrapper #speak-form input[type="email"], .form-wrapper #nominate-form input[type="text"],
+.form-wrapper #nominate-form input[type="email"], .form-wrapper #sponsor-form input[type="text"],
+.form-wrapper #sponsor-form input[type="email"] {
+  background: #f2f2f2;
+  border: 1px solid #e1e1e1;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  height: 60px;
+  color: #707070;
+  border-radius: 10px;
+  margin: 0 0 1rem 0; }
+  .form-wrapper #newsletter-form input[type="text"].error,
+  .form-wrapper #newsletter-form input[type="email"].error, .form-wrapper #speak-form input[type="text"].error,
+  .form-wrapper #speak-form input[type="email"].error, .form-wrapper #nominate-form input[type="text"].error,
+  .form-wrapper #nominate-form input[type="email"].error, .form-wrapper #sponsor-form input[type="text"].error,
+  .form-wrapper #sponsor-form input[type="email"].error {
+    border: 1px solid red; }
+.form-wrapper #newsletter-form .fieldset, .form-wrapper #speak-form .fieldset, .form-wrapper #nominate-form .fieldset, .form-wrapper #sponsor-form .fieldset {
+  color: #707070;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal; }
+.form-wrapper #newsletter-form .select-list label, .form-wrapper #speak-form .select-list label, .form-wrapper #nominate-form .select-list label, .form-wrapper #sponsor-form .select-list label {
+  color: #707070;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal; }
+.form-wrapper #newsletter-form .select-list select, .form-wrapper #speak-form .select-list select, .form-wrapper #nominate-form .select-list select, .form-wrapper #sponsor-form .select-list select {
+  color: #707070;
+  border-radius: 10px;
+  height: 60px;
+  background-color: #f2f2f2;
+  background-image: url("../img/select-bg.jpg");
+  background-repeat: no-repeat;
+  border: 1px solid #e1e1e1;
+  background-position: right 20px center;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  padding-top: 15px; }
+  .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error {
+    border: 1px solid red; }
+.form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title {
+  font-family: "DINNextLTPro-Regular", serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  color: #464646;
+  margin-bottom: 20px;
+  margin-top: 25px; }
+.form-wrapper #newsletter-form .checkboxes > div, .form-wrapper #speak-form .checkboxes > div, .form-wrapper #nominate-form .checkboxes > div, .form-wrapper #sponsor-form .checkboxes > div {
+  margin-bottom: 10px; }
+.form-wrapper #newsletter-form .checkboxes label, .form-wrapper #speak-form .checkboxes label, .form-wrapper #nominate-form .checkboxes label, .form-wrapper #sponsor-form .checkboxes label {
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  color: #707070; }
+  .form-wrapper #newsletter-form .checkboxes label input, .form-wrapper #speak-form .checkboxes label input, .form-wrapper #nominate-form .checkboxes label input, .form-wrapper #sponsor-form .checkboxes label input {
+    display: none; }
+  .form-wrapper #newsletter-form .checkboxes label .custom.checkbox, .form-wrapper #speak-form .checkboxes label .custom.checkbox, .form-wrapper #nominate-form .checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .checkboxes label .custom.checkbox {
+    border: 1px solid #636363;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: white;
+    margin-bottom: -2px;
+    margin-right: 15px; }
+  .form-wrapper #newsletter-form .checkboxes label input:checked + span:before, .form-wrapper #speak-form .checkboxes label input:checked + span:before, .form-wrapper #nominate-form .checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .checkboxes label input:checked + span:before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: #d64949;
+    position: relative; }
+.form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit {
+  margin-top: 65px;
+  text-align: center; }
+  .form-wrapper #newsletter-form .submit input, .form-wrapper #speak-form .submit input, .form-wrapper #nominate-form .submit input, .form-wrapper #sponsor-form .submit input {
+    border: none;
     font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
+    font-size: 24px;
     font-weight: normal;
     font-style: normal;
-    height: 60px;
-    color: #707070;
+    text-transform: capitalize;
+    color: white;
+    background: #d64949;
+    padding: 22px 100px 20px;
     border-radius: 10px;
-    margin: 0 0 1rem 0; }
-    .form-wrapper #newsletter-form input[type="text"].error,
-    .form-wrapper #newsletter-form input[type="email"].error, .form-wrapper #speak-form input[type="text"].error,
-    .form-wrapper #speak-form input[type="email"].error, .form-wrapper #nominate-form input[type="text"].error,
-    .form-wrapper #nominate-form input[type="email"].error, .form-wrapper #sponsor-form input[type="text"].error,
-    .form-wrapper #sponsor-form input[type="email"].error {
-      border: 1px solid red; }
-  .form-wrapper #newsletter-form .fieldset, .form-wrapper #speak-form .fieldset, .form-wrapper #nominate-form .fieldset, .form-wrapper #sponsor-form .fieldset {
-    color: #707070;
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal; }
-  .form-wrapper #newsletter-form .select-list label, .form-wrapper #speak-form .select-list label, .form-wrapper #nominate-form .select-list label, .form-wrapper #sponsor-form .select-list label {
-    color: #707070;
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal; }
-  .form-wrapper #newsletter-form .select-list select, .form-wrapper #speak-form .select-list select, .form-wrapper #nominate-form .select-list select, .form-wrapper #sponsor-form .select-list select {
-    color: #707070;
-    border-radius: 10px;
-    height: 60px;
-    background-color: #f2f2f2;
-    background-image: url("../img/select-bg.jpg");
-    background-repeat: no-repeat;
-    border: 1px solid #e1e1e1;
-    background-position: right 20px center;
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal;
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: "";
-    padding-top: 15px; }
-    .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error {
-      border: 1px solid red; }
-  .form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title {
-    font-family: "DINNextLTPro-Regular", serif;
-    font-size: 18px;
-    font-weight: normal;
-    font-style: normal;
-    color: #464646;
-    margin-bottom: 20px;
-    margin-top: 25px; }
-  .form-wrapper #newsletter-form .checkboxes > div, .form-wrapper #speak-form .checkboxes > div, .form-wrapper #nominate-form .checkboxes > div, .form-wrapper #sponsor-form .checkboxes > div {
-    margin-bottom: 10px; }
-  .form-wrapper #newsletter-form .checkboxes label, .form-wrapper #speak-form .checkboxes label, .form-wrapper #nominate-form .checkboxes label, .form-wrapper #sponsor-form .checkboxes label {
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal;
-    color: #707070; }
-    .form-wrapper #newsletter-form .checkboxes label input, .form-wrapper #speak-form .checkboxes label input, .form-wrapper #nominate-form .checkboxes label input, .form-wrapper #sponsor-form .checkboxes label input {
-      display: none; }
-    .form-wrapper #newsletter-form .checkboxes label .custom.checkbox, .form-wrapper #speak-form .checkboxes label .custom.checkbox, .form-wrapper #nominate-form .checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .checkboxes label .custom.checkbox {
-      border: 1px solid #636363;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      background: white;
-      margin-bottom: -2px;
-      margin-right: 15px; }
-    .form-wrapper #newsletter-form .checkboxes label input:checked + span:before, .form-wrapper #speak-form .checkboxes label input:checked + span:before, .form-wrapper #nominate-form .checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .checkboxes label input:checked + span:before {
-      content: "";
-      display: block;
-      width: 18px;
-      height: 18px;
-      background: #d64949;
-      position: relative; }
-  .form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit {
-    margin-top: 65px;
-    text-align: center; }
-    .form-wrapper #newsletter-form .submit input, .form-wrapper #speak-form .submit input, .form-wrapper #nominate-form .submit input, .form-wrapper #sponsor-form .submit input {
-      border: none;
-      font-family: "DINNextLTPro-Light", serif;
-      font-size: 24px;
-      font-weight: normal;
-      font-style: normal;
-      text-transform: capitalize;
-      color: white;
-      background: #d64949;
-      padding: 22px 100px 20px;
-      border-radius: 10px;
-      cursor: pointer; }
-  .form-wrapper #newsletter-form .textarea label, .form-wrapper #speak-form .textarea label, .form-wrapper #nominate-form .textarea label, .form-wrapper #sponsor-form .textarea label {
-    color: #707070;
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal; }
-  .form-wrapper #newsletter-form .textarea textarea, .form-wrapper #speak-form .textarea textarea, .form-wrapper #nominate-form .textarea textarea, .form-wrapper #sponsor-form .textarea textarea {
-    background: #f2f2f2;
-    border: 1px solid #e1e1e1;
-    font-family: "DINNextLTPro-Light", serif;
-    font-size: 21px;
-    font-weight: normal;
-    font-style: normal;
-    padding: 30px 20px 28px 20px;
-    color: #707070;
-    border-radius: 10px;
-    height: 200px;
-    resize: none; }
-    .form-wrapper #newsletter-form .textarea textarea.error, .form-wrapper #speak-form .textarea textarea.error, .form-wrapper #nominate-form .textarea textarea.error, .form-wrapper #sponsor-form .textarea textarea.error {
-      border: 1px solid red; }
+    cursor: pointer; }
+.form-wrapper #newsletter-form .textarea label, .form-wrapper #speak-form .textarea label, .form-wrapper #nominate-form .textarea label, .form-wrapper #sponsor-form .textarea label {
+  color: #707070;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal; }
+.form-wrapper #newsletter-form .textarea textarea, .form-wrapper #speak-form .textarea textarea, .form-wrapper #nominate-form .textarea textarea, .form-wrapper #sponsor-form .textarea textarea {
+  background: #f2f2f2;
+  border: 1px solid #e1e1e1;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 30px 20px 28px 20px;
+  color: #707070;
+  border-radius: 10px;
+  height: 200px;
+  resize: none; }
+  .form-wrapper #newsletter-form .textarea textarea.error, .form-wrapper #speak-form .textarea textarea.error, .form-wrapper #nominate-form .textarea textarea.error, .form-wrapper #sponsor-form .textarea textarea.error {
+    border: 1px solid red; }
 
 .ajax-success {
   color: #676767;
@@ -1109,7 +1124,7 @@ body.page-template-star_networking_homepage-php {
   margin-right: 10px; }
 
 #defaultReal {
-  width: 363px; }
+  max-width: 363px; }
 
 .realperson-regen {
   font-size: 0;

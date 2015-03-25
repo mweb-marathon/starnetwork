@@ -285,9 +285,13 @@ function get_image_for_sponsor_people()
     $height = 180;
     $classtext = '';
     $titletext = get_the_title();
+    $thumb = false;
+    if(has_post_thumbnail(get_the_ID())) {
+        $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
+        $thumb = $thumbnail["thumb"];
+    }
 
-    $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
-    $thumb = $thumbnail["thumb"];
+
 
     ?>
 
@@ -566,7 +570,11 @@ function get_event_map_($event_id, $limit = 2)
                     streetViewControl: false,
                     zoomControl: false,
                     mapTypeControl: false,
-                    overviewMapControl: false
+                    overviewMapControl: false,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    scaleControl: false,
+                    draggable: false,
                 };
 
                 var iconBase = location.origin + '/wp-content/themes/StarNetwork/img/';

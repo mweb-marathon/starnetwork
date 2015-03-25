@@ -9080,7 +9080,7 @@ th.hide-for-touch {
   font-family: DINNextLTPro-Regular;
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/DINNextLTPro-Regular.otf");
+  src: url("../fonts/DINNextLTPro-Regular.otf") format('otf'), url("../fonts/DINNextLTPro-Regular.woff") format('woff');
 }
 @font-face {
   font-family: DINNextLTPro-Bold;
@@ -9092,7 +9092,7 @@ th.hide-for-touch {
   font-family: DINNextLTPro-Medium;
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/DINNextLTPro-Medium.otf");
+    src: url("../fonts/DINNextLTPro-Medium.otf") format('otf'), url("../fonts/DINNextLTPro-Medium.woff") format('woff');
 }
 @font-face {
     font-family: DINNextLTPro-UltraLight;
@@ -9104,7 +9104,7 @@ th.hide-for-touch {
     font-family: DINNextLTPro-Light;
     font-style: normal;
     font-weight: normal;
-    src: url("../fonts/DINNextLTPro-Light.otf");
+    src: url("../fonts/DINNextLTPro-Light.otf") format('otf'), url("../fonts/DINNextLTPro-Light.woff") format('woff');
 }
 @font-face {
     font-family: DINNextLTPro-Italic;

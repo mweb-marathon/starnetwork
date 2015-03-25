@@ -488,20 +488,23 @@ body.page-template-star_networking_homepage-php {
 }
 
 /* Star Network Additional Page. Start */
+.star-network-content-wrapper-bg {
+  background: rgba(255, 255, 255, .95);
+  border: 1px solid #c2c2c2;
+  padding: 0 10px 90px;
+}
 .star-main-content-wrapper {
   #content {
     margin-top: 0;
     padding-top: 40px;
     .star-network-content {
-      background: rgba(213, 213, 213, 0.9);
-      padding: 50px 190px;
-      border: 1px solid #c2c2c2;
+
       .star-network-additional-page-title {
         @include fontCall("DINNextLTPro-Regular", 50);
         color: $default-red;
         text-align: center;
         line-height: 45px;
-        margin-top: 10px;
+        margin-top: 50px;
       }
       .star-network-additional-page-sublime {
         @include fontCall("DINNextLTPro-Regular", 30);
@@ -778,7 +781,6 @@ body.page-template-star_networking_homepage-php {
 /* Star Network Additional Page. End */
 
 .form-wrapper {
-  padding: 0 95px;
   #newsletter-form, #speak-form, #nominate-form, #sponsor-form {
     label.error {
       display: none !important;
@@ -1186,7 +1188,7 @@ body.page-template-star_networking_homepage-php {
 }
 
 #defaultReal {
-  width: 363px;
+  max-width: 363px;
 }
 
 .realperson-regen {
