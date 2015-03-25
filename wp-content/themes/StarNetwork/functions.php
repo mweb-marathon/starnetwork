@@ -262,8 +262,11 @@ function get_image_for_spot()
     $classtext = '';
     $titletext = get_the_title();
 
-    $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
-    $thumb = $thumbnail["thumb"];
+    $thumb = false;
+    if(has_post_thumbnail(get_the_ID())) {
+        $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
+        $thumb = $thumbnail["thumb"];
+    }
 
     ?>
     <a href="<?php echo get_the_permalink(); ?>">
@@ -271,7 +274,7 @@ function get_image_for_spot()
             <?php print_thumbnail($thumb, true, $titletext, $width, $height, $classtext); ?>
         <?php else: ?>
             <div class="no-image">
-                No Image
+
             </div>
         <?php endif; ?>
     </a>
