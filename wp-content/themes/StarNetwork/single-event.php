@@ -75,48 +75,51 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                         </div>
 
                         <?php if (get_the_content() !== ''): ?>
-                            <div class="star-network-additional-page-content">
-                                <div class="excerpt">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                                <div class="content">
-                                    <?php the_content(); ?>
-                                </div>
-                            </div>
-                            <div class="star-network-additional-event-honoree">
-                                <div class="people-honoree-wrapper">
-                                    <div class="people-honoree-title">
-                                        <?php echo $star_network_people_title_on_event_page; ?>
+                            <div class="star-network-additional-page-content-wrapper">
+                                <div class="star-network-additional-page-content middle-row">
+                                    <div class="excerpt">
+                                        <?php the_excerpt(); ?>
                                     </div>
-                                    <div class="people-honoree-data">
+                                    <div class="content">
+                                        <?php the_content(); ?>
+                                    </div>
+                                </div>
+                                <div class="star-network-additional-event-honoree">
+                                    <div class="people-honoree-wrapper">
+                                        <div class="people-honoree-title">
+                                            <?php echo $star_network_people_title_on_event_page; ?>
+                                        </div>
+                                        <div class="people-honoree-data">
 
-                                        <?php if (!empty($additional_data['sponsor_people'])): ?>
-                                            <?php get_single_event_additional_people_data($additional_data['sponsor_people']); ?>
-                                        <?php endif; ?>
+                                            <?php if (!empty($additional_data['sponsor_people'])): ?>
+                                                <?php get_single_event_additional_people_data($additional_data['sponsor_people']); ?>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="star-network-additional-event-info">
-                                <div class="event-sponsor-wrapper">
-                                    <div class="event-sponsor-data">
-                                        <?php if (!empty($additional_data['sponsor_sponsor'])): ?>
-                                            <?php get_single_event_additional_sponsor_data($additional_data['sponsor_sponsor']); ?>
-                                        <?php endif; ?>
+                                <div class="star-network-additional-event-info middle-row">
+                                    <div class="event-sponsor-wrapper">
+                                        <div class="event-sponsor-data">
+                                            <?php if (!empty($additional_data['sponsor_sponsor'])): ?>
+                                                <?php get_single_event_additional_sponsor_data($additional_data['sponsor_sponsor']); ?>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="event-method-after-content">
-                                    <?php if ($ticket_link): ?>
-                                        <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get
-                                            Tickets</a>
-                                    <?php endif; ?>
+                                    <div class="event-method-after-content">
+                                        <?php if ($ticket_link): ?>
+                                            <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get
+                                                Tickets</a>
+                                        <?php endif; ?>
 
-                                    <button class="yellow">Sponsor / Exhibit</button>
-                                </div>
-                                <div class="event-map-wrapper">
-                                    <div class="event-map-title">Event Location</div>
-                                    <?php get_event_map_(get_the_ID()); ?>
+                                        <button class="yellow">Sponsor / Exhibit</button>
+                                    </div>
+                                    <div class="event-map-wrapper">
+                                        <div class="event-map-title">Event Location</div>
+                                        <?php get_event_map_(get_the_ID()); ?>
+                                    </div>
                                 </div>
                             </div>
+
                         <?php endif; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>

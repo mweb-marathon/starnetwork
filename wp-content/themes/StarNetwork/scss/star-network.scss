@@ -572,11 +572,17 @@ body.page-template-star_networking_homepage-php {
           }
         }
 
-        .star-network-additional-page-content {
-          padding: 50px 190px;
+        .star-network-additional-page-content-wrapper {
+          background: rgba(255,255,255, .95);
           border: 1px solid $default-light-gray;
+          padding: 50px 0;
           border-top: none;
-          border-bottom: none;
+        }
+
+        .star-network-additional-page-content {
+
+
+
           .excerpt {
             p {
               @include fontCall("DINNextLTPro-Light", 30);
@@ -670,9 +676,8 @@ body.page-template-star_networking_homepage-php {
         }
 
         .star-network-additional-event-info {
-          border: 1px solid $default-light-gray;
           border-top: none;
-          padding: 50px 190px;
+          padding: 50px 0;
           .event-sponsor-wrapper {
             .event-sponsor-title {
               @include fontCall("DINNextLTPro-Light", 36);

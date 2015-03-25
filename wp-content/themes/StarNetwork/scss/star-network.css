@@ -576,27 +576,27 @@ body.page-template-star_networking_homepage-php {
           background: #d64949; }
         .star-main-content-wrapper.single-event-page #content .star-network-content .event-method button.yellow, .star-main-content-wrapper.single-event-page #content .star-network-content .event-method a.yellow {
           background: #deb437; }
-    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content {
-      padding: 50px 190px;
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content-wrapper {
+      background: rgba(255, 255, 255, 0.95);
       border: 1px solid #c2c2c2;
-      border-top: none;
-      border-bottom: none; }
-      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .excerpt p {
-        font-family: "DINNextLTPro-Light", serif;
-        font-size: 30px;
-        font-weight: normal;
-        font-style: normal;
-        color: #464646;
-        line-height: 30px; }
-      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p {
-        font-family: "DINNextLTPro-Light", serif;
-        font-size: 18px;
-        font-weight: normal;
-        font-style: normal;
-        color: #464646;
-        line-height: 22px; }
-        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p a {
-          color: #d64949; }
+      padding: 50px 0;
+      border-top: none; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .excerpt p {
+      font-family: "DINNextLTPro-Light", serif;
+      font-size: 30px;
+      font-weight: normal;
+      font-style: normal;
+      color: #464646;
+      line-height: 30px; }
+    .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p {
+      font-family: "DINNextLTPro-Light", serif;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      color: #464646;
+      line-height: 22px; }
+      .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-content .content p a {
+        color: #d64949; }
     .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree {
       background: #f2f2f2; }
       .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-title {
@@ -668,9 +668,8 @@ body.page-template-star_networking_homepage-php {
                 font-style: normal;
                 text-transform: capitalize; }
     .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info {
-      border: 1px solid #c2c2c2;
       border-top: none;
-      padding: 50px 190px; }
+      padding: 50px 0; }
       .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-event-info .event-sponsor-wrapper .event-sponsor-title {
         font-family: "DINNextLTPro-Light", serif;
         font-size: 36px;
