@@ -3,6 +3,10 @@
 @import "post/post";
 @import "general";
 
+iframe, object, embed {
+  max-width: 100%;
+}
+
 form li span {
   margin: 0 .3em 0 0;
   padding: 0;

@@ -2705,6 +2705,9 @@ header .primary-menu > li.current-events-item.has-dropdown.not-click:hover ul.dr
       font-size: 23px;
       font-weight: normal;
       font-style: normal; } }
+iframe, object, embed {
+  max-width: 100%; }
+
 form li span {
   margin: 0 .3em 0 0;
   padding: 0;
