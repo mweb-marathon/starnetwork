@@ -19,7 +19,7 @@ $star_network_homepage_statistic_unique_visitors_number = get_option('star-netwo
 <?php get_header(); ?>
     <div class="row widecolumn star-network-home-pages">
         <div class="extra-post-gallery">
-            <ul class="bjqs">
+            <ul class="">
                 <?php foreach ($star_network_homepage_carousel_option['star_network_slider_images'] as $single_carousel_image):
                     $current_post = get_post($single_carousel_image['event_id']);
                     ?>

@@ -929,12 +929,26 @@ body[data-is-mobile="true"] .star-network-home-pages .page-header-site-statistic
     font-size: 35px; }
 body[data-is-mobile="true"] .extra-post-gallery .bjqs-controls {
   display: none; }
+body[data-is-mobile="true"] .bx-controls {
+  display: none; }
 body[data-is-mobile="true"] .top-bar.expanded {
   z-index: 1; }
 body[data-is-mobile="true"] .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li a {
   text-transform: uppercase; }
 body[data-is-mobile="true"] .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li > .dropdown {
   margin: 0; }
+body[data-is-mobile="true"] .star-network-home-pages .page-header .page-header-text-wrapper {
+  top: 20px; }
+  body[data-is-mobile="true"] .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .title a {
+    font-size: 13px;
+    line-height: 16px; }
+  body[data-is-mobile="true"] .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .text {
+    font-size: 10px; }
+body .extra-post-gallery ul {
+  margin: 0; }
+
+.extra-post-gallery ul {
+  list-style: none; }
 
 #content {
   margin-top: 60px; }
