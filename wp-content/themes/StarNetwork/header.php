@@ -29,7 +29,7 @@ if (!session_id()) {
     </style>
     <?php get_template_part('includes/header/js/js'); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-is-mobile="<?php echo wp_is_mobile() ? 'true' : 'false'?>">
 <?php get_template_part('includes/header/header', 'basic_star'); ?>
 <div class="clearfix"></div>
 <div class="wrapper">

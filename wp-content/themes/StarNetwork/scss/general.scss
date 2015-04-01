@@ -2,6 +2,47 @@ html {
   margin-top: 0 !important;
 }
 
+body {
+  &[data-is-mobile="true"] {
+    .star-network-home-pages {
+      .page-header-site-statistic {
+        ul {
+          li {
+            font-size: 15px;
+            text-align: center;
+            .number {
+              font-size: 35px;
+            }
+          }
+        }
+      }
+    }
+    .extra-post-gallery {
+      .bjqs-controls {
+        display: none;
+      }
+    }
+  }
+  .top-bar.expanded {
+    z-index: 1;
+  }
+
+  .header-wrapper-star-network-header {
+    .header-main-menu-wrapper {
+      #menu-star-network-menu {
+        > li {
+          a {
+            text-transform: uppercase;
+          }
+          > .dropdown {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 #content {
   margin-top: 60px;
   &.content {
