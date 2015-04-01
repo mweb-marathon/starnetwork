@@ -15,7 +15,7 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
 ?>
 
 <?php get_header('star_network'); ?>
-    <div class="star-main-content-wrapper" style="background: url('<?php echo $url; ?>') no-repeat; min-height: 600px;">
+    <div class="star-main-content-wrapper" style="background-position: center top;background: url('<?php echo $url; ?>') no-repeat; min-height: 600px;">
         <div id="content" class="row widecolumn extra-pages">
             <div class="star-network-content-wrapper-bg">
                 <div class="star-network-content middle-row">

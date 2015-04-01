@@ -922,6 +922,20 @@
 html {
   margin-top: 0 !important; }
 
+body[data-is-mobile="true"] .star-network-home-pages .page-header-site-statistic ul li {
+  font-size: 15px;
+  text-align: center; }
+  body[data-is-mobile="true"] .star-network-home-pages .page-header-site-statistic ul li .number {
+    font-size: 35px; }
+body[data-is-mobile="true"] .extra-post-gallery .bjqs-controls {
+  display: none; }
+body .top-bar.expanded {
+  z-index: 1; }
+body .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li a {
+  text-transform: uppercase; }
+body .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li > .dropdown {
+  margin: 0; }
+
 #content {
   margin-top: 60px; }
   #content.content {
