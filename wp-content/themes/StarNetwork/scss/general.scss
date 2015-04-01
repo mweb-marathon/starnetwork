@@ -22,25 +22,26 @@ body {
         display: none;
       }
     }
-  }
-  .top-bar.expanded {
-    z-index: 1;
-  }
+    .top-bar.expanded {
+      z-index: 1;
+    }
 
-  .header-wrapper-star-network-header {
-    .header-main-menu-wrapper {
-      #menu-star-network-menu {
-        > li {
-          a {
-            text-transform: uppercase;
-          }
-          > .dropdown {
-            margin: 0;
+    .header-wrapper-star-network-header {
+      .header-main-menu-wrapper {
+        #menu-star-network-menu {
+          > li {
+            a {
+              text-transform: uppercase;
+            }
+            > .dropdown {
+              margin: 0;
+            }
           }
         }
       }
     }
   }
+
 }
 
 #content {

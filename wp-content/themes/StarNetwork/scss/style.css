@@ -929,11 +929,11 @@ body[data-is-mobile="true"] .star-network-home-pages .page-header-site-statistic
     font-size: 35px; }
 body[data-is-mobile="true"] .extra-post-gallery .bjqs-controls {
   display: none; }
-body .top-bar.expanded {
+body[data-is-mobile="true"] .top-bar.expanded {
   z-index: 1; }
-body .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li a {
+body[data-is-mobile="true"] .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li a {
   text-transform: uppercase; }
-body .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li > .dropdown {
+body[data-is-mobile="true"] .header-wrapper-star-network-header .header-main-menu-wrapper #menu-star-network-menu > li > .dropdown {
   margin: 0; }
 
 #content {
