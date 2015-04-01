@@ -211,7 +211,7 @@ body.page-template-star_networking_homepage-php {
         margin-top: -3px; }
 
 .star-network-home-pages .page-header {
-  height: 460px;
+  max-height: 460px;
   position: relative;
   margin-bottom: 40px; }
   .star-network-home-pages .page-header .page-header-text-wrapper {
@@ -219,12 +219,12 @@ body.page-template-star_networking_homepage-php {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 20px; }
+    top: 40%; }
     .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text {
       padding: 0 20px;
       background: rgba(255, 255, 255, 0.9);
       border: 1px solid #c2c2c2;
-      width: 740px;
+      max-width: 740px;
       display: inline-block; }
       .star-network-home-pages .page-header .page-header-text-wrapper .page-header-text .title a {
         text-align: left;
@@ -269,6 +269,9 @@ body.page-template-star_networking_homepage-php {
         font-weight: normal;
         font-style: normal;
         vertical-align: middle; }
+
+.star-network-home-pages .bx-wrapper .bx-next {
+  right: -30px; }
 
 #waitMeSpot.waitMe_container {
   margin-top: 6px;

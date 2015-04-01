@@ -22,6 +22,10 @@ body {
         display: none;
       }
     }
+    .bx-controls {
+      display: none;
+    }
+    
     .top-bar.expanded {
       z-index: 1;
     }
@@ -40,8 +44,39 @@ body {
         }
       }
     }
+
+    .star-network-home-pages {
+      .page-header {
+        .page-header-text-wrapper {
+          top: 20px;
+          .page-header-text {
+            .title {
+              a {
+                font-size: 13px;
+                line-height: 16px;
+              }
+            }
+            .text {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
   }
 
+  .extra-post-gallery {
+    ul {
+      margin: 0;
+    }
+  }
+
+}
+
+.extra-post-gallery {
+  ul {
+    list-style: none;
+  }
 }
 
 #content {

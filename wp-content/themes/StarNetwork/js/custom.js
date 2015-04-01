@@ -9,19 +9,29 @@
 
 jQuery(document).ready(function ($) {
 
-    $('.extra-post-gallery').bjqs({
-        animtype: 'slide',
-        width: 1120,
-        height: 460,
-        responsive: true,
-        showmarkers: false,
-        nexttext: '',
-        prevtext: '',
-        showcontrols: 1,
-        automatic: 1,
-        centercontrols: false,
-        animspeed: 8000
-    });
+    if($('body[data-is-mobile="true"]').length > 0) {
+        $('.extra-post-gallery ul').bxSlider({
+            slideWidth: 750,
+            minSlides: 1,
+            maxSlides: 1,
+            infiniteLoop: false,
+            pager: false,
+            hideControlOnEnd: true,
+            auto: true
+        });
+    } else {
+        $('.extra-post-gallery ul').bxSlider({
+            slideWidth: 1120,
+            minSlides: 1,
+            maxSlides: 1,
+            infiniteLoop: true,
+            pager: false,
+            hideControlOnEnd: true,
+            auto: true
+        });
+    }
+
+
 
     $('.post-gallery').bjqs({
         animtype: 'slide',
