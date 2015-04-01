@@ -47,7 +47,7 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
 
 <?php get_header('star_network'); ?>
     <div class="star-main-content-wrapper single-event-page"
-         style="background: url('<?php echo $sponsored_image[0]; ?>') no-repeat; min-height: 600px;">
+         style="background: url('<?php echo $sponsored_image[0]; ?>') no-repeat center; min-height: 600px;">
         <div id="content" class="row widecolumn extra-pages">
             <div class="star-network-content">
                 <?php if (have_posts()) : ?>
