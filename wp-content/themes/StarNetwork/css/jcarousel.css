@@ -1,0 +1,97 @@
+.jcarousel-skin-tango {
+    display: inline-block;
+}
+
+.jcarousel-skin-tango .jcarousel-container {
+    font-family: 'arial';
+    font-size: 9pt;
+    width: 964px;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl {
+    direction: rtl;
+}
+
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    font-family: 'arial';
+    font-size: 9pt;
+    padding: 0px;
+    width: 720px;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.jcarousel-skin-tango .jcarousel-container-vertical {
+    width: 39px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip {
+    overflow: hidden;
+    float: left;
+}
+
+.jcarousel-skin-tango .jcarousel-clip-horizontal {
+    width: 680px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip-vertical {
+    width: 75px;
+}
+
+.jcarousel-skin-tango .jcarousel-item {
+    border-right: 1px dotted #ccc;
+    text-align: center;
+    width: 97px;
+    box-sizing: content-box;
+}
+
+.jcarousel-skin-tango .jcarousel-item::after,
+.jcarousel-skin-tango .jcarousel-item::before {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+
+.jcarousel-skin-tango .month {
+    border-right: 1px dotted #ccc;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #000000;
+}
+
+.jcarousel-skin-tango .month:hover {
+    border-right: 1px dotted #ccc;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-image: none;
+    color: #000000;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    margin-left: 0;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.jcarousel-skin-tango .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */

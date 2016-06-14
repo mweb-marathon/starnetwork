@@ -1,0 +1,11 @@
+span.sf-sub-indicator { padding-left: 2px; }
+#header { z-index: 5;  position: relative; }
+#content { z-index: 4; position: relative; }
+
+.thumbnail a:hover { cursor: pointer; }
+
+ul.nav ul li a { background:url("../images/dropdown-bullet.png") no-repeat scroll 0 5px transparent; }
+ul.nav ul li a:hover { background: url(../images/dropdown-bullet.png) no-repeat 0 -15px; }
+
+#all_tabs { margin-top:0px; }
+#search-form #searchsubmit { display: none; }
