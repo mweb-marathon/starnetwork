@@ -101,7 +101,7 @@ $required = apply_filters('em_required_html','<i>*</i>');
 				<input id="location-region" type="text" name="location_region" value="<?php echo esc_attr($EM_Location->location_region, ENT_QUOTES); ?>" />
 			</td>
 		</tr>
-		<tr class="em-location-data-country">
+        <tr style="display: none;" class="em-location-data-country">
 			<th><?php _e ( 'Country:', 'dbem' )?>&nbsp;</th>
 			<td>
 				<select id="location-country" name="location_country">
