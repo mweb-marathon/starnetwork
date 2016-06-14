@@ -33,7 +33,6 @@ $category = get_the_category();
     <div class="bg-color"></div>
     <div class="title">
         <a href="<?php the_permalink(); ?>">
-            <?php echo get_the_ID(); ?>
             <?php echo get_the_title(); ?>
         </a>
     </div>
