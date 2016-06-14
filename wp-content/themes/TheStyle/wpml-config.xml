@@ -1,0 +1,8 @@
+<wpml-config>
+	<admin-texts>
+		<key name="thestyle_date_format"/>
+		<key name="thestyle_seo_home_titletext"/>
+		<key name="thestyle_seo_home_descriptiontext"/>
+		<key name="thestyle_seo_home_keywordstext"/>
+	</admin-texts>
+</wpml-config>

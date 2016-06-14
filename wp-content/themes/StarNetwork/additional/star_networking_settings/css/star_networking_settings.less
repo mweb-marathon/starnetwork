@@ -1,0 +1,179 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+
+.general-settings .admin-menu-content {
+  margin-left: 270px;
+}
+
+.general-settings .admin-menu-content > div {
+  display: none;
+}
+
+.general-settings .admin-menu-content div:first-child {
+  display: block;
+}
+
+.general-settings .admin-menu {
+  width: 200px;
+  float: left;
+  min-height: 320px;
+  background: #ebebeb;
+  padding-top: 30px;
+  margin: 0px;
+  border-right: 1px solid #d6d6e5;
+  border-bottom: 1px solid #d6d6e5;
+  border-top-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.general-settings .admin-menu li a.selected {
+  background: url('../img/arrow.png') no-repeat;
+  color: white;
+}
+
+.general-settings .admin-menu li a.selected:hover {
+  color: white;
+}
+
+.general-settings .admin-menu li {
+  position: relative;
+  height: 40px;
+  margin-bottom: 0px;
+}
+
+.general-settings .admin-menu li a {
+  text-decoration: none;
+  outline: none;
+  color: #a4a4a4;
+  display: block;
+  width: 100%;
+  left: 0px;
+  top: -10px;
+  padding: 7px 20px 10px 15px;
+  position: absolute;
+}
+
+.general-settings .admin-menu li a:hover {
+  color: #808080;
+}
+
+.general-settings .admin-general-block {
+  min-height: 400px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #d6d6e5;
+}
+
+.general-settings .round-button:hover {
+  background: #c5c5c5;
+}
+
+.general-settings .round-button {
+  position: relative;
+  background: #b9b9b9;
+  color: white;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 5px 15px;
+  cursor: pointer;
+  float: left;
+}
+
+.general-settings .round-button.disabled,
+.general-settings .round-button.disabled:hover{
+  color: #a9a9a9;
+  background: #b9b9b9;
+}
+
+.general-settings #impressionism-save-settings-counter {
+  position: absolute;
+  right: 0px;
+  top: -10px;
+  background: #ff5f5f;
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 2px;
+
+}
+
+/* Gallery content block. Start */
+
+.image-parent-block {
+  background: white;
+}
+
+.image-parent-block input[type="text"],
+.image-parent-block textarea {
+  width: 400px;
+}
+
+.image-parent-block {
+  border: 1px solid #c7c7c7;
+  padding: 20px;
+  margin-bottom: 30px;
+  width: 650px;
+  position: relative;
+}
+
+.image-parent-block > div {
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+
+.image-parent-block > div > div.text {
+  width: 160px;
+  float: left;
+  font-weight: bolder;
+  min-height: 70px;
+  font-size: 14px;
+}
+
+.image-parent-block:hover .delete-button {
+  display: block;
+}
+
+.image-parent-block .delete-button {
+  display: none;
+  background: url("../img/close.png");
+  width: 24px;
+
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.image-parent-block .select-image-description {
+  padding: 10px 0px;
+  color: #d4d4d4;
+}
+
+.sortable-handler{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 22px;
+  height: 90%;
+  background: url("../img/row.png") repeat-y;
+  padding: 2px;
+}
+
+.sortable-handler:hover{
+  cursor: move;
+}
+
+/* Gallery content block. End */
+
+.em-location-map-404 {
+  display: none;
+}

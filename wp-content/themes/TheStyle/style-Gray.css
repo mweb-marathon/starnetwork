@@ -1,0 +1,29 @@
+#container { background: #d9d9d9 url(images/gray/container-bg.png) repeat-y; }
+	#container2 { background:  url(images/gray/container-bg-right.png) top right repeat-y;}
+			ul.nav ul li a { background: url(images/gray/dropdown-bullet.png) no-repeat 0px 2px; }
+			ul.nav ul li a:hover { background: url(images/gray/dropdown-bullet.png) no-repeat 0 -231px; }
+#footer { background: #b8b8b8 url(images/gray/footer-leftbg.png) repeat-y; }
+	#footer-wrapper { background: url(images/gray/footer-rightbg.png) repeat-y top right; }
+	#content-bottom-bg { border-bottom: 1px solid #d9d9d9;}
+	#footer h3.title {color:#9a1d0d;}
+		#footer .widget ul a { background: url(images/gray/footer-bullet.png) no-repeat 0 2px;}
+			input#searchinput { color: #555555; text-shadow: 1px 1px 1px #fff; }
+	ul.nav ul { background: #b7b7b7;}
+		ul.nav > li.sf-ul.sfHover > a { background: #b7b7b7;}
+		ul.nav a { color: #444343; text-shadow: 1px 1px 0px #fff; }
+		ul.nav a:hover, ul.nav > li.current-menu-item > a { color: #9a1d0d; }
+	p#copyright { color:#444343; text-shadow: 1px 1px 1px #e2dfdf; }
+		p#copyright a { color:#9a1d0d; }
+			#controllers span#left-arrow { background: url(images/gray/left-arrow.png) no-repeat; }
+			#controllers span#right-arrow { background: url(images/gray/right-arrow.png) no-repeat; }
+
+.entry { box-shadow: 3px 6px 7px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); }
+#sidebar .widget { box-shadow: 3px 6px 7px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); }
+#footer .widget, #footer .widget a { text-shadow: 1px 1px 0px #fff !important; color: #444343 !important; }
+#footer h3.title { text-shadow: 1px 1px 0px #fff; }
+
+.wp-pagenavi { text-shadow: 1px 1px 1px rgba(255,255,255,0.7); }
+	.wp-pagenavi span.current { color:#9a1d0d !important; }
+	.wp-pagenavi a, .wp-pagenavi a:link, .wp-pagenavi a:visited { color:#444343 !important; }
+
+.post, #comment-wrap { box-shadow: 3px 6px 7px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); }

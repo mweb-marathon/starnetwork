@@ -1,0 +1,13 @@
+#container { background: #52392d url(images/brown/container-bg.png) repeat-y; }
+	#container2 { background:  url(images/brown/container-bg-right.png) top right repeat-y;}
+			ul.nav ul li a { background: url(images/brown/dropdown-bullet.png) no-repeat 0px 2px; }
+			ul.nav ul li a:hover { background: url(images/brown/dropdown-bullet.png) no-repeat 0 -232px; }
+#footer { background: #483227 url(images/brown/footer-leftbg.png) repeat-y; }
+	#footer-wrapper { background: url(images/brown/footer-rightbg.png) repeat-y top right; }
+	#content-bottom-bg { background: url(images/brown/footer-top.png) repeat-x; border-bottom: 1px solid #635047;}
+		#footer .widget ul a { background: url(images/brown/footer-bullet.png) no-repeat 0 2px;}
+			input#searchinput { color: #86756a; text-shadow: 1px 1px 1px #120c0a; }
+	ul.nav ul { background: #483228;}
+		ul.nav > li.sf-ul.sfHover > a { background: #483228;}
+	p#copyright { color:#ffffff; text-shadow: 1px 1px 1px #39140c; }
+		p#copyright a { color:#dcc08e; }
