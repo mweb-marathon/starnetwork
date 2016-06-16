@@ -1,5 +1,4 @@
 <?php
-
 // ===================================================
 // Load database info and local development parameters
 // ===================================================
@@ -12,10 +11,10 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-local-config.php' ) ) {
     define('DB_NAME', 'starnetwork');
 
     /** MySQL database username */
-    define('DB_USER', 'root');
+    define('DB_USER', 'starnetwork');
 
     /** MySQL database password */
-    define('DB_PASSWORD', 'root');
+    define('DB_PASSWORD', '5xepmUhzYh7vGbTW');
 
     /** MySQL hostname */
     define('DB_HOST', 'localhost');
@@ -30,12 +29,12 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-local-config.php' ) ) {
     /**
      * Defined WP_HOME address for saving time when deploy into new server
      */
-    define('WP_HOME','http://starnetwork.loc/');
+    define('WP_HOME','http://dev.starnetwork.com/');
 
     /**
      * Defined WP_SITEURL address for saving time when deploy into new server
      */
-    define('WP_SITEURL','http://starnetwork.loc/wp');
+    define('WP_SITEURL','http://dev.starnetwork.com/wp');
 }
 
 /** Database Charset to use in creating database tables. */
@@ -100,4 +99,3 @@ if ( !defined( 'ABSPATH' ) )
     define( 'ABSPATH', dirname( __FILE__ ) . '/wp/' );
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
