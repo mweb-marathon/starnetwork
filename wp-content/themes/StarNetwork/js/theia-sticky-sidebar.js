@@ -210,7 +210,7 @@
 				if (position != 'static') {
 					if (o.options.updateSidebarHeight == true) {
 						o.sidebar.css({
-							'min-height': o.stickySidebar.outerHeight() + o.stickySidebar.offset().top - o.sidebar.offset().top + o.paddingBottom
+//							'min-height': o.stickySidebar.outerHeight() + o.stickySidebar.offset().top - o.sidebar.offset().top + o.paddingBottom
 						});
 					}
 				}

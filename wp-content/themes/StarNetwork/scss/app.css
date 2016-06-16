@@ -9513,3 +9513,8 @@ html, body {
     font-style: normal;
   }
 }
+
+
+.circle-img-box img{
+    border-radius: 90px;
+}

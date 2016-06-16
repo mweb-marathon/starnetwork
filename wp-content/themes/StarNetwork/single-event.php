@@ -49,6 +49,11 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
     <div class="star-main-content-wrapper single-event-page"
          style="background: url('<?php echo $sponsored_image[0]; ?>') no-repeat center top; min-height: 600px;">
         <div id="content" class="row widecolumn extra-pages">
+            <div class="post-social-button hide-for-small" id="post-social-button">
+                <div class="post-social-button-wrapper">
+                    <?php echo do_shortcode('[ssba]'); ?>
+                </div>
+            </div>
             <div class="star-network-content">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
@@ -114,8 +119,7 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                                         <button class="yellow">Sponsor / Exhibit</button>
                                     </div>
                                     <div class="event-map-wrapper">
-                                        <div class="event-map-title">Event Location</div>
-                                        <?php get_event_map_(get_the_ID()); ?>
+                                        <?php schneps_get_event_map_(get_the_ID()); ?>
                                     </div>
                                 </div>
                             </div>

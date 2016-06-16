@@ -537,6 +537,86 @@ function star_network_attend_event_category($child_of = 6)
 <?php
 }
 
+function schneps_get_event_map_($event_id, $limit = 2)
+{
+    global $wpdb;
+//    $results = $wpdb->get_results("SELECT * FROM `wp_em_locations` WHERE `post_id` = '" . ($event_id+1) . "' LIMIT 1", OBJECT);
+    $results = $wpdb->get_results("SELECT p.*, t.* FROM wp_em_events p RIGHT JOIN wp_em_locations t ON p.location_id = t.location_id WHERE p.post_id = '" . ($event_id) . "' LIMIT 1", OBJECT);
+
+    if (count($results) > 0) {
+//        echo '<pre>'.print_r( $results , 1).'</pre>';
+        $address = $results[0]->location_address;
+        $loc_name = $results[0]->location_name;
+        $map_link = $results[0]->location_latitude . ', ' . $results[0]->location_longitude;
+        $venue_name = get_post_meta($event_id, 'event_post_event_venue', true);
+        ?>
+
+        <div id="map_canvas" style="width: 100%; height:400px;"></div>
+<!--        <div class="event-map-info">
+            <div class="location-name">
+                <?php echo $results[0]->location_name; ?>
+            </div>
+            <div class="location-address">
+                <?php echo $results[0]->location_address; ?>
+            </div>
+        </div>-->
+
+
+        <script>
+            function initialize() {
+                var myLatlng = new google.maps.LatLng(<?php echo $map_link; ?>);
+                var address = "<?php echo $address; ?>";
+                var location_name = "<?php echo $loc_name;?>";
+                var venue_name = "<?php echo $venue_name; ?>";
+                var mapOptions = {
+                    zoom: 14,
+                    center: myLatlng,
+                    streetViewControl: false,
+                    zoomControl: false,
+                    mapTypeControl: false,
+                    overviewMapControl: false,
+                    draggable: false,
+                    disableDoubleClickZoom: true,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    scaleControl: false
+
+                };
+
+                var iconBase = location.origin + '/wp-content/themes/TheStyle-child/img/';
+
+                var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<p id="google-map-venue"><b>' + venue_name + '</b></p><p id="google-map-location">' + location_name + '</p><p id="google-map-address">' + address + '</p>'
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    icon: iconBase + 'schneps-map-marker.png'
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    if (infowindow) {
+                        infowindow.close();
+                    }
+                    window.open('http://maps.google.com/?q=<?php echo $map_link; ?>', '_blank');
+                });
+
+                google.maps.event.addListener(map, 'click', function (event) {
+
+                    window.open('http://maps.google.com/?q=<?php echo $map_link; ?>', '_blank');
+                });
+                infowindow.open(map, marker);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+    <?php
+    }
+}
+
 function get_event_map_($event_id, $limit = 2)
 {
     global $wpdb;
@@ -659,7 +739,7 @@ function get_single_event_additional_people_data($data)
                 }
                 ?>
                 <li>
-                    <div class="image">
+                    <div class="image circle-img-box">
                         <?php get_image_for_sponsor_people(); ?>
                         <div class="headshot">
                             <?php echo $people_role[$t[get_the_ID()]]; ?>

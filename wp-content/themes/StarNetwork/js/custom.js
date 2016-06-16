@@ -60,10 +60,9 @@ jQuery(document).ready(function ($) {
     }
 
     var post_social_button = $('#post-social-button');
-
     if (post_social_button.length > 0) {
         post_social_button.theiaStickySidebar({
-            additionalMarginTop: 90
+//            additionalMarginTop: 90
         });
     }
 
