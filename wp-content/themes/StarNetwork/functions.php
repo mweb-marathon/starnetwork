@@ -617,6 +617,12 @@ function schneps_get_event_map_($event_id, $limit = 2)
     }
 }
 
+function get_em_location_record($id) {
+    global $wpdb;
+    $results = $wpdb->get_results("SELECT * FROM `wp_em_locations` WHERE `location_id` = '" . ($id) . "' LIMIT 1", OBJECT);
+    return $results;
+}
+
 function get_event_map_($event_id, $limit = 2)
 {
     global $wpdb;
