@@ -880,7 +880,7 @@ function schneps_datetime_of_event($post_meta) {
     if (!empty($post_meta['_event_start_time'][0])) {
         $time[] = date('h:i a', strtotime($post_meta['_event_start_time'][0]));
     }
-    if (!empty(!empty($post_meta['_event_end_time'][0]))) {
+    if (!empty($post_meta['_event_end_time'][0])) {
         $time[] = date('h:i a', strtotime($post_meta['_event_end_time'][0]));
     }
 
