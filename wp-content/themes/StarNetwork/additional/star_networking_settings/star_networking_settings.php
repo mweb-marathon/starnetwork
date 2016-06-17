@@ -75,6 +75,8 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-people-title-on-event-page');
         register_setting('star_networking-home-page-group', 'star-network-footer-info-telephone-number');
         register_setting('star_networking-home-page-group', 'star-network-footer-info-copyright-info');
+        register_setting('star_networking-home-page-group', 'star-network-purchase-ticket-link');
+        register_setting('star_networking-home-page-group', 'star-network-purchase-ticket-link-id');
     }
 
 
@@ -167,6 +169,8 @@ function star_networking_settings_page()
     $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
     $star_network_footer_info_telephone_number = get_option('star-network-footer-info-telephone-number');
     $star_network_footer_info_copyright_info = get_option('star-network-footer-info-copyright-info');
+    $star_network_purchase_ticket_link = get_option('star-network-purchase-ticket-link');
+    $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket-link-id');
     ?>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -266,6 +270,22 @@ function star_networking_settings_page()
                             <input type="text" class="unique-visitors-number" id="unique-visitors-number"
                                    name="star-network-homepage-statistic-unique-visitors-number"
                                    value="<?php echo $star_network_homepage_statistic_unique_visitors_number; ?>"/>
+                        </div>
+                        <div class="unique-visitors-wrapper">
+                            <label for="unique-visitors-number">
+                                Purchase Ticket Url:
+                            </label>
+                            <input type="text" class="star-network-purchase-ticket-link" id="star-network-purchase-ticket-link"
+                                   name="star-network-purchase-ticket-link"
+                                   value="<?php echo $star_network_purchase_ticket_link; ?>"/>
+                        </div>
+                        <div class="unique-visitors-wrapper">
+                            <label for="unique-visitors-number">
+                                Purchase Ticket Link Id:
+                            </label>
+                            <input type="text" class="star-network-purchase-ticket-link-id" id="star-network-purchase-ticket-link-id"
+                                   name="star-network-purchase-ticket-link-id"
+                                   value="<?php echo $star_network_purchase_ticket_link_id; ?>"/>
                         </div>
                     </div>
                     <hr/>

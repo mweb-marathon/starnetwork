@@ -43,6 +43,9 @@ if ($sponsored_image !== '') {
 }
 $thumb_id = get_post_thumbnail_id();
 $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
+
+$star_network_purchase_ticket_link = get_option('star-network-purchase-ticket-link');
+$star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket-link-id');
 ?>
 
 <?php get_header('star_network'); ?>
@@ -76,7 +79,16 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                             <?php if ($ticket_link): ?>
                                 <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get Tickets</a>
                             <?php endif; ?>
-                            <button class="yellow">Sponsor / Exhibit</button>
+                                <ul class="event-btns-set">
+                                    <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
+                                    <li>
+                                        <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
+                                            <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
+                                            <button class="yellow">Purchase Ticket</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                                <div style="clear: both;"></div>
                         </div>
 
                         <?php if (get_the_content() !== ''): ?>
@@ -117,7 +129,16 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                                                 Tickets</a>
                                         <?php endif; ?>
 
-                                        <button class="yellow">Sponsor / Exhibit</button>
+                                        <ul class="event-btns-set event-btns-set-2">
+                                            <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
+                                            <li>
+                                                <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
+                                                    <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
+                                                    <button class="yellow">Purchase Ticket</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                        <div style="clear: both;"></div>
                                     </div>
                                     <div class="event-map-wrapper">
                                         <?php schneps_get_event_map_(get_the_ID()); ?>

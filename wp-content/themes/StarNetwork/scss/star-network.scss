@@ -34,6 +34,19 @@ body.page-template-star_networking_homepage-php {
   }
 }
 
+.event-btns-set{
+    left: 27%;
+    position: relative;
+    list-style-type: none;
+    li{
+        float: left;
+    }
+}
+
+.event-btns-set-2{
+    left: 13%;
+}
+
 .star-network-attend-pages {
   h1 {
     color: $default-red;
