@@ -80,10 +80,11 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
                         </div>
 
                         <?php if (get_the_content() !== ''): ?>
+                            <?php $post_meta = get_post_meta(get_the_ID()); ?>
                             <div class="star-network-additional-page-content-wrapper">
                                 <div class="star-network-additional-page-content middle-row">
                                     <div class="excerpt">
-                                        <?php the_excerpt(); ?>
+                                        <?php echo schneps_datetime_of_event($post_meta) ?>
                                     </div>
                                     <div class="content">
                                         <?php the_content(); ?>

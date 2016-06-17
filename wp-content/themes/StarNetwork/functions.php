@@ -865,5 +865,32 @@ function wp_schneps_get_related_stories_story_page_()
     exit;
 }
 
+function schneps_datetime_of_event($post_meta) {
+    $date = array();
+    $time = array();
+
+    $result = '';
+    if(!empty($post_meta['_event_start_date'][0])) {
+        $date[] = date('m/d/Y', strtotime($post_meta['_event_start_date'][0]));
+    };
+    if (!empty($post_meta['_event_end_date'][0])) {
+        $date[] = date('m/d/Y', strtotime($post_meta['_event_end_date'][0]));
+    }
+
+    if (!empty($post_meta['_event_start_time'][0])) {
+        $time[] = date('h:i a', strtotime($post_meta['_event_start_time'][0]));
+    }
+    if (!empty(!empty($post_meta['_event_end_time'][0]))) {
+        $time[] = date('h:i a', strtotime($post_meta['_event_end_time'][0]));
+    }
+
+    $result .= implode(' - ', $date);
+    if (count($time)) {
+        $result .= ' @ '.implode(' - ', $time);
+    }
+
+    return $result;
+}
+
 add_action('wp_ajax_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');
 add_action('wp_ajax_nopriv_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');
