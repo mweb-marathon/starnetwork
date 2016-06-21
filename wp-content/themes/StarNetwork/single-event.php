@@ -80,13 +80,13 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
                                 <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get Tickets</a>
                             <?php endif; ?>
                                 <ul class="event-btns-set">
-                                    <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
                                     <li>
                                         <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
                                             <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
-                                            <button class="yellow">Purchase Ticket</button>
+                                            <button class="red">Purchase Ticket</button>
                                         </form>
                                     </li>
+                                    <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
                                 </ul>
                                 <div style="clear: both;"></div>
                         </div>
@@ -130,13 +130,13 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
                                         <?php endif; ?>
 
                                         <ul class="event-btns-set event-btns-set-2">
-                                            <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
                                             <li>
                                                 <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
                                                     <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
-                                                    <button class="yellow">Purchase Ticket</button>
+                                                    <button class="red">Purchase Ticket</button>
                                                 </form>
                                             </li>
+                                            <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
                                         </ul>
                                         <div style="clear: both;"></div>
                                     </div>
