@@ -215,12 +215,12 @@ class EM_Event_Post_Admin{
 		if( defined('WP_DEBUG') && WP_DEBUG ){
 			add_meta_box('em-event-meta', 'Event Meta (debugging only)', array('EM_Event_Post_Admin','meta_box_metadump'),EM_POST_TYPE_EVENT, 'normal','high');
 		}
-		if(get_option('dbem_rsvp_enabled', true)){
-			add_meta_box('em-event-bookings', __('Bookings/Registration','dbem'), array('EM_Event_Post_Admin','meta_box_bookings'),EM_POST_TYPE_EVENT, 'normal','high');
-			if( !empty($EM_Event->event_id) && $EM_Event->event_rsvp ){
-				add_meta_box('em-event-bookings-stats', __('Bookings Stats','dbem'), array('EM_Event_Post_Admin','meta_box_bookings_stats'),EM_POST_TYPE_EVENT, 'side','core');
-			}
-		}
+//		if(get_option('dbem_rsvp_enabled', true)){
+//			add_meta_box('em-event-bookings', __('Bookings/Registration','dbem'), array('EM_Event_Post_Admin','meta_box_bookings'),EM_POST_TYPE_EVENT, 'normal','high');
+//			if( !empty($EM_Event->event_id) && $EM_Event->event_rsvp ){
+//				add_meta_box('em-event-bookings-stats', __('Bookings Stats','dbem'), array('EM_Event_Post_Admin','meta_box_bookings_stats'),EM_POST_TYPE_EVENT, 'side','core');
+//			}
+//		}
 		if( get_option('dbem_attributes_enabled', true) ){
 			add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
 		}
