@@ -66,15 +66,15 @@ $star_network_homepage_statistic_unique_visitors_number = get_option('star-netwo
     <div class="width100 star-network-homepage-content-wrapper">
         <div id="waitMe"></div>
         <div id="content" data-start-event-spots="1" class="row">
-            <div class="arrow left hide">
+<!--            <div class="arrow left hide">
                 <a href="#" class="prev"></a>
-            </div>
+            </div>-->
             <div class="star-network-homepage-content">
                 <?php schneps_get_event_by_date('star_network'); ?>
             </div>
-            <div class="arrow right">
+<!--            <div class="arrow right">
                 <a href="#" class="next"></a>
-            </div>
+            </div>-->
         </div>
 
 

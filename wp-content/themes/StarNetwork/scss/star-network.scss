@@ -276,8 +276,8 @@ body.page-template-star_networking_homepage-php {
 
 .star-network-homepage-content-wrapper {
   background: #f2f2f2;
-  height: 680px;
-  overflow: hidden;
+/*  height: 680px;
+  overflow: hidden;*/
   .waitMe_container {
     height: inherit;
   }
@@ -285,7 +285,7 @@ body.page-template-star_networking_homepage-php {
     position: relative;
     margin: 40px auto;
     padding: 20px 0;
-    height: inherit;
+    /*height: inherit;*/
   }
 }
 
@@ -413,7 +413,7 @@ body.page-template-star_networking_homepage-php {
 
     margin-top: 60px;
     .star-network-homepage-content {
-      height: 640px;
+      /*height: 640px;*/
       display: inline-block;
       width: 100%;
     }
