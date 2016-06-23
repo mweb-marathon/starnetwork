@@ -285,7 +285,7 @@ function get_image_for_sponsor_people()
 {
     $thumb = '';
     $width = 360;
-    $height = 180;
+//    $height = 180;
     $classtext = '';
     $titletext = get_the_title();
     $thumb = false;
@@ -293,8 +293,6 @@ function get_image_for_sponsor_people()
         $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext);
         $thumb = $thumbnail["thumb"];
     }
-
-
 
     ?>
 
@@ -745,8 +743,10 @@ function get_single_event_additional_people_data($data)
                 }
                 ?>
                 <li>
-                    <div class="image circle-img-box">
-                        <?php get_image_for_sponsor_people(); ?>
+                    <div class="image">
+                        <div class="circle-img-box">
+                            <?php get_image_for_sponsor_people(); ?>
+                        </div>
                         <div class="headshot">
                             <?php echo $people_role[$t[get_the_ID()]]; ?>
                         </div>

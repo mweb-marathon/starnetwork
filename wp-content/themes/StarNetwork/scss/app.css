@@ -9514,7 +9514,9 @@ html, body {
   }
 }
 
-
-.circle-img-box img{
+.circle-img-box{
     border-radius: 90px;
+    display: block;
+    height: 170px;
+    overflow: hidden;
 }
