@@ -1,0 +1,1 @@
+ALTER TABLE `wp_em_events` ADD COLUMN `event_venue_name` VARCHAR(255) NULL; 
