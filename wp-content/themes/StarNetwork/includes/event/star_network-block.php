@@ -5,13 +5,8 @@
  */
 $post_meta = get_post_meta(get_the_ID());
 
-$em_location_name = '';
-if (!empty($post_meta['_location_id'][0])) {
-    $em_location_record = get_em_location_record($post_meta['_location_id'][0]);
-    if (!empty($em_location_record[0]->location_name)) {
-        $em_location_name = $em_location_record[0]->location_name;
-    }
-}
+
+$em_location_name = empty($post_meta['_event_id'][0]) ? '' : EM_Events::getEventVenueNameByEventId($post_meta['_event_id'][0]);
 
 $post_type = get_post_type();
 $is_sponsored = !empty($post_meta['event_post_event_type'][0]) ? $post_meta['event_post_event_type'][0] : false;
@@ -47,6 +42,6 @@ $category = get_the_category();
     </div>
     <div class="footer qns">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo-<?php echo $is_sponsored; ?>.png" alt=""/>
-        <span class="footer-text"> / <?php echo $em_location_name; ?>  <?php if($ticket_link):?>/ <a href="<?php echo $ticket_link; ?>" target="_blank">Get Tickets</a><?php endif; ?></span>
+        <span class="footer-text"> <?php echo !empty($em_location_name) ? '/ '. $em_location_name : ''; ?>  <?php if($ticket_link):?>/ <a href="<?php echo $ticket_link; ?>" target="_blank">Get Tickets</a><?php endif; ?></span>
     </div>
 </div>

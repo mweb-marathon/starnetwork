@@ -101,6 +101,12 @@ $required = apply_filters('em_required_html','<i>*</i>');
 				<input id="location-region" type="text" name="location_region" value="<?php echo esc_attr($EM_Location->location_region, ENT_QUOTES); ?>" />
 			</td>
 		</tr>
+		<tr class="em-location-data-region">
+			<th><?php _e ( 'Venue Name:', '' )?>&nbsp;</th>
+			<td>
+				<input id="location-venue-name" type="text" name="event_venue_name" value="<?php echo esc_attr(EM_Events::getEventVenueNameByEventId($EM_Event->event_id), ENT_QUOTES); ?>" />
+			</td>
+		</tr>
         <tr style="display: none;" class="em-location-data-country">
 			<th><?php _e ( 'Country:', 'dbem' )?>&nbsp;</th>
 			<td>

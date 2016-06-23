@@ -62,6 +62,7 @@ class EM_Event extends EM_Object{
 	var $event_date_modified;
 	var $blog_id;
 	var $group_id;	
+    var $event_venue_name;
 	/**
 	 * Populated with the non-hidden event post custom fields (i.e. not starting with _) 
 	 * @var array
@@ -116,6 +117,7 @@ class EM_Event extends EM_Object{
 		'recurrence_byday' => array( 'name'=>'byday', 'type'=>'%s', 'null'=>true ), //if weekly or monthly, what days of the week?
 		'recurrence_byweekno' => array( 'name'=>'byweekno', 'type'=>'%d', 'null'=>true ), //if monthly which week (-1 is last)
 		'recurrence_rsvp_days' => array( 'name'=>'recurrence_rsvp_days', 'type'=>'%d', 'null'=>true ), //days before or after start date to generat bookings cut-off date
+        'event_venue_name' => array('name' => 'event_venue_name', 'type' => '%s', 'null' => true)
 	);
 	var $post_fields = array('event_slug','event_owner','event_name','event_attributes','post_id','post_content'); //fields that won't be taken from the em_events table anymore
 	var $recurrence_fields = array('recurrence_interval', 'recurrence_freq', 'recurrence_days', 'recurrence_byday', 'recurrence_byweekno');
@@ -218,7 +220,7 @@ class EM_Event extends EM_Object{
 	var $comment_count;
 	var $ancestors;
 	var $filter;
-	
+    	
 	/**
 	 * Initialize an event. You can provide event data in an associative array (using database table field names), an id number, or false (default) to create empty event.
 	 * @param mixed $event_data
@@ -752,6 +754,7 @@ class EM_Event extends EM_Object{
 			unset($event_array['event_id']);
 			//decide whether or not event is private at this point
 			$event_array['event_private'] = ( $this->post_status == 'private' ) ? 1:0;
+			$event_array['event_venue_name'] = $_POST['event_venue_name'];
 			//save event_attributes just in case
 			$event_array['event_attributes'] = serialize($this->event_attributes);
 			//check if event truly exists, meaning the event_id is actually a valid event id
@@ -1976,7 +1979,7 @@ class EM_Event extends EM_Object{
 	 * @return boolean
 	 */
 	function save_events() {
-		global $wpdb;
+		global $wpdb;        
 		$event_ids = $post_ids = array();
 		if( $this->can_manage('edit_events','edit_others_events') && $this->is_published() ){
 			do_action('em_event_save_events_pre', $this); //actions/filters only run if event is recurring
