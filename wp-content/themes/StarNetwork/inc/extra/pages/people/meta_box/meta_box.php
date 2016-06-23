@@ -65,7 +65,13 @@ function schneps_people_register_meta_boxes( $meta_boxes )
                 'id'    => "{$prefix}company_or_organization",
                 'type'  => 'text'
             ),
-
+            array(
+                // Field name - Will be used as label
+                'name'  => __( 'Title', 'rwmb' ),
+                // Field ID, i.e. the meta key
+                'id'    => "{$prefix}title",
+                'type'  => 'text'
+            ),
             array(
                 // Field name - Will be used as label
                 'name'  => __( 'Link', 'rwmb' ),
@@ -73,7 +79,6 @@ function schneps_people_register_meta_boxes( $meta_boxes )
                 'id'    => "{$prefix}link",
                 'type'  => 'text'
             ),
-
             array(
                 // Field name - Will be used as label
                 'name'  => __( 'Company Link', 'rwmb' ),

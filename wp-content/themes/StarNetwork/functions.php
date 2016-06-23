@@ -741,11 +741,17 @@ function get_single_event_additional_people_data($data)
                 if (!empty($post_meta['schneps_people_company_link'][0])) {
                     $company = '<a href="' . $post_meta['schneps_people_company_link'][0] . '">' . $company . '</a>';
                 }
+                $title = '';
+                if (!empty($post_meta['schneps_people_title'][0])) {
+                    $title = $post_meta['schneps_people_title'][0];
+                }
                 ?>
                 <li>
                     <div class="image">
                         <div class="circle-img-box">
-                            <?php get_image_for_sponsor_people(); ?>
+                            <?php echo !empty($post_meta['schneps_people_link'][0]) ? '<a href="'.$post_meta['schneps_people_link'][0].'">' : ''?>
+                                <?php get_image_for_sponsor_people(); ?>
+                            <?php echo !empty($post_meta['schneps_people_link'][0]) ? '</a>' : '' ?>
                         </div>
                         <div class="headshot">
                             <?php echo $people_role[$t[get_the_ID()]]; ?>
@@ -753,6 +759,9 @@ function get_single_event_additional_people_data($data)
                     </div>
                     <div class="name">
                         <?php echo $name; ?>
+                    </div>
+                    <div>
+                        <?php echo $title; ?>
                     </div>
                     <div class="company">
                         <?php echo $company; ?>
