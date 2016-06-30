@@ -83,7 +83,7 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
                                     <li>
                                         <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
                                             <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
-                                            <button class="red">Purchase Ticket</button>
+                                            <button class="red purch-ticket">Purchase Ticket And Ads</button>
                                         </form>
                                     </li>
                                     <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
@@ -133,7 +133,7 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
                                             <li>
                                                 <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
                                                     <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
-                                                    <button class="red">Purchase Ticket</button>
+                                                    <button class="red purch-ticket">Purchase Ticket And Ads</button>
                                                 </form>
                                             </li>
                                             <li><a href="/sponsor/" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>

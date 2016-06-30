@@ -101,6 +101,9 @@ body.page-template-star_networking_homepage-php {
 .event-btns-set-2 {
   left: 13%; }
 
+.purch-ticket {
+  width: 282px !important; }
+
 .star-network-attend-pages h1 {
   color: #d64949;
   font-family: "DINNextLTPro-Regular", serif;
