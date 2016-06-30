@@ -684,7 +684,23 @@ jQuery(document).ready( function($){
 			jQuery('#em-location-search-tip').hide();
 		}
 	}
-	
+
+    jQuery('#publish').on('click', function(){
+        var is_valid = true;
+        $('.purchase-ticket-msg').remove();
+        $('#purchase-ticket-url, #purchase-ticket-link-id').each(function(){
+            if ($(this).val() == '') {
+                is_valid = false;
+                $(this).css({'border':'1px solid red'});
+                $('<div>').css({'color':'red'}).attr({'class': 'purchase-ticket-msg'}).text('Please, add information').insertAfter($(this).next('i'));
+                $(this).focus();
+            } else {
+                $(this).css({'border':'1px solid #D9DDDE'});
+                $(this).next('i').next('.purchase-ticket-msg').remove();
+            }
+        });
+        return is_valid;
+    });
 });
 
 function em_load_jquery_css(){

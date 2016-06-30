@@ -221,6 +221,8 @@ class EM_Event_Post_Admin{
 //				add_meta_box('em-event-bookings-stats', __('Bookings Stats','dbem'), array('EM_Event_Post_Admin','meta_box_bookings_stats'),EM_POST_TYPE_EVENT, 'side','core');
 //			}
 //		}
+        add_meta_box('em-event-purchase-ticket', __('Purchase Ticket Settings','dbem'), array('EM_Event_Post_Admin','meta_box_purchase_ticket'),EM_POST_TYPE_EVENT, 'normal','high');
+
 		if( get_option('dbem_attributes_enabled', true) ){
 			add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
 		}
@@ -256,6 +258,10 @@ class EM_Event_Post_Admin{
 	public static function meta_box_bookings(){
 		em_locate_template('forms/event/bookings.php', true);
 		add_action('admin_footer',array('EM_Event_Post_Admin','meta_box_bookings_overlay'));
+	}
+
+	public static function meta_box_purchase_ticket(){
+		em_locate_template('forms/event/purchase-ticket.php', true);
 	}
 	
 	public static function meta_box_bookings_overlay(){

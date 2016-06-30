@@ -44,8 +44,8 @@ if ($sponsored_image !== '') {
 $thumb_id = get_post_thumbnail_id();
 $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
 
-$star_network_purchase_ticket_link = get_option('star-network-purchase-ticket-link');
-$star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket-link-id');
+$star_network_purchase_ticket_url = empty($event_meta['_event_id'][0]) ? '' : EM_Events::getFieldValueByEventId($event_meta['_event_id'][0], 'purchase_ticket_url');
+$star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' : EM_Events::getFieldValueByEventId($event_meta['_event_id'][0], 'purchase_ticket_link_id');
 ?>
 
 <?php get_header('star_network'); ?>
@@ -81,7 +81,7 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
                             <?php endif; ?>
                                 <ul class="event-btns-set">
                                     <li>
-                                        <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
+                                        <form action="<?php echo $star_network_purchase_ticket_url; ?>" method="post" name="PrePage">
                                             <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
                                             <button class="red purch-ticket">Purchase Ticket And Ads</button>
                                         </form>
@@ -131,7 +131,7 @@ $star_network_purchase_ticket_link_id = get_option('star-network-purchase-ticket
 
                                         <ul class="event-btns-set event-btns-set-2">
                                             <li>
-                                                <form action="<?php echo $star_network_purchase_ticket_link; ?>" method="post" name="PrePage">
+                                                <form action="<?php echo $star_network_purchase_ticket_url; ?>" method="post" name="PrePage">
                                                     <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
                                                     <button class="red purch-ticket">Purchase Ticket And Ads</button>
                                                 </form>
