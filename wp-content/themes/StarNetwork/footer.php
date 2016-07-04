@@ -284,8 +284,6 @@ jQuery(document).ready(function ($) {
     var star_network_upcoming_event_page_wrapper = $('.upcoming-event-page-wrapper');
 
     if (star_network_upcoming_event_page_wrapper.length > 0) {
-        
-        
 
 //        var total_event_records = '<?php echo count_event_per_category('') ?>';
         $(window).scroll(function () {

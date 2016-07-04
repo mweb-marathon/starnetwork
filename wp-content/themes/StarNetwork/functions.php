@@ -184,29 +184,72 @@ function count_event_per_category($category_name)
 }
 
 /* Functionality for home page. End */
-
 function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged = 1, $category_name = false)
 {
     $not_sticky = array(
         'post_type' => array('event'),
-        'posts_per_page' => $post_per_page,
+        'posts_per_page' => 1000, //$post_per_page,
         'order_by' => 'term_order',
         'hide_empty' => false,
-        'paged' => $paged,
+//        'paged' => $paged,
         'post_status' => 'publish'
     );
 
     if ($category_name && $category_name !== 'all') {
         $not_sticky['taxonomy'] = 'event-categories';
         $not_sticky['term'] = $category_name;
-
     }
-    $i = 0;
 
     $wp_query_not_sticky = new WP_Query($not_sticky);
+
+    $other_events = $today_events = [];
+
+    foreach ($wp_query_not_sticky->posts as $post) {
+        $meta = get_post_meta($post->ID);
+        $event_start_date = !empty($meta['_event_start_date'][0]) ? $meta['_event_start_date'][0] : '';
+        $event_start_time = !empty($meta['_event_start_time'][0]) ? $meta['_event_start_time'][0] : '';
+
+        if ($event_start_date == date('Y-m-d')) {
+            $today_events[] = [
+                'start_date' => $event_start_date,
+                'start_time' => $event_start_time,
+                'post_object' => $post
+            ];
+        } else {
+            $other_events[] = [
+                'start_date' => $event_start_date,
+                'start_time' => $event_start_time,
+                'post_object' => $post
+            ];
+        }
+    }
+
+    array_multisort($other_events, SORT_DESC);
+    array_multisort($today_events, SORT_DESC);
+
+    $total_events = array_merge($today_events, $other_events);
+
+    $end_ind = $paged * $post_per_page;
+    $start_ind = $end_ind - $post_per_page;
+
+    if ($end_ind > count($total_events)) {
+        $end_ind > count($total_events);
+    }
+
+    if ($end_ind > count($total_events)) {
+        $end_ind = count($total_events);
+    }
+
+    $events = [];
+    for ($i = $start_ind; $i < $end_ind; $i++) {
+        $events[] = $total_events[$i]['post_object'];
+    }
+
+    $wp_query_not_sticky->posts = $events;
+    $wp_query_not_sticky->post_count = count($events);
+
     if ($wp_query_not_sticky->have_posts()) {
         while ($wp_query_not_sticky->have_posts()) {
-            $i++;
 
             $wp_query_not_sticky->the_post();
 
@@ -431,7 +474,7 @@ add_filter('filter_date', 'date2string');
 function wp_calendarevents()
 {
     $post_per_page = !empty($_POST['post_per_page']) ? $_POST['post_per_page'] : 6;
-    $page = !empty($_POST['page']) ? $_POST['page'] : 0;
+    $page = !empty($_POST['page']) ? $_POST['page'] : 1;
     $category_name = !empty($_POST['post_category_name']) ? $_POST['post_category_name'] : 'all';
 
 
