@@ -202,7 +202,7 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
 
     $wp_query_not_sticky = new WP_Query($not_sticky);
 
-    $other_events = $today_events = [];
+    $other_events = $today_events = array();
 
     foreach ($wp_query_not_sticky->posts as $post) {
         $meta = get_post_meta($post->ID);
@@ -210,17 +210,17 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
         $event_start_time = !empty($meta['_event_start_time'][0]) ? $meta['_event_start_time'][0] : '';
 
         if ($event_start_date == date('Y-m-d')) {
-            $today_events[] = [
+            $today_events[] = array(
                 'start_date' => $event_start_date,
                 'start_time' => $event_start_time,
                 'post_object' => $post
-            ];
+            );
         } else {
-            $other_events[] = [
+            $other_events[] = array(
                 'start_date' => $event_start_date,
                 'start_time' => $event_start_time,
                 'post_object' => $post
-            ];
+            );
         }
     }
 
@@ -240,7 +240,7 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
         $end_ind = count($total_events);
     }
 
-    $events = [];
+    $events = array();
     for ($i = $start_ind; $i < $end_ind; $i++) {
         $events[] = $total_events[$i]['post_object'];
     }
