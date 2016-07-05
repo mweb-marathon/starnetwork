@@ -9,6 +9,7 @@ require_once($theme_directory . '/additional/star_networking_settings/star_netwo
 require_once($theme_directory . '/classes/change_submenu_ul_class.php');
 require_once($theme_directory . '/additional/meta_box/meta_box.php');
 require_once($theme_directory . '/inc/extra/extra_function.php');
+require_once($theme_directory . '/widget/widget.php');
 
 
 function wp_gear_manager_admin_scripts()
@@ -734,6 +735,24 @@ function get_event_map_($event_id, $limit = 2)
     }
 }
 
+
+/**
+ * Custom function which displayed the adrotate spot.
+ *
+ * @param $id
+ * @param $ad_number
+ */
+function schneps_get_adrotate_($id)
+{
+    $ad_rotate_data = schneps_get_adrotate_ads_data($id, true);
+    if ($ad_rotate_data['type'] == 'ad') { ?>
+            <?php return adrotate_ad($ad_rotate_data['ad_id']); ?>
+        <?php
+    } elseif ($ad_rotate_data['type'] == 'group') { ?>
+            <?php return adrotate_group($ad_rotate_data['group_id']); ?>
+
+    <?php }
+}
 
 function get_single_event_additional_people_data($data)
 {

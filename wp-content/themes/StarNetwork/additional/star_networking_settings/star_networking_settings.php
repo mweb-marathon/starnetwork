@@ -55,7 +55,6 @@ function star_networking_settings()
 
     global $themename;
 
-
     if (isset($_POST[$themename . '_menu_submit'])) {
 
         $new_values = array(
@@ -75,11 +74,70 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-people-title-on-event-page');
         register_setting('star_networking-home-page-group', 'star-network-footer-info-telephone-number');
         register_setting('star_networking-home-page-group', 'star-network-footer-info-copyright-info');
+        register_setting('star_networking-home-page-group', 'star-network-event-single-adrotate');
+        register_setting('star_networking-home-page-group', 'star-network-sidebar-choice-5-ads-or-long-pic');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-long-pic');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-1');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-2');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-3');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-4');
+        register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-5');
     }
 
 
 }
 
+function schneps_get_adrotate_ads_data($id, $is_object = false)
+{
+    global $wpdb;
+    $explodeId = explode(' ', $id);
+
+    if(count($explodeId) > 1) {
+
+        $id = $explodeId[1];
+
+        if($explodeId[0] == 'Ad') {
+            $select_description = $wpdb->get_row("SELECT * FROM `wp_adrotate` WHERE `id` = '" . $id . "' AND `type` != 'expired' AND `type` != 'error'");
+            return array('ad_object' => $select_description, 'ad_id' => $id, 'type' => 'ad');
+        } else {
+            return schneps_get_adrotate_groups_ads_data($explodeId[1]);
+        }
+    } else {
+        $id = $explodeId[0];
+    }
+
+
+    $select_description = $wpdb->get_row("SELECT * FROM `wp_adrotate` WHERE `id` = '" . $id . "' AND `type` != 'expired' AND `type` != 'error'");
+
+    if (!$select_description) {
+        $select_description = $wpdb->get_row("SELECT * FROM `wp_adrotate_groups` WHERE `id` = '" . $id . "'");
+
+        if ($select_description) {
+            return array('group_object' => $select_description, 'group_id' => $id, 'type' => 'group');
+        }
+
+        return false;
+    }
+
+    if (!$is_object) {
+        return $select_description;
+    }
+
+    return array('ad_object' => $select_description, 'ad_id' => $id, 'type' => 'ad');
+}
+
+function schneps_get_adrotate_groups_ads_data($id)
+{
+    global $wpdb;
+
+    $select_description = $wpdb->get_row("SELECT * FROM `wp_adrotate_groups` WHERE `id` = '" . $id . "'");
+
+    if ($select_description) {
+        return array('group_object' => $select_description, 'group_id' => $id, 'type' => 'group');
+    }
+
+    return false;
+}
 
 function schneps_get_event_by_date_array()
 {
@@ -125,6 +183,22 @@ function schneps_get_people_for_event_array()
     return json_encode($data);
 }
 
+function schneps_get_adrotate_groups()
+{
+    global $wpdb;
+    $select_description = $wpdb->get_results("SELECT * FROM `wp_adrotate_groups`");
+
+    return $select_description;
+}
+
+function schneps_get_adrotate_ads()
+{
+    global $wpdb;
+    $select_description = $wpdb->get_results("SELECT * FROM `wp_adrotate` WHERE `type` != 'expired' AND `type` != 'error'");
+
+    return $select_description;
+}
+
 function schneps_get_sponsor_for_event_array()
 {
     $data = array();
@@ -167,6 +241,17 @@ function star_networking_settings_page()
     $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
     $star_network_footer_info_telephone_number = get_option('star-network-footer-info-telephone-number');
     $star_network_footer_info_copyright_info = get_option('star-network-footer-info-copyright-info');
+
+    $schneps_settings_single_listing_adrotate = get_option('star-network-listing-single-adrotate');
+    $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic = get_option('star-network-sidebar-choice-5-ads-or-long-pic');
+    $schneps_settings_single_listing_adrotate_sponsored_story_long_pic = get_option('star-network-listing-single-adrotate-sponsored-story-long-pic');
+    $schneps_settings_single_listing_adrotate_sponsored_story_1 = get_option('star-network-listing-single-adrotate-sponsored-story-1');
+    $schneps_settings_single_listing_adrotate_sponsored_story_2 = get_option('star-network-listing-single-adrotate-sponsored-story-2');
+    $schneps_settings_single_listing_adrotate_sponsored_story_3 = get_option('star-network-listing-single-adrotate-sponsored-story-3');
+    $schneps_settings_single_listing_adrotate_sponsored_story_4 = get_option('star-network-listing-single-adrotate-sponsored-story-4');
+    $schneps_settings_single_listing_adrotate_sponsored_story_5 = get_option('star-network-listing-single-adrotate-sponsored-story-5');
+
+    $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic  = (empty($schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic) ? '5-pic' : $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic);
     ?>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -189,18 +274,32 @@ function star_networking_settings_page()
                         $(this).next().val(ui.item.value);
                     }
                 });
+            });
 
-            })
+            toggleSkyscraper5ads($('[name=star-network-sidebar-choice-5-ads-or-long-pic]:checked'));
+            $('[name=star-network-sidebar-choice-5-ads-or-long-pic]').on('change', function(){
+                toggleSkyscraper5ads($(this));
+            });
+            function toggleSkyscraper5ads(el) {
+                var lsb = {'long-pic' : '5-pic', '5-pic' : 'long-pic'};
+                $('.'+ lsb[$(el).val()]).hide();
+                $('.'+ $(el).val()).show();
+            }
         });
     </script>
-
-
 
     <h2 class="nav-tab-wrapper schneps-curation-tabs">
         <a href="#" class="nav-tab" data-page="home-page">Star Network Page</a>
         <a href="#" class="nav-tab nav-tab-active" data-page="home-page-carousel">Star Network Carousel</a>
+        <a href="#" class="nav-tab" data-page="category-adrotate">Adrotate Settings</a>
     </h2>
     <div class="wrap schneps-settings general-settings">
+        <?php
+        $adrotate_ads = schneps_get_adrotate_ads();
+        $adrotate_groups = schneps_get_adrotate_groups();
+        $adrotate_merged = array_merge($adrotate_ads, $adrotate_groups);
+        ?>
+
         <form method="post" class="" action="options.php">
             <p class="submit">
                 <input type="submit" class="button-primary" name="<?php echo $themename . '_menu_submit' ?>"
@@ -355,6 +454,338 @@ function star_networking_settings_page()
 
                 <!-- This is carousel wrapper in admin area for homepage. End -->
 
+                <div class="hide category-adrotate divider-settings">
+                <h1>Adrotate Setting Page</h1>
+
+                <table class="form-table">
+<!--                    <tr>
+                        <td colspan="3">
+                            <h2>Classified single page adrotate settings</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <h2>Event Single page adrotate settings</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-event-single-adrotate" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_event_adrotate == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_event_adrotate == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td colspan="3">
+                            <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-5-pic" value="5-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == '5-pic' ? 'checked="checked"': ''?> />
+                            <label for="star-network-sidebar-choice-5-ads-or-long-pic-5-pic">Use 5 pictures</label>
+                            &nbsp;&nbsp;
+                            <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-long-pic" value="long-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == 'long-pic' ? 'checked="checked"': ''?>/>
+                            <label for="star-network-sidebar-choice-5-ads-or-long-pic-long-pic">Use Long Picture</label>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr class="long-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar skyscraper</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-long-pic" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr class="5-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 1</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-1" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr class="5-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 2</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-2" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr class="5-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 3</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-3" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr class="5-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 4</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-4" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr class="5-pic">
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 5</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-5" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+<!--                    <tr>
+                        <td colspan="3">
+                            <h2>Sponsored Story for left sidebar 6</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-sponsored-story-6" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_6 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_6 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <h2>Non-sponsored story bottom ad</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-non-sponsored-story" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <h2>Non-sponsored story bottom ad 2</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-adrotate-non-sponsored-story-2" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <h2>Non-sponsored story 2nd paragraph ad</h2>
+                        </td>
+                        <td>
+                            <select name="star-network-listing-single-story-second-paragraph" id="">
+                                <option value="0">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_second_paragraph == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_second_paragraph == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h2>Popular story section 1</h2>
+                        </td>
+                        <td>
+                            <select name="popular-story-section-1" id="">
+                                <option value="">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h2>Popular story section 2</h2>
+                        </td>
+                        <td>
+                            <select name="popular-story-section-2" id="">
+                                <option value="">no selection</option>
+                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                        <option
+                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Ad <?php echo $adrotate_ad->id; ?></option>
+                                    <?php else: ?>
+                                        <option
+                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                            Group <?php echo $adrotate_ad->name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>-->
+                </table>
+            </div>
 
             </div>
         </form>
