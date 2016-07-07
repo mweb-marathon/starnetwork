@@ -16,6 +16,7 @@ $ticket_link = !empty($post_meta['event_post_ticket_link'][0]) ? $post_meta['eve
 $category = get_the_category();
 ?>
 <div class="large-4 single-event-wrapper columns">
+    <a href="<?php the_permalink(); ?>">
     <div class="event-start-date">
         <div class="date">
             <div class="month">
@@ -31,17 +32,24 @@ $category = get_the_category();
             <?php endif; ?>
         </div>
     </div>
-    <div class="bg-image">
-        <?php get_image_for_spot(); ?>
-    </div>
-    <div class="bg-color"></div>
+    </a>
+    <a href="<?php the_permalink(); ?>">
+        <div class="bg-image">
+            <?php get_image_for_spot(); ?>
+        </div>
+    </a>
+    <a href="<?php the_permalink(); ?>">
+        <div class="bg-color"></div>
+    </a>
     <div class="title">
         <a href="<?php the_permalink(); ?>">
             <?php echo get_the_title(); ?>
         </a>
     </div>
+    <a href="<?php the_permalink(); ?>">
     <div class="footer qns">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo-<?php echo $is_sponsored; ?>.png" alt=""/>
         <span class="footer-text"> <?php echo !empty($em_location_name) ? '/ '. $em_location_name : ''; ?>  <?php if($ticket_link):?>/ <a href="<?php echo $ticket_link; ?>" target="_blank">Get Tickets</a><?php endif; ?></span>
     </div>
+    </a>
 </div>
