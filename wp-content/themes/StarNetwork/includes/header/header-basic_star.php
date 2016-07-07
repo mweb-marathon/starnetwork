@@ -9,6 +9,9 @@
         <header class="row <?php echo wp_is_mobile() ? 'mobile' : ''; ?> new-header">
             <div class="logo-with-menu-wrapper">
                 <div class="large-9 columns logo">
+                    <div class="hidden-for-small-only hidden-for-medium-only text-center leaderboard-header-box">
+                        <?php include 'partials/banner/banner.php'; ?>
+                    </div>
                     <?php include 'partials/logo/logo_star.php'; ?>
                 </div>
             </div>

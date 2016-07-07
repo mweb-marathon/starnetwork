@@ -82,6 +82,7 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-3');
         register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-4');
         register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-5');
+        register_setting('star_networking-home-page-group', 'select-leaderboard');
     }
 
 
@@ -311,482 +312,334 @@ function star_networking_settings_page()
                     <h2>Star Network Homepage Manager</h2>
                     <?php settings_fields('star_networking-home-page-group'); ?>
 
-                    <div class="star-network-form-email">
-                        <div class="email">
-                            <label for="form-email">
-                                Form Email:
-                            </label>
-                            <input type="text" class="form-email" id="form-email"
-                                   name="star-network-form-email"
-                                   value="<?php echo $star_network_form_email; ?>"/>
+                        <div class="star-network-form-email">
+                            <div class="email">
+                                <label for="form-email">
+                                    Form Email:
+                                </label>
+                                <input type="text" class="form-email" id="form-email"
+                                       name="star-network-form-email"
+                                       value="<?php echo $star_network_form_email; ?>"/>
+                            </div>
+
+                            <div class="Success">
+                                <label for="form-email-success">
+                                    Success:
+                                </label>
+                                <input type="text" class="form-email-success" id="form-email-success"
+                                       name="star-network-form-email-send-success"
+                                       value="<?php echo $star_network_form_email_send_success; ?>"/>
+                            </div>
+
+                            <div class="people-title-on-event-page">
+                                <label for="people-title-on-event-page">
+                                    People on event page:
+                                </label>
+                                <input type="text" class="form-email-success" id="people-title-on-event-page"
+                                       name="star-network-people-title-on-event-page"
+                                       value="<?php echo $star_network_people_title_on_event_page; ?>"/>
+                            </div>
+
                         </div>
 
-                        <div class="Success">
-                            <label for="form-email-success">
-                                Success:
-                            </label>
-                            <input type="text" class="form-email-success" id="form-email-success"
-                                   name="star-network-form-email-send-success"
-                                   value="<?php echo $star_network_form_email_send_success; ?>"/>
+                        <div class="star-network-homepage-statistic">
+                            <div class="publications-wrapper">
+                                <label for="publications-number">
+                                    Publications:
+                                </label>
+                                <input type="text" class="publications-number" id="publications-number"
+                                       name="star-network-homepage-statistic-publications-number"
+                                       value="<?php echo $star_network_homepage_statistic_publications_number; ?>"/>
+                            </div>
+                            <div class="annual-events-wrapper">
+                                <label for="annual-events-number">
+                                    Annual Events:
+                                </label>
+                                <input type="text" class="annual-events-number" id="annual-events-number"
+                                       name="star-network-homepage-statistic-annual-events-number"
+                                       value="<?php echo $star_network_homepage_statistic_annual_events_number; ?>"/>
+                            </div>
+                            <div class="unique-visitors-wrapper">
+                                <label for="unique-visitors-number">
+                                    Unique Visitors:
+                                </label>
+                                <input type="text" class="unique-visitors-number" id="unique-visitors-number"
+                                       name="star-network-homepage-statistic-unique-visitors-number"
+                                       value="<?php echo $star_network_homepage_statistic_unique_visitors_number; ?>"/>
+                            </div>
                         </div>
-
-                        <div class="people-title-on-event-page">
-                            <label for="people-title-on-event-page">
-                                People on event page:
-                            </label>
-                            <input type="text" class="form-email-success" id="people-title-on-event-page"
-                                   name="star-network-people-title-on-event-page"
-                                   value="<?php echo $star_network_people_title_on_event_page; ?>"/>
+                        <hr/>
+                        <h2>Star Network Footer Info</h2>
+                        <div class="star-network-footer-info">
+                            <div class="telephone-wrapper">
+                                <label for="telephone-number">
+                                    Telephone:
+                                </label>
+                                <input type="text" class="telephone-number" id="telephone-number"
+                                       name="star-network-footer-info-telephone-number"
+                                       value="<?php echo $star_network_footer_info_telephone_number; ?>"/>
+                            </div>
+                            <div class="copyright-wrapper">
+                                <label for="copyright-info">
+                                    Copyright:
+                                </label>
+                                <input type="text" class="copyright-info" id="copyright-info"
+                                       name="star-network-footer-info-copyright-info"
+                                       value="<?php echo $star_network_footer_info_copyright_info; ?>"/>
+                            </div>
                         </div>
-
                     </div>
 
-                    <div class="star-network-homepage-statistic">
-                        <div class="publications-wrapper">
-                            <label for="publications-number">
-                                Publications:
-                            </label>
-                            <input type="text" class="publications-number" id="publications-number"
-                                   name="star-network-homepage-statistic-publications-number"
-                                   value="<?php echo $star_network_homepage_statistic_publications_number; ?>"/>
-                        </div>
-                        <div class="annual-events-wrapper">
-                            <label for="annual-events-number">
-                                Annual Events:
-                            </label>
-                            <input type="text" class="annual-events-number" id="annual-events-number"
-                                   name="star-network-homepage-statistic-annual-events-number"
-                                   value="<?php echo $star_network_homepage_statistic_annual_events_number; ?>"/>
-                        </div>
-                        <div class="unique-visitors-wrapper">
-                            <label for="unique-visitors-number">
-                                Unique Visitors:
-                            </label>
-                            <input type="text" class="unique-visitors-number" id="unique-visitors-number"
-                                   name="star-network-homepage-statistic-unique-visitors-number"
-                                   value="<?php echo $star_network_homepage_statistic_unique_visitors_number; ?>"/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <h2>Star Network Footer Info</h2>
-                    <div class="star-network-footer-info">
-                        <div class="telephone-wrapper">
-                            <label for="telephone-number">
-                                Telephone:
-                            </label>
-                            <input type="text" class="telephone-number" id="telephone-number"
-                                   name="star-network-footer-info-telephone-number"
-                                   value="<?php echo $star_network_footer_info_telephone_number; ?>"/>
-                        </div>
-                        <div class="copyright-wrapper">
-                            <label for="copyright-info">
-                                Copyright:
-                            </label>
-                            <input type="text" class="copyright-info" id="copyright-info"
-                                   name="star-network-footer-info-copyright-info"
-                                   value="<?php echo $star_network_footer_info_copyright_info; ?>"/>
-                        </div>
-                    </div>
-                </div>
 
+                    <!-- This is carousel wrapper in admin area for homepage. Start -->
 
-                <!-- This is carousel wrapper in admin area for homepage. Start -->
+                    <div class="divider-settings home-page-carousel">
+                        <div id="div_inputs">
+                            <?php if ($theme_options_menu[$themename . '_slider_images']): ?>
+                                <?php foreach ($theme_options_menu[$themename . '_slider_images'] as $key => $val): ?>
+                                    <div data-id="<?php echo $key; ?>" class="js-image-parent-block image-parent-block">
+                                        <span class="js-delete-button delete-button"></span>
 
-                <div class="divider-settings home-page-carousel">
-                    <div id="div_inputs">
-                        <?php if ($theme_options_menu[$themename . '_slider_images']): ?>
-                            <?php foreach ($theme_options_menu[$themename . '_slider_images'] as $key => $val): ?>
-                                <div data-id="<?php echo $key; ?>" class="js-image-parent-block image-parent-block">
-                                    <span class="js-delete-button delete-button"></span>
+                                        <div class="media-block">
+                                            <div class="gallery-text text">Picture</div>
+                                            <div class="gallery-input input">
+                                                <a class="button choose-from-library-link" href="#"
+                                                   data-update-link="<?php echo $key; ?>">Open Media Library</a>
 
-                                    <div class="media-block">
-                                        <div class="gallery-text text">Picture</div>
-                                        <div class="gallery-input input">
-                                            <a class="button choose-from-library-link" href="#"
-                                               data-update-link="<?php echo $key; ?>">Open Media Library</a>
-
-                                            <div class="select-image-description">
-                                                Choose your image, then click "Select" to apply it.
+                                                <div class="select-image-description">
+                                                    Choose your image, then click "Select" to apply it.
+                                                </div>
+                                                <?php $style = $val['url'] ? 'inline-block' : 'none'; ?>
+                                                <input class="imgUrl" style="display: <?php echo $style; ?>;"
+                                                       id="inp<?php echo $key; ?>" type="text"
+                                                       name="<?php echo $themename; ?>_images[<?php echo $key; ?>][url]"
+                                                       value="<?php echo $val['url']; ?>"/>
                                             </div>
-                                            <?php $style = $val['url'] ? 'inline-block' : 'none'; ?>
-                                            <input class="imgUrl" style="display: <?php echo $style; ?>;"
-                                                   id="inp<?php echo $key; ?>" type="text"
-                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>][url]"
-                                                   value="<?php echo $val['url']; ?>"/>
                                         </div>
-                                    </div>
-                                    <div class="link-block hide">
-                                        <div class="link-text text">Link</div>
-                                        <div class="link-input input">
-                                            <input class="link" id="inp<?php echo $key; ?>" type="hidden"
-                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>][link]"
-                                                   value="<?php echo $val['link']; ?>" placeholder="http://"/></div>
-                                    </div>
-
-
-                                    <!--                                    <div class="ui-widget">-->
-                                    <!--                                        <label for="tags">Tags: </label>-->
-                                    <!--                                        <input id="tags">-->
-                                    <!--                                    </div>-->
-
-
-                                    <div class="event-block">
-                                        <div class="link-text text">Event:</div>
-                                        <div class="event-input input">
-                                            <input class="event" id="inp<?php echo $key; ?>" type="text"
-                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event]"
-                                                   value="<?php echo $val['event']; ?>" placeholder="Event or Post"/>
-
-                                            <input class="event_id" id="inp<?php echo $key; ?>" type="hidden"
-                                                   name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event_id]"
-                                                   value="<?php echo $val['event_id']; ?>"/>
+                                        <div class="link-block hide">
+                                            <div class="link-text text">Link</div>
+                                            <div class="link-input input">
+                                                <input class="link" id="inp<?php echo $key; ?>" type="hidden"
+                                                       name="<?php echo $themename; ?>_images[<?php echo $key; ?>][link]"
+                                                       value="<?php echo $val['link']; ?>" placeholder="http://"/></div>
                                         </div>
+
+
+                                        <!--                                    <div class="ui-widget">-->
+                                        <!--                                        <label for="tags">Tags: </label>-->
+                                        <!--                                        <input id="tags">-->
+                                        <!--                                    </div>-->
+
+
+                                        <div class="event-block">
+                                            <div class="link-text text">Event:</div>
+                                            <div class="event-input input">
+                                                <input class="event" id="inp<?php echo $key; ?>" type="text"
+                                                       name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event]"
+                                                       value="<?php echo $val['event']; ?>" placeholder="Event or Post"/>
+
+                                                <input class="event_id" id="inp<?php echo $key; ?>" type="hidden"
+                                                       name="<?php echo $themename; ?>_images[<?php echo $key; ?>][event_id]"
+                                                       value="<?php echo $val['event_id']; ?>"/>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="sortable-handler"></div>
                                     </div>
-
-
-                                    <div class="sortable-handler"></div>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <span id="add-new-slide" class="round-button">Add New Slide</span>
                     </div>
-                    <span id="add-new-slide" class="round-button">Add New Slide</span>
+
+                    <!-- This is carousel wrapper in admin area for homepage. End -->
+
+                    <div class="hide category-adrotate divider-settings">
+                    <h1>Adrotate Setting Page</h1>
+                    
+                    <?php
+                    $leaderboard_selected = get_option('select-leaderboard');
+                    ?>
+                    <table class="form-table">
+                        <tr>
+                            <td>
+                                <label>
+                                    Leaderboard
+                                </label>
+                                <select name="select-leaderboard" id="">
+                                    <option value="">no selection</option>
+                                    <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                        <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                            <option
+                                                value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $leaderboard_selected == 'Ad '.$adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Ad <?php echo $adrotate_ad->id; ?></option>
+                                        <?php else: ?>
+                                            <option
+                                                value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $leaderboard_selected == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Group <?php echo $adrotate_ad->name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <fieldset class="adrotate-settings-fset">
+                        <legend>Left Sidebar</legend>
+
+                        <table class="form-table">
+                            <tr>
+                                <td colspan="3">
+                                    <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-5-pic" value="5-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == '5-pic' ? 'checked="checked"': ''?> />
+                                    <label for="star-network-sidebar-choice-5-ads-or-long-pic-5-pic">Use 5 pictures</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-long-pic" value="long-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == 'long-pic' ? 'checked="checked"': ''?>/>
+                                    <label for="star-network-sidebar-choice-5-ads-or-long-pic-long-pic">Use Long Picture</label>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="long-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar skyscraper</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-long-pic" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                            <tr class="5-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar 1</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-1" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                            <tr class="5-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar 2</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-2" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                            <tr class="5-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar 3</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-3" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                            <tr class="5-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar 4</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-4" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                            <tr class="5-pic">
+                                <td colspan="3">
+                                    <h2>Sponsored Story for left sidebar 5</h2>
+                                </td>
+                                <td>
+                                    <select name="star-network-listing-single-adrotate-sponsored-story-5" id="">
+                                        <option value="0">no selection</option>
+                                        <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                            <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                <option
+                                                    value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Ad <?php echo $adrotate_ad->id; ?></option>
+                                            <?php else: ?>
+                                                <option
+                                                    value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                    Group <?php echo $adrotate_ad->name; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
                 </div>
-
-                <!-- This is carousel wrapper in admin area for homepage. End -->
-
-                <div class="hide category-adrotate divider-settings">
-                <h1>Adrotate Setting Page</h1>
-
-                <table class="form-table">
-<!--                    <tr>
-                        <td colspan="3">
-                            <h2>Classified single page adrotate settings</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <h2>Event Single page adrotate settings</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-event-single-adrotate" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_event_adrotate == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_event_adrotate == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>-->
-                    <tr>
-                        <td colspan="3">
-                            <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-5-pic" value="5-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == '5-pic' ? 'checked="checked"': ''?> />
-                            <label for="star-network-sidebar-choice-5-ads-or-long-pic-5-pic">Use 5 pictures</label>
-                            &nbsp;&nbsp;
-                            <input type="radio" name="star-network-sidebar-choice-5-ads-or-long-pic" id="star-network-sidebar-choice-5-ads-or-long-pic-long-pic" value="long-pic" <?php echo $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic == 'long-pic' ? 'checked="checked"': ''?>/>
-                            <label for="star-network-sidebar-choice-5-ads-or-long-pic-long-pic">Use Long Picture</label>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr class="long-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar skyscraper</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-long-pic" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_long_pic == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr class="5-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 1</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-1" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr class="5-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 2</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-2" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr class="5-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 3</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-3" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_3 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr class="5-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 4</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-4" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_4 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr class="5-pic">
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 5</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-5" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_5 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-<!--                    <tr>
-                        <td colspan="3">
-                            <h2>Sponsored Story for left sidebar 6</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-sponsored-story-6" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_6 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_sponsored_story_6 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <h2>Non-sponsored story bottom ad</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-non-sponsored-story" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <h2>Non-sponsored story bottom ad 2</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-adrotate-non-sponsored-story-2" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <h2>Non-sponsored story 2nd paragraph ad</h2>
-                        </td>
-                        <td>
-                            <select name="star-network-listing-single-story-second-paragraph" id="">
-                                <option value="0">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_second_paragraph == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $schneps_settings_single_listing_adrotate_non_sponsored_story_second_paragraph == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <h2>Popular story section 1</h2>
-                        </td>
-                        <td>
-                            <select name="popular-story-section-1" id="">
-                                <option value="">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <h2>Popular story section 2</h2>
-                        </td>
-                        <td>
-                            <select name="popular-story-section-2" id="">
-                                <option value="">no selection</option>
-                                <?php foreach ($adrotate_merged as $adrotate_ad): ?>
-                                    <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
-                                        <option
-                                            value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Ad <?php echo $adrotate_ad->id; ?></option>
-                                    <?php else: ?>
-                                        <option
-                                            value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
-                                            Group <?php echo $adrotate_ad->name; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>-->
-                </table>
-            </div>
-
             </div>
         </form>
     </div>

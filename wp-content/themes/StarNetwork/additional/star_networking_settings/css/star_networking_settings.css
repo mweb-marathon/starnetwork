@@ -144,5 +144,10 @@
 }
 /* Gallery content block. End */
 .em-location-map-404 {
-  display: none !important;
+  display: none;
 }
+.adrotate-settings-fset {
+  border: 1px solid #c3c3c3;
+  padding: 10px;
+}
+/*# sourceMappingURL=star_networking_settings.css.map */
