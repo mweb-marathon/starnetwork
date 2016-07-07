@@ -5,9 +5,10 @@
     <div class="entry-post-wrapper">
         <div class="entry-post-info">
             <a href="<?php the_permalink(); ?>">
-                <?php echo crop_text(get_the_title(), 50);; ?>
+                <?php echo get_the_title(); ?>
+                <?php //echo crop_text(get_the_title(), 50);; ?>
             </a>
         </div>
-        <div class="red-line Px10 relative"></div>
+        <!--<div class="red-line Px10 relative"></div>-->
     </div>
 </div>
