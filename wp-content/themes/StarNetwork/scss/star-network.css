@@ -575,6 +575,8 @@ body.page-template-star_networking_homepage-php {
           font-weight: normal;
           font-style: normal;
           margin-right: 20px; }
+        .star-main-content-wrapper.single-event-page #content .star-network-content .star-network-additional-page-title .event-additional-info a {
+          color: #d64949; }
     .star-main-content-wrapper.single-event-page #content .star-network-content .event-method {
       padding: 20px;
       text-align: center;

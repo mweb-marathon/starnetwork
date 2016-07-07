@@ -32,6 +32,8 @@ $event_type = !empty($event_meta['event_post_event_type']) ? $event_meta['event_
 $star_network_people_title_on_event_page = get_option('star-network-people-title-on-event-page');
 $ticket_link = !empty($event_meta['event_post_ticket_link'][0]) ? $event_meta['event_post_ticket_link'][0] : false;
 
+$em_venue_name = empty($event_meta['_event_id'][0]) ? '' : EM_Events::getEventVenueNameByEventId($event_meta['_event_id'][0]);
+
 $address = '';
 $map_link = '';
 $social_link = array();
@@ -65,7 +67,7 @@ $star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' 
                             <div class="event-type <?php echo $event_type; ?>"></div>
                             <div class="event-additional-info">
                                 <ul>
-                                    <li><?php echo $event_location->location_name; ?></li>
+                                    <li><a href="#g-map"><?php echo empty($em_venue_name) ? $event_location->location_name : $em_venue_name; ?></a></li>
                                     <li>/</li>
                                     <li><?php echo apply_filters('filter_date', array('string' => $event_date_start, "format" => "l, F d")); ?></li>
                                     <li>/</li>
@@ -140,7 +142,7 @@ $star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' 
                                         </ul>
                                         <div style="clear: both;"></div>
                                     </div>
-                                    <div class="event-map-wrapper">
+                                    <div class="event-map-wrapper" id="g-map">
                                         <?php schneps_get_event_map_(get_the_ID()); ?>
                                     </div>
                                 </div>
