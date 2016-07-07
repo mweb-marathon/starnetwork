@@ -41,11 +41,11 @@ $category = get_the_category();
     <a href="<?php the_permalink(); ?>">
         <div class="bg-color"></div>
     </a>
+    <a href="<?php the_permalink(); ?>">
     <div class="title">
-        <a href="<?php the_permalink(); ?>">
-            <?php echo get_the_title(); ?>
-        </a>
+        <?php echo get_the_title(); ?>
     </div>
+    </a>
     <a href="<?php the_permalink(); ?>">
     <div class="footer qns">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/small-logo-<?php echo $is_sponsored; ?>.png" alt=""/>

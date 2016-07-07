@@ -370,6 +370,7 @@ body.page-template-star_networking_homepage-php {
     bottom: 0;
     box-sizing: border-box; }
   .single-event-wrapper .title {
+    color: white;
     left: 2.5rem;
     right: 0.9375rem;
     z-index: 4;
