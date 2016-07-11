@@ -83,6 +83,8 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-4');
         register_setting('star_networking-home-page-group', 'star-network-listing-single-adrotate-sponsored-story-5');
         register_setting('star_networking-home-page-group', 'select-leaderboard');
+        register_setting('star_networking-home-page-group', 'popular-story-section-1');
+        register_setting('star_networking-home-page-group', 'popular-story-section-2');
     }
 
 
@@ -251,6 +253,8 @@ function star_networking_settings_page()
     $schneps_settings_single_listing_adrotate_sponsored_story_3 = get_option('star-network-listing-single-adrotate-sponsored-story-3');
     $schneps_settings_single_listing_adrotate_sponsored_story_4 = get_option('star-network-listing-single-adrotate-sponsored-story-4');
     $schneps_settings_single_listing_adrotate_sponsored_story_5 = get_option('star-network-listing-single-adrotate-sponsored-story-5');
+    $popular_story_section_1 = get_option('popular-story-section-1');
+    $popular_story_section_2 = get_option('popular-story-section-2');
 
     $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic  = (empty($schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic) ? '5-pic' : $schneps_settings_star_network_sidebar_choice_5_ads_or_long_pic);
     ?>
@@ -483,7 +487,51 @@ function star_networking_settings_page()
                                 </select>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Popular story section 1
+                                </label>
+                                <select name="popular-story-section-1" id="">
+                                    <option value="">no selection</option>
+                                    <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                        <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                            <option
+                                                value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Ad <?php echo $adrotate_ad->id; ?></option>
+                                        <?php else: ?>
+                                            <option
+                                                value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_1 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Group <?php echo $adrotate_ad->name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Popular story section 2
+                                </label>
+                                <select name="popular-story-section-2" id="">
+                                    <option value="">no selection</option>
+                                    <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                        <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                            <option
+                                                value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Ad <?php echo $adrotate_ad->id; ?></option>
+                                        <?php else: ?>
+                                            <option
+                                                value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $popular_story_section_2 == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                Group <?php echo $adrotate_ad->name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
                     </table>
+                    <br />
+                    <br />
 
                     <fieldset class="adrotate-settings-fset">
                         <legend>Left Sidebar</legend>

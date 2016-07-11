@@ -963,5 +963,26 @@ function schneps_datetime_of_event($post_meta) {
     return $result;
 }
 
+function shnepsPopularStoryAdrotate($option_name) {
+    $popular_story_id = get_option($option_name);
+    $popular_story_record = schneps_get_adrotate_ads_data($popular_story_id);
+    $explodeId = explode(' ', $popular_story_id);
+    if(count($explodeId) > 1) {
+        $ad_gr_object_key = strtolower($explodeId[0]).'_object'; // 'ad_object' or 'group_object'
+    }
+
+    if (!empty($popular_story_record[ $ad_gr_object_key ])):
+    ?>
+    <div class="popular-story-adrotate">
+    <a href="<?php echo esc_url($popular_story_record[$ad_gr_object_key]->link); ?>">
+        <img src="<?php echo esc_attr($popular_story_record[$ad_gr_object_key]->image); ?>"
+             alt="<?php echo esc_attr(get_bloginfo('name')); ?>"/>
+    </a>
+    </div>
+    <?php
+    endif;
+}
+
+
 add_action('wp_ajax_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');
 add_action('wp_ajax_nopriv_schneps_get_related_stories_story_page_', 'wp_schneps_get_related_stories_story_page_');

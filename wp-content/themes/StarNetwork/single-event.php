@@ -147,7 +147,12 @@ $star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' 
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="popular-story-with-adrotate">
+                                <?php
+                                shnepsPopularStoryAdrotate('popular-story-section-1');
+                                shnepsPopularStoryAdrotate('popular-story-section-2');
+                                ?>
+                            </div>
                         <?php endif; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
