@@ -150,4 +150,14 @@
   border: 1px solid #c3c3c3;
   padding: 10px;
 }
+.adrotate-map-admin {
+  width: 800px;
+}
+.adrotate-map-admin div {
+  float: left;
+}
+.adrotate-map-admin img {
+  float: right;
+  margin-top: -100px;
+}
 /*# sourceMappingURL=star_networking_settings.css.map */

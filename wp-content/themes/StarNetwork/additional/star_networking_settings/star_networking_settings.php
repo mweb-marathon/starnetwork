@@ -85,6 +85,7 @@ function star_networking_settings()
         register_setting('star_networking-home-page-group', 'select-leaderboard');
         register_setting('star_networking-home-page-group', 'popular-story-section-1');
         register_setting('star_networking-home-page-group', 'popular-story-section-2');
+        register_setting('star_networking-home-page-group', 'select-adrotate-content-story');
     }
 
 
@@ -372,6 +373,40 @@ function star_networking_settings_page()
                                        value="<?php echo $star_network_homepage_statistic_unique_visitors_number; ?>"/>
                             </div>
                         </div>
+                        <br /><br />
+                        <div class="adrotate-map-admin">
+                            <div>
+                                <?php
+                                $adrotate_link = get_option('select-adrotate-content-story');
+                                $adrotate_show_as = get_option('show-adrotate-content-story');
+
+                                for ($i = 1; $i <= 4; $i++): ?>
+                                    <div>
+                                        <label>
+                                            <?php echo $i; ?>
+                                        </label>
+                                        <select name="select-adrotate-content-story[<?php echo $i; ?>]" id="">
+                                            <option value="">no selection</option>
+                                            <?php foreach ($adrotate_merged as $adrotate_ad): ?>
+                                                <?php if ($adrotate_ad->title && $adrotate_ad->title !== ''): ?>
+                                                    <option
+                                                        value="Ad <?php echo $adrotate_ad->id; ?>" <?php echo $adrotate_link[$i] == 'Ad ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                        Ad <?php echo $adrotate_ad->id; ?></option>
+                                                <?php else: ?>
+                                                    <option
+                                                        value="Group <?php echo $adrotate_ad->id; ?>" <?php echo $adrotate_link[$i] == 'Group ' . $adrotate_ad->id ? 'selected' : ''; ?> >
+                                                        Group <?php echo $adrotate_ad->name; ?></option>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                <?php endfor; ?>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/adrotatemap.png">
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
                         <hr/>
                         <h2>Star Network Footer Info</h2>
                         <div class="star-network-footer-info">

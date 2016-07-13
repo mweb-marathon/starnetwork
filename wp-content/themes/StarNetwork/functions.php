@@ -187,6 +187,7 @@ function count_event_per_category($category_name)
 /* Functionality for home page. End */
 function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged = 1, $category_name = false)
 {
+    global $post;
     $not_sticky = array(
         'post_type' => array('event'),
         'posts_per_page' => 1000, //$post_per_page,
@@ -204,7 +205,7 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
     $wp_query_not_sticky = new WP_Query($not_sticky);
 
     $other_events = $today_events = array();
-
+    
     foreach ($wp_query_not_sticky->posts as $post) {
         $meta = get_post_meta($post->ID);
         $event_start_date = !empty($meta['_event_start_date'][0]) ? $meta['_event_start_date'][0] : '';
@@ -229,48 +230,84 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
     array_multisort($today_events, SORT_DESC);
 
     $total_events = array_merge($today_events, $other_events);
-
+    
     $end_ind = $paged * $post_per_page;
     $start_ind = $end_ind - $post_per_page;
 
-    if ($end_ind > count($total_events)) {
-        $end_ind > count($total_events);
+    if ($start_ind > count($total_events)) {
+        return;
     }
 
     if ($end_ind > count($total_events)) {
         $end_ind = count($total_events);
     }
+    
+    $ad = get_option('select-adrotate-content-story');
+    $ad_positions = array(2 => 1, 6 => 2, 14 => 3, 18 => 4);
 
     $events = array();
+
+    $shift = 26;
     for ($i = $start_ind; $i < $end_ind; $i++) {
-        $events[] = $total_events[$i]['post_object'];
+    
+        if ($i > $shift) {
+            $k = (int)floor($i / $shift);
+            $ad_i = ($i-($k*$shift)) -1;
+        } else {
+            $ad_i = $i;
+        }
+
+        if (key_exists($ad_i, $ad_positions)) {
+            $events[] = schneps_get_adrotate_ads_data($ad[ $ad_positions[ $ad_i ] ]);
+        } else {
+            $events[] = $total_events[$i]['post_object'];
+        }
     }
 
-    $wp_query_not_sticky->posts = $events;
-    $wp_query_not_sticky->post_count = count($events);
+//    ob_start();
+//    var_dump($events);
+//    $output = ob_get_clean();
+//    file_put_contents('/home/alex/Desktop/debug', $output. "\n", FILE_APPEND);
 
-    if ($wp_query_not_sticky->have_posts()) {
-        while ($wp_query_not_sticky->have_posts()) {
+    foreach ($events as $event) {
 
-            $wp_query_not_sticky->the_post();
-
+        if ($event instanceof  WP_Post) {
+            $post = $event;
             if ($template) {
                 get_template_part('includes/event/' . $template . '-block');
             } else {
                 get_template_part('includes/single-block');
             }
-        }
-        if ($category_name && $category_name !== 'all') {
-            $amount_per_category = count_event_per_category($category_name);
-            $paged_per_category = count_paged_event_per_category($category_name);
-            echo '<span class="amount-event-per-category" data-amount-per-category="' . $amount_per_category . '" data-current-paged="' . $paged . '" data-all-paged="' . $paged_per_category . '" data-category-name="' . $category_name . '"></span>';
+            if ($category_name && $category_name !== 'all') {
+                $amount_per_category = count_event_per_category($category_name);
+                $paged_per_category = count_paged_event_per_category($category_name);
+                echo '<span class="amount-event-per-category" data-amount-per-category="' . $amount_per_category . '" data-current-paged="' . $paged . '" data-all-paged="' . $paged_per_category . '" data-category-name="' . $category_name . '"></span>';
+            }
+        } else {
+            adRotateForGreed($event['ad_object']);
         }
     }
-
-
     wp_reset_query();
 }
 
+function adRotateForGreed($ad_record)
+{
+    ?>
+    <div class="large-4 single-event-wrapper columns ad-rotate-block-wrapper">
+        <?php $html = adrotate_ad($ad_record->id); ?>
+        <?php echo $html == '<!-- Error, Ad is not available at this time due to schedule/geolocation restrictions! -->' ? get_dummy_for_expired_adrotate() : $html; ?>
+    </div>
+    <?php
+}
+
+function get_dummy_for_expired_adrotate() {
+    $output = '';
+    $output .= '<a href="http://schnepscommunications.com/advertise/">';
+        $output .= '<img src="/wp-content/themes/TheStyle-child/img/adverstise-on-qns.jpg" />';
+    $output .= '</a>';
+
+    return $output;
+}
 
 function schneps_get_posts_by_date($template = false, $post_per_page = 6, $category_name = false)
 {
@@ -981,6 +1018,236 @@ function shnepsPopularStoryAdrotate($option_name) {
     </div>
     <?php
     endif;
+}
+
+/**
+ * Get adrotate group.
+ *
+ * This is modification of plugin function.
+ *
+ * @param $group_ids
+ * @param $how_display
+ * @return string
+ */
+function schneps_adrotate_group($group_ids, $how_display)
+{
+    global $wpdb, $adrotate_config, $adrotate_debug;
+
+    $output = $group_select = '';
+    if ($group_ids) {
+        $now = adrotate_now();
+        $group_array = (!is_array($group_ids)) ? explode(",", $group_ids) : $group_ids;
+
+        foreach ($group_array as $key => $value) {
+            $group_select .= " `{$wpdb->prefix}adrotate_linkmeta`.`group` = {$value} OR";
+        }
+        $group_select = rtrim($group_select, " OR");
+
+        $group = $wpdb->get_row($wpdb->prepare("SELECT * FROM `{$wpdb->prefix}adrotate_groups` WHERE `name` != '' AND `id` = %d;", $group_array[0]));
+
+        if ($adrotate_debug['general'] == true) {
+            echo "<p><strong>[DEBUG][adrotate_group] Selected group</strong><pre>";
+            print_r($group);
+            echo "</pre></p>";
+        }
+
+        if ($group) {
+            // Get all ads in all selected groups
+            $ads = $wpdb->get_results(
+                "SELECT
+					`{$wpdb->prefix}adrotate`.`id`,
+					`{$wpdb->prefix}adrotate`.`title`,
+					`{$wpdb->prefix}adrotate`.`bannercode`,
+					`{$wpdb->prefix}adrotate`.`image`,
+					`{$wpdb->prefix}adrotate`.`responsive`,
+					`{$wpdb->prefix}adrotate`.`tracker`,
+					`{$wpdb->prefix}adrotate_linkmeta`.`group`
+				FROM
+					`{$wpdb->prefix}adrotate`,
+					`{$wpdb->prefix}adrotate_linkmeta`
+				WHERE
+					({$group_select})
+					AND `{$wpdb->prefix}adrotate_linkmeta`.`user` = 0
+					AND `{$wpdb->prefix}adrotate`.`id` = `{$wpdb->prefix}adrotate_linkmeta`.`ad`
+					AND (`{$wpdb->prefix}adrotate`.`type` = 'active'
+						OR `{$wpdb->prefix}adrotate`.`type` = '2days'
+						OR `{$wpdb->prefix}adrotate`.`type` = '7days')
+				GROUP BY `{$wpdb->prefix}adrotate`.`id`
+				ORDER BY `{$wpdb->prefix}adrotate`.`id`;");
+
+            if ($ads) {
+                if ($adrotate_debug['general'] == true) {
+                    echo "<p><strong>[DEBUG][adrotate_group()] All ads in group</strong><pre>";
+                    print_r($ads);
+                    echo "</pre></p>";
+                }
+
+                foreach ($ads as $ad) {
+                    $selected[$ad->id] = $ad;
+                    $selected = adrotate_filter_schedule($selected, $ad);
+                }
+                unset($ads);
+
+                if ($adrotate_debug['general'] == true) {
+                    echo "<p><strong>[DEBUG][adrotate_group] Reduced array based on schedule restrictions</strong><pre>";
+                    print_r($selected);
+                    echo "</pre></p>";
+                }
+
+                $array_count = count($selected);
+                if ($array_count > 0) {
+                    $before = $after = '';
+                    $before = str_replace('%id%', $group_array[0], stripslashes(html_entity_decode($group->wrapper_before, ENT_QUOTES)));
+                    $after = str_replace('%id%', $group_array[0], stripslashes(html_entity_decode($group->wrapper_after, ENT_QUOTES)));
+
+                    $output .= '<div class="g g-' . $group->id . '">';
+
+                    if ($group->modus == 1) { // Dynamic ads
+                        $i = 1;
+
+                        // Limit group to save resources
+                        $amount = ($group->adspeed >= 10000) ? 10 : 20;
+
+                        // Randomize and trim output
+                        $selected = adrotate_shuffle($selected);
+                        foreach ($selected as $key => $banner) {
+                            if ($i <= $amount) {
+                                $image = str_replace('%folder%', $adrotate_config['banner_folder'], $banner->image);
+
+
+                                $output .= '<div class="g-dyn a-' . $banner->id . ' c-' . $i . '">';
+                                if (!$how_display) {
+                                    $output .= '<div class="thumbnail">';
+                                }
+                                $output .= $before . adrotate_ad_output($banner->id, $group->id, $banner->title, $banner->bannercode, $banner->tracker, $image, $banner->responsive) . $after;
+                                if (!$how_display) {
+                                    $output .= '</div>';
+                                }
+                                if (!$how_display) {
+                                    $output .= '<div class="entry-post-wrapper">';
+                                    $output .= '<div class="entry-post-info a-single a-' . $banner->id . '">';
+                                    $output .= '<a href="' . $banner->link . '" class="gofollow" target="_blank"  data-track="' . adrotate_hash($banner->id, 0, 0) . '">';
+                                    $output .= $banner->title;
+                                    $output .= '</a>';
+                                    $output .= '</div>';
+                                    $output .= '<div class="entry-post-additional-info"></div>';
+                                    $output .= '<div class="red-line Px10 relative">';
+                                    $output .= '<span class="is-sponsored">sponsored</span>';
+                                    $output .= '</div>';
+                                    $output .= '</div>';
+                                }
+                                $output .= '</div>';
+
+
+                                $i++;
+                            }
+                        }
+                    } else if ($group->modus == 2) { // Block of ads
+                        $block_count = $group->gridcolumns * $group->gridrows;
+                        if ($array_count < $block_count) $block_count = $array_count;
+                        $columns = 1;
+
+                        for ($i = 1; $i <= $block_count; $i++) {
+                            $banner_id = array_rand($selected, 1);
+
+                            $image = str_replace('%folder%', $adrotate_config['banner_folder'], $selected[$banner_id]->image);
+                            if (!$how_display) {
+                                $output = '<div class="thumbnail">';
+                            }
+
+                            $output .= '<div class="g-col b-' . $group->id . ' a-' . $selected[$banner_id]->id . '">';
+                            $output .= $before . adrotate_ad_output($selected[$banner_id]->id, $group->id, $selected[$banner_id]->title, $selected[$banner_id]->bannercode, $selected[$banner_id]->tracker, $image, $selected[$banner_id]->responsive) . $after;
+                            $output .= '</div>';
+                            if (!$how_display) {
+                                $output .= '</div>';
+                            }
+
+                            if ($columns == $group->gridcolumns AND $i != $block_count) {
+                                $output .= '</div><div class="g g-' . $group->id . '">';
+                                $columns = 1;
+                            } else {
+                                $columns++;
+                            }
+
+                            if ($adrotate_config['stats'] == 1) {
+                                adrotate_count_impression($selected[$banner_id]->id, $group->id, 0, $adrotate_config['impression_timer']);
+                            }
+
+                            if (!$how_display) {
+                                $output .= '<div class="entry-post-wrapper">';
+                                $output .= '<div class="entry-post-info a-single a-' . $selected[$banner_id]->id . '">';
+                                $output .= '<a href="' . $selected[$banner_id]->link . '" class="gofollow" target="_blank"  data-track="' . adrotate_hash($selected[$banner_id]->id, 0, 0) . '">';
+                                $output .= $selected[$banner_id]->title;
+                                $output .= '</a>';
+                                $output .= '</div>';
+                                $output .= '<div class="entry-post-additional-info"></div>';
+                                $output .= '<div class="red-line Px10 relative">';
+                                $output .= '<span class="is-sponsored">sponsored</span>';
+                                $output .= '</div>';
+                                $output .= '</div>';
+                            }
+
+                            unset($selected[$banner_id]);
+                        }
+                    } else { // Default (single ad)
+                        $banner_id = array_rand($selected, 1);
+
+                        $image = str_replace('%folder%', $adrotate_config['banner_folder'], $selected[$banner_id]->image);
+
+
+                        $output .= '<div class="g-single a-' . $selected[$banner_id]->id . '">';
+                        if (!$how_display) {
+                            $output = '<div class="thumbnail">';
+                        }
+                        $output .= $before . adrotate_ad_output($selected[$banner_id]->id, $group->id, $selected[$banner_id]->title, $selected[$banner_id]->bannercode, $selected[$banner_id]->tracker, $image, $selected[$banner_id]->responsive) . $after;
+                        if (!$how_display) {
+                            $output .= '</div>';
+                        }
+                        if (!$how_display) {
+                            $output .= '<div class="entry-post-wrapper">';
+                            $output .= '<div class="entry-post-info a-single a-' . $selected[$banner_id]->id . '">';
+                            $output .= '<a href="' . $selected[$banner_id]->link . '" class="gofollow"  target="_blank"  data-track="' . adrotate_hash($selected[$banner_id]->id, 0, 0) . '">';
+                            $output .= $selected[$banner_id]->title;
+                            $output .= '</a>';
+                            $output .= '</div>';
+                            $output .= '<div class="entry-post-additional-info"></div>';
+                            $output .= '<div class="red-line Px10 relative">';
+                            $output .= '<span class="is-sponsored">sponsored</span>';
+                            $output .= '</div>';
+//                            $output .= '</div>';
+                        }
+                        if ($how_display) {
+                            $output .= '</div>';
+                        }
+
+
+                        if ($adrotate_config['stats'] == 1) {
+                            adrotate_count_impression($selected[$banner_id]->id, $group->id, 0, $adrotate_config['impression_timer']);
+                        }
+
+                    }
+
+                    $output .= '</div>';
+                    unset($selected);
+                } else {
+                    $output .= get_dummy_for_expired_adrotate();
+//                    $output .= adrotate_error('ad_expired');
+                }
+            } else {
+                $output .= get_dummy_for_expired_adrotate();
+//                $output .= adrotate_error('ad_unqualified');
+            }
+        } else {
+            $output .= get_dummy_for_expired_adrotate();
+//            $output .= adrotate_error('group_not_found', array($group_array[0]));
+        }
+    } else {
+        $output .= get_dummy_for_expired_adrotate();
+//        $output .= adrotate_error('group_no_id');
+    }
+
+
+    return $output;
 }
 
 

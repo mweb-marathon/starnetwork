@@ -2890,4 +2890,12 @@ form li div {
   margin-bottom: 15px;
   overflow: hidden; }
 
+.ad-rotate-block-wrapper {
+  margin-top: 0px; }
+  .ad-rotate-block-wrapper a {
+    display: block; }
+  .ad-rotate-block-wrapper img {
+    width: 100%;
+    vertical-align: middle; }
+
 /*# sourceMappingURL=style.css.map */

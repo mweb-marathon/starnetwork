@@ -214,15 +214,20 @@ jQuery(document).ready(function ($) {
     /*infinite scroll home page*/
     var start_network_homepage_content_wrapper = $('.star-network-homepage-content-wrapper');
     if (start_network_homepage_content_wrapper.length > 0) {
+
+        var scroll_on_work = false;
         var total_event_records = '<?php echo count_event_per_category('') ?>';
 
         $(window).scroll(function () {
             if ($(window).scrollTop() > $(document).height() / 5) {
-                infiniteLoadEventsHome();
+                if (!scroll_on_work) { 
+                    infiniteLoadEventsHome();
+                }
             }
         });
 
         function infiniteLoadEventsHome() {
+            scroll_on_work = true;
             var start_network_homepage_content = start_network_homepage_content_wrapper.find('#content');
             var start_network_homepage_content_div = start_network_homepage_content.find('.star-network-homepage-content');
             var current_page = start_network_homepage_content.data('start-event-spots');
@@ -241,6 +246,7 @@ jQuery(document).ready(function ($) {
                     function (html) {
                         infinityScrollAnimation.waitMe('hide');
                         start_network_homepage_content_div.append(html);
+                        scroll_on_work = false;
                     }
                 );
             }
@@ -286,15 +292,19 @@ jQuery(document).ready(function ($) {
     if (star_network_upcoming_event_page_wrapper.length > 0) {
 
 //        var total_event_records = '<?php echo count_event_per_category('') ?>';
+
+        var scroll_on_work = false;
         $(window).scroll(function () {
             if ($(window).scrollTop() > $(document).height() / 5) {
-                infiniteLoadEventsUpcomingEvents();
+                if (!scroll_on_work) {
+                    infiniteLoadEventsUpcomingEvents();
+                }
             }
 
         });
         
         function infiniteLoadEventsUpcomingEvents(){
-
+            scroll_on_work = true;
             var cur_category = $('.current-category a');
             var category_name = '';
             if (cur_category.data('category-name')) {
@@ -318,6 +328,7 @@ jQuery(document).ready(function ($) {
                     infinityScrollAnimation.waitMe({color: '#525252'}).waitMe('show');
                 },
                 function (html) {
+                    scroll_on_work = false;
                     infinityScrollAnimation.waitMe('hide');
                     start_network_homepage_content_div.append(html);
                 }
