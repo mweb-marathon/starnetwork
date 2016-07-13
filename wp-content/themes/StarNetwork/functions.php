@@ -264,11 +264,6 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
         }
     }
 
-    ob_start();
-    var_dump($events);
-    $output = ob_get_clean();
-    file_put_contents('/home/alex/Desktop/debug', $output. "\n", FILE_APPEND);
-
     foreach ($events as $event) {
 
         if ($event instanceof  WP_Post) {
