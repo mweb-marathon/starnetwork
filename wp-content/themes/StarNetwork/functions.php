@@ -258,16 +258,16 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
         }
 
         if (key_exists($ad_i, $ad_positions)) {
-            $events[] = schneps_get_adrotate_ads_data($ad[ $ad_positions[ $ad_i ] ]);
+            $events[] = $ad[ $ad_positions[ $ad_i ] ];
         } else {
             $events[] = $total_events[$i]['post_object'];
         }
     }
 
-//    ob_start();
-//    var_dump($events);
-//    $output = ob_get_clean();
-//    file_put_contents('/home/alex/Desktop/debug', $output. "\n", FILE_APPEND);
+    ob_start();
+    var_dump($events);
+    $output = ob_get_clean();
+    file_put_contents('/home/alex/Desktop/debug', $output. "\n", FILE_APPEND);
 
     foreach ($events as $event) {
 
@@ -283,8 +283,15 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
                 $paged_per_category = count_paged_event_per_category($category_name);
                 echo '<span class="amount-event-per-category" data-amount-per-category="' . $amount_per_category . '" data-current-paged="' . $paged . '" data-all-paged="' . $paged_per_category . '" data-category-name="' . $category_name . '"></span>';
             }
-        } else {
-            adRotateForGreed($event['ad_object']);
+        } else {            
+            ?>
+            <div class="large-4 single-event-wrapper columns ad-rotate-block-wrapper">
+                <?php
+                $html = schneps_get_adrotate_($event);
+                echo empty($html) ? get_dummy_for_expired_adrotate() : $html;
+                ?>
+            </div>
+                <?php
         }
     }
     wp_reset_query();
@@ -292,6 +299,10 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
 
 function adRotateForGreed($ad_record)
 {
+    if (!$ad_record) {
+        echo get_dummy_for_expired_adrotate_with_wrapper(); 
+        return;
+    }
     ?>
     <div class="large-4 single-event-wrapper columns ad-rotate-block-wrapper">
         <?php $html = adrotate_ad($ad_record->id); ?>
@@ -303,8 +314,19 @@ function adRotateForGreed($ad_record)
 function get_dummy_for_expired_adrotate() {
     $output = '';
     $output .= '<a href="http://schnepscommunications.com/advertise/">';
-        $output .= '<img src="/wp-content/themes/TheStyle-child/img/adverstise-on-qns.jpg" />';
+        $output .= '<img src="/wp-content/themes/StarNetwork/img/adverstise-on-qns.jpg" />';
     $output .= '</a>';
+
+    return $output;
+}
+
+function get_dummy_for_expired_adrotate_with_wrapper() {
+    $output = '';
+    $output .= '<div class="entry large-4 medium-6 small-12 columns small ad-rotate-block-wrapper">';    
+    $output .= '<a href="http://schnepscommunications.com/advertise/">';
+        $output .= '<img src="/wp-content/themes/StarNetwork/img/adverstise-on-qns.jpg" />';
+    $output .= '</a>';
+    $output .= '</div>';
 
     return $output;
 }
