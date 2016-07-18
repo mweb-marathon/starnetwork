@@ -2898,4 +2898,9 @@ form li div {
     width: 100%;
     vertical-align: middle; }
 
+.entry-post-info {
+  border: none !important; }
+  .entry-post-info a {
+    word-break: normal !important; }
+
 /*# sourceMappingURL=style.css.map */
