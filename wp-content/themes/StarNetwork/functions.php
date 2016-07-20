@@ -171,11 +171,24 @@ function count_event_per_category($category_name)
 {
     $not_sticky = array(
         'post_type' => array('event'),
-
         'order_by' => 'date',
         'order' => 'DESC',
         'taxonomy' => 'event-categories',
         'term' => $category_name,
+        'post_status' => 'publish'
+    );
+
+    $the_query = new WP_Query($not_sticky);
+    wp_reset_query();
+    return $the_query->found_posts;
+}
+
+function count_newsandphotos()
+{
+    $not_sticky = array(
+        'post_type' => array('post'),
+        'order_by' => 'date',
+        'order' => 'DESC',
         'post_status' => 'publish'
     );
 
@@ -326,19 +339,35 @@ function get_dummy_for_expired_adrotate_with_wrapper() {
     return $output;
 }
 
-function schneps_get_posts_by_date($template = false, $post_per_page = 6, $category_name = false)
+function schneps_get_posts_by_date($template = false, $post_per_page = 23, $paged = 1,  $category_name = false)
 {
     $not_sticky = array(
         'post_type' => array('post'),
         'posts_per_page' => $post_per_page,
         'order_by' => 'date',
         'order' => 'DESC',
+        'paged' => $paged,
         'post_status' => 'publish'
     );
+    
+    $ad = get_option('select-adrotate-content-story');
+    $ad_positions = array(2 => 1, 5 => 2, 12 => 3, 15 => 4);
 
+    $i = 0;
     $wp_query_not_sticky = new WP_Query($not_sticky);
     if ($wp_query_not_sticky->have_posts()) {
         while ($wp_query_not_sticky->have_posts()) {
+            if (key_exists($i, $ad_positions)) {
+                ?>
+                <div class="large-4 single-event-wrapper columns ad-rotate-block-wrapper">
+                <?php
+                $html = schneps_get_adrotate_( $ad[ $ad_positions[$i] ] );
+                echo empty($html) ? get_dummy_for_expired_adrotate() : $html;
+                ?>
+            </div>
+                <?php
+            }
+            $i++;
             $wp_query_not_sticky->the_post();
 
             if ($template) {
@@ -537,8 +566,21 @@ function wp_calendarevents()
     exit;
 }
 
+function wp_newsandphotos() {
+    $post_per_page = !empty($_POST['post_per_page']) ? $_POST['post_per_page'] : 23;
+    $page = !empty($_POST['page']) ? $_POST['page'] : 1;
+    $category_name = !empty($_POST['post_category_name']) ? $_POST['post_category_name'] : 'all';
+
+    schneps_get_posts_by_date(false, $post_per_page, $page, $category_name);
+    exit;
+}
+
 add_action('wp_ajax_calendar_events', 'wp_calendarevents'); // for logged in user
 add_action('wp_ajax_nopriv_calendar_events', 'wp_calendarevents');
+
+add_action('wp_ajax_news_and_photos', 'wp_newsandphotos'); // for logged in user
+add_action('wp_ajax_nopriv_news_and_photos', 'wp_newsandphotos');
+
 
 function star_network_calendar_filter()
 {

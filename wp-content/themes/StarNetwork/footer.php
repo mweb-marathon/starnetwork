@@ -209,7 +209,50 @@ jQuery(document).ready(function ($) {
             }
         });
     }
+    
+    
+    var news_photos_wrapper = $('.news-photos-wrapper');
+    if (news_photos_wrapper.length > 0) {
+        var scroll_on_work = false;
+        var total_newsandphotos_records = '<?php echo count_newsandphotos() ?>';
 
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > $(document).height() / 5) {
+                if (!scroll_on_work) { 
+                    infiniteLoadNewsPhotos();
+                }
+            }
+        });
+
+        function infiniteLoadNewsPhotos() {
+            scroll_on_work = true;
+            var current_page = news_photos_wrapper.data('news-photos');
+            if (!current_page) {
+                current_page = 1;
+            }
+            current_page += 1;
+
+            news_photos_wrapper.data('news-photos', current_page);
+            var infinityScrollAnimation = $('#inifiniteLoader');
+
+            var events = news_photos_wrapper.find('.entry-post-wrapper');
+            if (events.length < total_newsandphotos_records) {
+
+                goAjax(
+                    "action=news_and_photos&page=" + current_page,
+                    function () {
+                        infinityScrollAnimation.waitMe({color: '#525252'}).waitMe('show');
+                    },
+                    function (html) {
+                        infinityScrollAnimation.waitMe('hide');
+                        scroll_on_work = false;
+                        news_photos_wrapper.append(html);
+                    }
+                );
+            }
+        }
+    }
+    
 
     /*infinite scroll home page*/
     var start_network_homepage_content_wrapper = $('.star-network-homepage-content-wrapper');

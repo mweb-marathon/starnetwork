@@ -13,7 +13,9 @@ get_header('star_network');
 ?>
     <div class="row main-content-data">
         <div class="spots-wrapper columns" id="content">
-            <?php schneps_get_posts_by_date(); ?>
+            <div class="news-photos-wrapper">
+                <?php schneps_get_posts_by_date(); ?>
+            </div>
         </div>
     </div>
 <?php get_footer('star_network'); ?>
