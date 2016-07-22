@@ -160,6 +160,15 @@ form li div {
     z-index: 2;
 }
 
+.shneps-post-gallery{
+    list-style-type: none;
+
+    li{
+        float: left;
+        padding: 5px;
+    }
+}
+
 .search-page-wrapper {
   .paging-navigation {
     padding: 0 0 30px 0;
