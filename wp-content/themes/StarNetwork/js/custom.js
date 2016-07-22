@@ -71,6 +71,11 @@ jQuery(document).ready(function ($) {
     $('.slider-image-info-wrapper.expandable').click(function () {
         var $_this = $(this);
         $_this.toggleClass('expanded');
-    })
+    });
 
+    $('li.search a').live('click', function(e){
+       e.preventDefault();
+       $('.search-form', '.header-main-menu').toggleClass('hide');
+       $('.search-form input[type="text"]', '.header-main-menu').focus()
+    });
 });

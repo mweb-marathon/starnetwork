@@ -2903,4 +2903,53 @@ form li div {
   .entry-post-info a {
     word-break: normal !important; }
 
+.search-form {
+  float: none;
+  position: absolute;
+  top: 30px;
+  width: 205px;
+  height: 50px;
+  padding: 10px;
+  background-color: #464646;
+  z-index: 2; }
+
+.search-page-wrapper .paging-navigation {
+  padding: 0 0 30px 0;
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal; }
+  .search-page-wrapper .paging-navigation a {
+    color: #d64949; }
+.search-page-wrapper .page-header .page-title {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ededed;
+  font-family: "DINNextLTPro-Regular", serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase; }
+.search-page-wrapper .search-content-single a {
+  color: #d64949; }
+.search-page-wrapper .search-content-single .post-link {
+  margin-bottom: 10px; }
+  .search-page-wrapper .search-content-single .post-link a {
+    font-family: "DINNextLTPro-Regular", serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 24px; }
+.search-page-wrapper .search-content-single .post-image {
+  margin-bottom: 10px; }
+.search-page-wrapper .search-content-single .post-excerpt {
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal; }
+.search-page-wrapper .search-content-single .post-readmore {
+  font-family: "DINNextLTPro-Light", serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal; }
+
 /*# sourceMappingURL=style.css.map */

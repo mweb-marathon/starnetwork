@@ -148,3 +148,58 @@ form li div {
         word-break: normal !important;
     }
 }
+
+.search-form{
+    float: none;
+    position: absolute;
+    top: 30px;
+    width: 205px;
+    height: 50px;
+    padding: 10px;
+    background-color: #464646;
+    z-index: 2;
+}
+
+.search-page-wrapper {
+  .paging-navigation {
+    padding: 0 0 30px 0;
+    @include fontCall("DINNextLTPro-Light", 14);
+    a {
+      color: $default-red;
+    }
+  }
+
+  .page-header {
+    .page-title {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ededed;
+      @include fontCall("DINNextLTPro-Regular", 14);
+      text-transform: uppercase;
+    }
+  }
+  .search-content-single {
+    a {
+      color: $default-red;
+    }
+    .post-link {
+      margin-bottom: 10px;
+      a {
+        @include fontCall("DINNextLTPro-Regular", 24);
+        line-height: 24px;
+      }
+
+    }
+
+    .post-image {
+      margin-bottom: 10px;
+    }
+
+    .post-excerpt {
+      @include fontCall("DINNextLTPro-Light", 14);
+    }
+
+    .post-readmore {
+      @include fontCall("DINNextLTPro-Light", 14);
+    }
+  }
+}
