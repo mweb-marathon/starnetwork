@@ -758,7 +758,7 @@ class EM_Event extends EM_Object{
 			unset($event_array['event_id']);
 			//decide whether or not event is private at this point
 			$event_array['event_private'] = ( $this->post_status == 'private' ) ? 1:0;
-			$event_array['event_venue_name'] = $_POST['event_venue_name'];
+			$event_array['event_venue_name'] = stripslashes($_POST['event_venue_name']);
 			$event_array['purchase_ticket_url'] = $_POST['event_purchase_ticket_url'];
 			$event_array['purchase_ticket_link_id'] = $_POST['event_purchase_ticket_link_id'];
 
