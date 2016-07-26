@@ -6,7 +6,7 @@
 
 $JS_ARRAY = array(
 //    'google-maps',
-    'google-maps-2',
+//    'google-maps-2',
     'jquery.validate.min',
     'waitMe',
     'bjsq-1.3.min',

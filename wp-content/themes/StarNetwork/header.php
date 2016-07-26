@@ -21,6 +21,7 @@ if (!session_id()) {
     <script type="text/javascript">
         document.documentElement.className = 'js';
     </script>
+    <script type="text/javascript" id="google-maps" src="http://maps.google.com/maps/api/js?v=3.12&amp;sensor=false&amp;libraries=places&amp;callback=em_maps"></script>
     <?php wp_head(); ?>
     <style type="text/css">
         html {
