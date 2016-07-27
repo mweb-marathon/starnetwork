@@ -172,6 +172,7 @@ function schneps_get_people_for_event_array()
         'post_type' => array('people'),
         'order_by' => 'date',
         'order' => 'DESC',
+        'posts_per_page' => 10000
     );
 
     $wp_query = new WP_Query($not_sticky);

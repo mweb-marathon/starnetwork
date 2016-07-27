@@ -872,7 +872,8 @@ function get_single_event_additional_people_data($data)
             'order_by' => 'date',
             'order' => 'DESC',
             'post_status' => 'publish',
-            'post__in' => $ids
+            'post__in' => $ids,
+            'posts_per_page' => 10000
         );
 
         $i = 0;
