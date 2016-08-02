@@ -32,6 +32,9 @@ get_header('star_network'); ?>
                             <div class="post-info-additional">
                                 <h1 class="headline"><?php echo get_the_title(); ?></h1>
                             </div>
+                            <div class="post-thumb-news-photos">
+                                <?php get_image_for_spot(); ?>
+                            </div>
                             <div class="image">
                                 <?php if (isset($story_meta['event_post_imgadv']) && count($story_meta['event_post_imgadv']) > 0): ?>
                                     <div class="post-gallery">

@@ -2919,6 +2919,9 @@ form li div {
     float: left;
     padding: 5px; }
 
+.post-thumb-news-photos img {
+  width: 100%; }
+
 .search-page-wrapper .paging-navigation {
   padding: 0 0 30px 0;
   font-family: "DINNextLTPro-Light", serif;
