@@ -869,8 +869,8 @@ function get_single_event_additional_people_data($data)
         }
         $not_sticky = array(
             'post_type' => 'people',
-            'order_by' => 'date',
-            'order' => 'DESC',
+            'orderby' => 'post_title',
+            'order' => 'ASC',
             'post_status' => 'publish',
             'post__in' => $ids,
             'posts_per_page' => 10000

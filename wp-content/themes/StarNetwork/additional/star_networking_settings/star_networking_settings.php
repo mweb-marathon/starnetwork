@@ -170,8 +170,8 @@ function schneps_get_people_for_event_array()
     $data = array();
     $not_sticky = array(
         'post_type' => array('people'),
-        'order_by' => 'date',
-        'order' => 'DESC',
+        'orderby' => 'post_title',
+        'order' => 'ASC',
         'posts_per_page' => 10000
     );
 
