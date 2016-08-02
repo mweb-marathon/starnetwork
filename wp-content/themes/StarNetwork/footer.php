@@ -136,8 +136,6 @@ jQuery(document).ready(function ($) {
 
             $_this.closest('li').addClass('current-category').siblings().removeClass('current-category');
 
-            console.debug(category_name);
-
             goAjax(
                 {
                     'action': 'calendar_events',
