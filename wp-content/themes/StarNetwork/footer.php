@@ -136,9 +136,13 @@ jQuery(document).ready(function ($) {
 
             $_this.closest('li').addClass('current-category').siblings().removeClass('current-category');
 
+            console.debug(category_name);
 
             goAjax(
-                "action=calendar_events&post_category_name=" + category_name,
+                {
+                    'action': 'calendar_events',
+                    'post_category_name': category_name
+                },
                 function () {
                     waitMe('show', $('#waitMeSpot'));
                     main_spot_upcoming_event_wrapper.hide().html('');
