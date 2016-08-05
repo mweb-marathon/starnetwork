@@ -436,6 +436,30 @@ function get_image_for_sponsor_people()
 <?php
 }
 
+function get_image_for_sponsor_people_2($titletext, $the_ID, $post)
+{
+    $thumb = '';
+    $width = 360;
+//    $height = 180;
+    $classtext = '';
+    $thumb = false;
+    if(has_post_thumbnail($the_ID)) {
+        $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext, false, '', $post);
+        $thumb = $thumbnail["thumb"];
+    }
+    ?>
+
+    <?php if ($thumb): ?>
+    <?php print_thumbnail($thumb, true, $titletext, $width, $height, $classtext, true, false, true, $post); ?>
+<?php else: ?>
+    <div class="no-image">
+        No Image
+    </div>
+<?php endif; ?>
+
+<?php
+}
+
 /* this function gets thumbnail from Post Thumbnail or Custom field or First post image */
 if (!function_exists('get_thumbnail')) {
     function get_thumbnail($width = 100, $height = 100, $class = '', $alttext = '', $titletext = '', $fullpath = false, $custom_field = '', $post = '')
@@ -865,6 +889,26 @@ function get_single_event_additional_people_data($data)
     $ids = array();
     $t = array();
     if ($data) {
+
+        $collector = array();
+        foreach ($data as $value) {
+            $collector[ $value['people_role'] ] [$value['people'].' '.$value['id'] ]  = $value;
+        }
+        $collector_reordered = array();
+        foreach ($people_role as $key => $role) {
+            if (array_key_exists($key, $collector)) {
+                ksort($collector[$key]);
+                $collector_reordered[$key] = $collector[$key];
+            }
+        }
+        $collector_merged = array();
+        foreach ($collector_reordered as $role => $people){
+            foreach ($people as $key => $val) {
+                $collector_merged[] = $val;
+            }
+        }
+
+        unset($collector, $collector_reordered);
         foreach ($data as $value) {
             $ids[] = $value['id'];
             $t[$value['id']] = $value['people_role'];
@@ -881,17 +925,32 @@ function get_single_event_additional_people_data($data)
         $i = 0;
         $wp_query_not_sticky = new WP_Query($not_sticky);
         if ($wp_query_not_sticky->have_posts()) {
-            echo '<div><ul>';
+            $posts_records = array();
+
             while ($wp_query_not_sticky->have_posts()) {
+                $wp_query_not_sticky->the_post();
+                $posts_records[get_the_ID()] = array(
+                    'post_meta' => get_post_meta(get_the_ID()),
+                    'post_ID' => get_the_ID(),
+                    'name' => get_the_title(),
+                    'post' => get_post()
+                );
+            }
+
+//            echo '<pre>';
+//            die(var_dump($posts_records));
+
+            echo '<div><ul>';
+            foreach($collector_merged as $people) {
 
                 if ($i && $i % 8 == 0) {
                     echo '</ul></div><div><ul>';
                 }
                 $i++;
-                $wp_query_not_sticky->the_post();
-                $post_meta = get_post_meta(get_the_ID());
-                $name = get_the_title();
 
+//                $wp_query_not_sticky->the_post();
+                $post_meta = $people['post_meta'];
+                $name = $titletext = $people['people'];
 
                 $company = $post_meta['schneps_people_company_or_organization'][0];
 
@@ -911,11 +970,12 @@ function get_single_event_additional_people_data($data)
                     <div class="image">
                         <div class="circle-img-box">
                             <?php echo !empty($post_meta['schneps_people_link'][0]) ? '<a href="'.$post_meta['schneps_people_link'][0].'">' : ''?>
-                                <?php get_image_for_sponsor_people(); ?>
+                            
+                                <?php get_image_for_sponsor_people_2($titletext, $people['id'], $posts_records[$people['id']]['post']); ?>
                             <?php echo !empty($post_meta['schneps_people_link'][0]) ? '</a>' : '' ?>
                         </div>
                         <div class="headshot">
-                            <?php echo $people_role[$t[get_the_ID()]]; ?>
+                            <?php echo $people_role[$t[ $people['id'] ]]; ?>
                         </div>
                     </div>
                     <div class="name">
