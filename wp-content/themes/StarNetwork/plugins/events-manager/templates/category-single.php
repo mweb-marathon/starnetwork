@@ -57,16 +57,16 @@ global $EM_Category;
     <div class="row main-content-data upcoming-event-page-wrapper">
 
         <div class="spots-wrapper columns" id="content" data-start-event-spots="1">
-            <div id="waitMeSpot"></div>
-            <div class="arrow left hide">
+            <!--<div id="waitMeSpot"></div>-->
+<!--            <div class="arrow left hide">
                 <a href="#" class="prev"></a>
-            </div>
+            </div>-->
             <div class="star-network-homepage-content">
                 <?php schneps_get_event_by_date('star_network', 6, 1); ?>
             </div>
-            <div class="arrow right">
+<!--            <div class="arrow right">
                 <a href="#" class="next"></a>
-            </div>
+            </div>-->
         </div>
     </div>
 

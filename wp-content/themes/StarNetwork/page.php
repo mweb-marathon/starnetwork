@@ -5,19 +5,24 @@
  */
 
 $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
+
+$url_arr = explode('/', $_SERVER['DOCUMENT_URI']);
+if (!empty($url_arr[1]) && $url_arr[1] == 'events') {
+    $event_class = 'events-case';
+}
 ?>
 
 <?php get_header('star_network'); ?>
     <div class="star-main-content-wrapper" style="background: url('<?php echo $url; ?>') no-repeat; min-height: 600px;">
-        <div id="content" class="row widecolumn extra-pages">
+        <div id="content" class="row widecolumn extra-pages <?php echo $event_class ?>">
             <div class="star-network-content-wrapper-bg">
-                <div class="star-network-content middle-row">
+                <div class="star-network-content">
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
                             <?php if (get_the_content() !== ''): ?>
-                                                            <div class="star-network-additional-page-title">
+<!--                                                            <div class="star-network-additional-page-title">
                                 <?php echo get_the_title(); ?>
-                                                            </div>
+                                                            </div>-->
 
 
                                 <div class="star-network-additional-page-content">
