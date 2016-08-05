@@ -217,32 +217,34 @@ function schneps_get_event_by_date($template = false, $post_per_page = 6, $paged
 
     $wp_query_not_sticky = new WP_Query($not_sticky);
 
-    $other_events = $today_events = array();
-    
+    $today_events = $future_events = $past_events = array();
     foreach ($wp_query_not_sticky->posts as $post) {
         $meta = get_post_meta($post->ID);
         $event_start_date = !empty($meta['_event_start_date'][0]) ? $meta['_event_start_date'][0] : '';
         $event_start_time = !empty($meta['_event_start_time'][0]) ? $meta['_event_start_time'][0] : '';
 
+        $event_record = array(
+            'start_date' => $event_start_date,
+            'start_time' => $event_start_time,
+            'post_object' => $post
+        );
+
         if ($event_start_date == date('Y-m-d')) {
-            $today_events[] = array(
-                'start_date' => $event_start_date,
-                'start_time' => $event_start_time,
-                'post_object' => $post
-            );
+            $today_events[] = $event_record;
         } else {
-            $other_events[] = array(
-                'start_date' => $event_start_date,
-                'start_time' => $event_start_time,
-                'post_object' => $post
-            );
+            if (strtotime($event_start_date) > time()) {
+                $future_events[] = $event_record;
+            } else {
+                $past_events[] = $event_record;
+            }
         }
     }
 
-    array_multisort($other_events, SORT_DESC);
+    array_multisort($future_events, SORT_ASC);
+    array_multisort($past_events, SORT_DESC);
     array_multisort($today_events, SORT_DESC);
 
-    $total_events = array_merge($today_events, $other_events);
+    $total_events = array_merge($today_events, $future_events, $past_events);
     
     $end_ind = $paged * $post_per_page;
     $start_ind = $end_ind - $post_per_page;
