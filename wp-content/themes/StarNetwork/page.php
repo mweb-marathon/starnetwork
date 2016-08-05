@@ -6,7 +6,7 @@
 
 $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
 
-$url_arr = explode('/', $_SERVER['DOCUMENT_URI']);
+$url_arr = explode('/', $_SERVER['REQUEST_URI']);
 if (!empty($url_arr[1]) && $url_arr[1] == 'events') {
     $event_class = 'events-case';
 }
