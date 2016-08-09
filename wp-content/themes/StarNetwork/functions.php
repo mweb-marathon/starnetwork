@@ -937,9 +937,6 @@ function get_single_event_additional_people_data($data)
                 );
             }
 
-//            echo '<pre>';
-//            die(var_dump($posts_records));
-
             echo '<div><ul>';
             foreach($collector_merged as $people) {
 

@@ -150,6 +150,7 @@ function schneps_get_event_by_date_array()
         'post_type' => array('event', 'post'),
         'order_by' => 'date',
         'order' => 'DESC',
+        'posts_per_page' => 10000
     );
 
     $wp_query = new WP_Query($not_sticky);
@@ -265,8 +266,6 @@ function star_networking_settings_page()
     <script>
         $(function () {
             var availableTags = <?php echo schneps_get_event_by_date_array();?>;
-
-
             $(document).on("focus keyup", "input.event", function (event) {
                 $(this).autocomplete({
                     source: availableTags,
