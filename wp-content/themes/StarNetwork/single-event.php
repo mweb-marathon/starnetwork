@@ -48,6 +48,8 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'original');
 
 $star_network_purchase_ticket_url = empty($event_meta['_event_id'][0]) ? '' : EM_Events::getFieldValueByEventId($event_meta['_event_id'][0], 'purchase_ticket_url');
 $star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' : EM_Events::getFieldValueByEventId($event_meta['_event_id'][0], 'purchase_ticket_link_id');
+
+$category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
 ?>
 
 <?php get_header('star_network'); ?>
@@ -64,7 +66,9 @@ $star_network_purchase_ticket_link_id = empty($event_meta['_event_id'][0]) ? '' 
                     <?php while (have_posts()) : the_post(); ?>
                         <div class="star-network-additional-page-title">
                             <?php echo get_the_title(); ?>
-                            <div class="event-type <?php echo $event_type; ?>"></div>
+                            <div class="event-type">
+                                <img src="<?php echo scheps_get_event_category_image($category_name) ?>" />
+                            </div>
                             <div class="event-additional-info">
                                 <ul>
                                     <li><a href="#g-map"><?php echo empty($em_venue_name) ? $event_location->location_name : $em_venue_name; ?></a></li>

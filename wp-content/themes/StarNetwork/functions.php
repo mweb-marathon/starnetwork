@@ -1188,6 +1188,13 @@ function shnepsPopularStoryAdrotate($option_name) {
     endif;
 }
 
+function scheps_get_event_category_image($slug) {
+    $term_record = get_term_by('slug', $slug, 'event-categories');
+    $em_category = new EM_Category($term_record);
+    $category_image = $em_category->get_image_url();
+    return $category_image;
+}
+
 /**
  * Get adrotate group.
  *

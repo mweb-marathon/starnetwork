@@ -118,6 +118,17 @@ class EM_Events extends EM_Object {
         return self::getFieldValueByEventId($id, 'event_venue_name');
     }
 
+    public static function getEventOneCategoryNameByPostId($id) {
+        global $wpdb;
+		$sql = "SELECT t.slug 
+                FROM 
+                    `wp_term_relationships` r INNER JOIN `wp_terms` t ON r.`term_taxonomy_id` = t.`term_id` 
+                WHERE r.`object_id` = ".$id;
+
+        $result = $wpdb->get_results($sql, OBJECT);
+        return !empty($result[0]) ? $result[0]->slug : null;
+    }
+
     public static function getFieldValueByEventId($id, $field_name) {
         global $wpdb;
 		$table_name = EM_EVENTS_TABLE;
