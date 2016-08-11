@@ -1200,4 +1200,61 @@ body.page-template-star_networking_homepage-php {
     background: none;
     border: none; }
 
+@media only screen and (max-width: 40em) {
+  .top-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0; }
+    .top-bar .toggle-topbar {
+      background-color: #FF060C;
+      -webkit-border-radius: 17px 0px 0px 17px;
+      -moz-border-radius: 17px 0px 0px 17px;
+      border-radius: 17px 0px 0px 17px;
+      width: 120px;
+      padding-top: 5px; }
+      .top-bar .toggle-topbar .menu-icon-schneps {
+        display: block;
+        border: 1px solid #EBBABD;
+        background-color: #EBBABD;
+        width: 35px;
+        height: 35px;
+        border-radius: 20px;
+        position: absolute;
+        right: 20px; }
+        .top-bar .toggle-topbar .menu-icon-schneps b {
+          font-size: 25px;
+          color: #FF060C;
+          position: absolute;
+          line-height: inherit;
+          left: 5px;
+          top: -5px; }
+    .top-bar .name {
+      background-color: #231F20; }
+
+  .star-network-additional-page-title {
+    padding: 20px !important; }
+
+  .star-network-additional-page-content {
+    padding: 20px; }
+
+  .event-btns-set {
+    left: 0px; }
+    .event-btns-set li {
+      position: relative;
+      margin-bottom: 10px;
+      padding: 0;
+      width: 95%; }
+      .event-btns-set li form {
+        text-align: left; }
+      .event-btns-set li .purch-ticket {
+        margin: 0 auto !important;
+        font-size: 18px !important;
+        width: 90% !important; }
+      .event-btns-set li .sponsor-exhibit .yellow {
+        position: absolute;
+        left: 0;
+        font-size: 18px !important;
+        width: 90% !important; } }
+
 /*# sourceMappingURL=star-network.css.map */

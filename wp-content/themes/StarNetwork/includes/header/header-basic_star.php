@@ -7,6 +7,7 @@
 <div class="header-wrapper-bg-image header-wrapper-star-network-header">
     <div class="header-wrapper-bg-color">
         <header class="row <?php echo wp_is_mobile() ? 'mobile' : ''; ?> new-header">
+            <?php if(!wp_is_mobile()): ?>
             <div class="logo-with-menu-wrapper">
                 <div class="large-9 columns logo">
                     <div class="hidden-for-small-only hidden-for-medium-only text-center leaderboard-header-box">
@@ -15,6 +16,7 @@
                     <?php include 'partials/logo/logo_star.php'; ?>
                 </div>
             </div>
+            <?php endif; ?>
         </header>
     </div>
     <?php include 'partials/header-main-menu-wrapper/header-main-menu-star-network-wrapper.php'; ?>
