@@ -878,6 +878,8 @@ body.page-template-star_networking_homepage-php {
     background: white;
     margin-bottom: -2px;
     margin-right: 15px; }
+  .form-wrapper #newsletter-form .checkboxes label span, .form-wrapper #newsletter-form .ctct-checkboxes label span, .form-wrapper #speak-form .checkboxes label span, .form-wrapper #speak-form .ctct-checkboxes label span, .form-wrapper #nominate-form .checkboxes label span, .form-wrapper #nominate-form .ctct-checkboxes label span, .form-wrapper #sponsor-form .checkboxes label span, .form-wrapper #sponsor-form .ctct-checkboxes label span, .form-wrapper #cc_form_1 .checkboxes label span, .form-wrapper #cc_form_1 .ctct-checkboxes label span {
+    float: none; }
 .form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit, .form-wrapper #cc_form_1 .submit {
   margin-top: 65px;
   text-align: center; }
