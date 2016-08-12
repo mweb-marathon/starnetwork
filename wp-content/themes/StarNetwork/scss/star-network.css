@@ -270,7 +270,7 @@ body.page-template-star_networking_homepage-php {
       width: 33%;
       display: table-cell;
       font-family: "DINNextLTPro-Medium", serif;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: normal;
       font-style: normal;
       color: #000000;
@@ -278,7 +278,7 @@ body.page-template-star_networking_homepage-php {
       text-transform: uppercase; }
       .star-network-home-pages .page-header-site-statistic ul li .number {
         font-family: "DINNextLTPro-Medium", serif;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: normal;
         font-style: normal;
         vertical-align: middle; }
@@ -1255,6 +1255,18 @@ body.page-template-star_networking_homepage-php {
         position: absolute;
         left: 0;
         font-size: 18px !important;
-        width: 90% !important; } }
+        width: 90% !important; }
+
+  .page-header-site-statistic li {
+    font-family: "DINNextLTPro-Medium", serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal; }
+  .page-header-site-statistic .number {
+    display: block;
+    font-family: "DINNextLTPro-Medium", serif;
+    font-size: 40px;
+    font-weight: normal;
+    font-style: normal; } }
 
 /*# sourceMappingURL=star-network.css.map */

@@ -250,13 +250,13 @@ body.page-template-star_networking_homepage-php {
       li {
         width: 33%;
         display: table-cell;
-        @include fontCall("DINNextLTPro-Medium", 25);
+        @include fontCall("DINNextLTPro-Medium", 20);
         color: #000000;
         text-align: center;
         text-transform: uppercase;
 
         .number {
-          @include fontCall("DINNextLTPro-Medium", 60);
+          @include fontCall("DINNextLTPro-Medium", 50);
           vertical-align: middle;
         }
       }
@@ -1357,6 +1357,15 @@ body.page-template-star_networking_homepage-php {
                     width: 90% !important;
                 }
             }
+        }
+    }
+    .page-header-site-statistic{
+        li{
+            @include fontCall("DINNextLTPro-Medium", 15);
+        }
+        .number{
+            display: block;
+            @include fontCall("DINNextLTPro-Medium", 40);
         }
     }
 }
