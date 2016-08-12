@@ -688,7 +688,7 @@ jQuery(document).ready( function($){
     jQuery('#publish').on('click', function(){
         var is_valid = true;
         $('.purchase-ticket-msg').remove();
-        $('#purchase-ticket-url, #purchase-ticket-link-id').each(function(){
+        $('#purchase-ticket-url').each(function(){
             if ($(this).val() == '') {
                 is_valid = false;
                 $(this).css({'border':'1px solid red'});

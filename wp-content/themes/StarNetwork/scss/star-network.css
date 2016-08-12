@@ -1241,19 +1241,17 @@ body.page-template-star_networking_homepage-php {
   .event-btns-set {
     left: 0px; }
     .event-btns-set li {
+      text-align: center !important;
       position: relative;
       margin-bottom: 10px;
       padding: 0;
-      width: 95%; }
-      .event-btns-set li form {
-        text-align: left; }
+      width: 97%;
+      height: 50px;
+      float: none; }
       .event-btns-set li .purch-ticket {
-        margin: 0 auto !important;
         font-size: 18px !important;
         width: 90% !important; }
       .event-btns-set li .sponsor-exhibit .yellow {
-        position: absolute;
-        left: 0;
         font-size: 18px !important;
         width: 90% !important; }
 

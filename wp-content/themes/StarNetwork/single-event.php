@@ -86,15 +86,8 @@ $category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
                                 <a href="<?php echo $ticket_link ?>" target="_blank" class="button red">Get Tickets</a>
                             <?php endif; ?>
                                 <ul class="event-btns-set">
-                                    <li>
-                                        <form action="<?php echo $star_network_purchase_ticket_url; ?>" method="post" name="PrePage">
-                                            <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
-                                            <button class="red purch-ticket">Purchase Ticket And Ads</button>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <a href="/sponsor/" class="sponsor-exhibit" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a>
-                                    </li>
+                                    <li><a href="<?php echo $star_network_purchase_ticket_url; ?>"><button class="red purch-ticket">Purchase Ticket And Ads</button></a></li>
+                                    <li><a href="/sponsor/" class="sponsor-exhibit" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
                                 </ul>
                                 <div style="clear: both;"></div>
                         </div>
@@ -137,12 +130,15 @@ $category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
                                         <?php endif; ?>
                                         <ul class="event-btns-set event-btns-set-2">
                                             <li>
-                                                <form action="<?php echo $star_network_purchase_ticket_url; ?>" method="post" name="PrePage">
-                                                    <input name="LinkId" type="hidden" value="<?php echo $star_network_purchase_ticket_link_id ?>">
+                                                <a href="<?php echo $star_network_purchase_ticket_url; ?>"  target="_blank">
                                                     <button class="red purch-ticket">Purchase Ticket And Ads</button>
-                                                </form>
+                                                </a>
                                             </li>
-                                            <li><a href="/sponsor/"  class="sponsor-exhibit" target="_blank"><button class="yellow">Sponsor / Exhibit</button></a></li>
+                                            <li>
+                                                <a href="/sponsor/"  class="sponsor-exhibit" target="_blank">
+                                                    <button class="yellow">Sponsor / Exhibit</button>
+                                                </a>
+                                            </li>
                                         </ul>
                                         <div style="clear: both;"></div>
                                     </div>
