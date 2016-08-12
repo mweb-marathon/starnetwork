@@ -861,6 +861,14 @@ body.page-template-star_networking_homepage-php {
   color: #707070;
   /*        input {
             display: none;
+          }*/
+  /*        input:checked + span:before {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 18px;
+            background: #d64949;
+            position: relative;
           }*/ }
   .form-wrapper #newsletter-form .checkboxes label .custom.checkbox, .form-wrapper #newsletter-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #speak-form .checkboxes label .custom.checkbox, .form-wrapper #speak-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #nominate-form .checkboxes label .custom.checkbox, .form-wrapper #nominate-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #cc_form_1 .checkboxes label .custom.checkbox, .form-wrapper #cc_form_1 .ctct-checkboxes label .custom.checkbox {
     border: 1px solid #636363;
@@ -870,13 +878,6 @@ body.page-template-star_networking_homepage-php {
     background: white;
     margin-bottom: -2px;
     margin-right: 15px; }
-  .form-wrapper #newsletter-form .checkboxes label input:checked + span:before, .form-wrapper #newsletter-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #speak-form .checkboxes label input:checked + span:before, .form-wrapper #speak-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #nominate-form .checkboxes label input:checked + span:before, .form-wrapper #nominate-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #cc_form_1 .checkboxes label input:checked + span:before, .form-wrapper #cc_form_1 .ctct-checkboxes label input:checked + span:before {
-    content: "";
-    display: block;
-    width: 18px;
-    height: 18px;
-    background: #d64949;
-    position: relative; }
 .form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit, .form-wrapper #cc_form_1 .submit {
   margin-top: 65px;
   text-align: center; }
