@@ -784,13 +784,17 @@ body.page-template-star_networking_homepage-php {
             line-height: 17px; }
 
 /* Star Network Additional Page. End */
-.form-wrapper #newsletter-form label.error, .form-wrapper #speak-form label.error, .form-wrapper #nominate-form label.error, .form-wrapper #sponsor-form label.error {
+.form-wrapper #cc_form_1 {
+  margin: 0 auto;
+  width: 70%; }
+.form-wrapper #newsletter-form label.error, .form-wrapper #speak-form label.error, .form-wrapper #nominate-form label.error, .form-wrapper #sponsor-form label.error, .form-wrapper #cc_form_1 label.error {
   display: none !important; }
 .form-wrapper #newsletter-form input[type="text"],
 .form-wrapper #newsletter-form input[type="email"], .form-wrapper #speak-form input[type="text"],
 .form-wrapper #speak-form input[type="email"], .form-wrapper #nominate-form input[type="text"],
 .form-wrapper #nominate-form input[type="email"], .form-wrapper #sponsor-form input[type="text"],
-.form-wrapper #sponsor-form input[type="email"] {
+.form-wrapper #sponsor-form input[type="email"], .form-wrapper #cc_form_1 input[type="text"],
+.form-wrapper #cc_form_1 input[type="email"] {
   background: #f2f2f2;
   border: 1px solid #e1e1e1;
   font-family: "DINNextLTPro-Light", serif;
@@ -805,21 +809,22 @@ body.page-template-star_networking_homepage-php {
   .form-wrapper #newsletter-form input[type="email"].error, .form-wrapper #speak-form input[type="text"].error,
   .form-wrapper #speak-form input[type="email"].error, .form-wrapper #nominate-form input[type="text"].error,
   .form-wrapper #nominate-form input[type="email"].error, .form-wrapper #sponsor-form input[type="text"].error,
-  .form-wrapper #sponsor-form input[type="email"].error {
+  .form-wrapper #sponsor-form input[type="email"].error, .form-wrapper #cc_form_1 input[type="text"].error,
+  .form-wrapper #cc_form_1 input[type="email"].error {
     border: 1px solid red; }
-.form-wrapper #newsletter-form .fieldset, .form-wrapper #speak-form .fieldset, .form-wrapper #nominate-form .fieldset, .form-wrapper #sponsor-form .fieldset {
+.form-wrapper #newsletter-form .fieldset, .form-wrapper #speak-form .fieldset, .form-wrapper #nominate-form .fieldset, .form-wrapper #sponsor-form .fieldset, .form-wrapper #cc_form_1 .fieldset {
   color: #707070;
   font-family: "DINNextLTPro-Light", serif;
   font-size: 21px;
   font-weight: normal;
   font-style: normal; }
-.form-wrapper #newsletter-form .select-list label, .form-wrapper #speak-form .select-list label, .form-wrapper #nominate-form .select-list label, .form-wrapper #sponsor-form .select-list label {
+.form-wrapper #newsletter-form .select-list label, .form-wrapper #speak-form .select-list label, .form-wrapper #nominate-form .select-list label, .form-wrapper #sponsor-form .select-list label, .form-wrapper #cc_form_1 .select-list label {
   color: #707070;
   font-family: "DINNextLTPro-Light", serif;
   font-size: 21px;
   font-weight: normal;
   font-style: normal; }
-.form-wrapper #newsletter-form .select-list select, .form-wrapper #speak-form .select-list select, .form-wrapper #nominate-form .select-list select, .form-wrapper #sponsor-form .select-list select {
+.form-wrapper #newsletter-form .select-list select, .form-wrapper #speak-form .select-list select, .form-wrapper #nominate-form .select-list select, .form-wrapper #sponsor-form .select-list select, .form-wrapper #cc_form_1 .select-list select {
   color: #707070;
   border-radius: 10px;
   height: 60px;
@@ -836,9 +841,9 @@ body.page-template-star_networking_homepage-php {
   text-indent: 0.01px;
   text-overflow: "";
   padding-top: 15px; }
-  .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error {
+  .form-wrapper #newsletter-form .select-list select.error, .form-wrapper #speak-form .select-list select.error, .form-wrapper #nominate-form .select-list select.error, .form-wrapper #sponsor-form .select-list select.error, .form-wrapper #cc_form_1 .select-list select.error {
     border: 1px solid red; }
-.form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title {
+.form-wrapper #newsletter-form .checkboxes .checkboxes-title, .form-wrapper #newsletter-form .ctct-checkboxes .checkboxes-title, .form-wrapper #speak-form .checkboxes .checkboxes-title, .form-wrapper #speak-form .ctct-checkboxes .checkboxes-title, .form-wrapper #nominate-form .checkboxes .checkboxes-title, .form-wrapper #nominate-form .ctct-checkboxes .checkboxes-title, .form-wrapper #sponsor-form .checkboxes .checkboxes-title, .form-wrapper #sponsor-form .ctct-checkboxes .checkboxes-title, .form-wrapper #cc_form_1 .checkboxes .checkboxes-title, .form-wrapper #cc_form_1 .ctct-checkboxes .checkboxes-title {
   font-family: "DINNextLTPro-Regular", serif;
   font-size: 18px;
   font-weight: normal;
@@ -846,17 +851,18 @@ body.page-template-star_networking_homepage-php {
   color: #464646;
   margin-bottom: 20px;
   margin-top: 25px; }
-.form-wrapper #newsletter-form .checkboxes > div, .form-wrapper #speak-form .checkboxes > div, .form-wrapper #nominate-form .checkboxes > div, .form-wrapper #sponsor-form .checkboxes > div {
+.form-wrapper #newsletter-form .checkboxes > div, .form-wrapper #newsletter-form .ctct-checkboxes > div, .form-wrapper #speak-form .checkboxes > div, .form-wrapper #speak-form .ctct-checkboxes > div, .form-wrapper #nominate-form .checkboxes > div, .form-wrapper #nominate-form .ctct-checkboxes > div, .form-wrapper #sponsor-form .checkboxes > div, .form-wrapper #sponsor-form .ctct-checkboxes > div, .form-wrapper #cc_form_1 .checkboxes > div, .form-wrapper #cc_form_1 .ctct-checkboxes > div {
   margin-bottom: 10px; }
-.form-wrapper #newsletter-form .checkboxes label, .form-wrapper #speak-form .checkboxes label, .form-wrapper #nominate-form .checkboxes label, .form-wrapper #sponsor-form .checkboxes label {
+.form-wrapper #newsletter-form .checkboxes label, .form-wrapper #newsletter-form .ctct-checkboxes label, .form-wrapper #speak-form .checkboxes label, .form-wrapper #speak-form .ctct-checkboxes label, .form-wrapper #nominate-form .checkboxes label, .form-wrapper #nominate-form .ctct-checkboxes label, .form-wrapper #sponsor-form .checkboxes label, .form-wrapper #sponsor-form .ctct-checkboxes label, .form-wrapper #cc_form_1 .checkboxes label, .form-wrapper #cc_form_1 .ctct-checkboxes label {
   font-family: "DINNextLTPro-Light", serif;
   font-size: 21px;
   font-weight: normal;
   font-style: normal;
-  color: #707070; }
-  .form-wrapper #newsletter-form .checkboxes label input, .form-wrapper #speak-form .checkboxes label input, .form-wrapper #nominate-form .checkboxes label input, .form-wrapper #sponsor-form .checkboxes label input {
-    display: none; }
-  .form-wrapper #newsletter-form .checkboxes label .custom.checkbox, .form-wrapper #speak-form .checkboxes label .custom.checkbox, .form-wrapper #nominate-form .checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .checkboxes label .custom.checkbox {
+  color: #707070;
+  /*        input {
+            display: none;
+          }*/ }
+  .form-wrapper #newsletter-form .checkboxes label .custom.checkbox, .form-wrapper #newsletter-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #speak-form .checkboxes label .custom.checkbox, .form-wrapper #speak-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #nominate-form .checkboxes label .custom.checkbox, .form-wrapper #nominate-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .checkboxes label .custom.checkbox, .form-wrapper #sponsor-form .ctct-checkboxes label .custom.checkbox, .form-wrapper #cc_form_1 .checkboxes label .custom.checkbox, .form-wrapper #cc_form_1 .ctct-checkboxes label .custom.checkbox {
     border: 1px solid #636363;
     width: 20px;
     height: 20px;
@@ -864,17 +870,17 @@ body.page-template-star_networking_homepage-php {
     background: white;
     margin-bottom: -2px;
     margin-right: 15px; }
-  .form-wrapper #newsletter-form .checkboxes label input:checked + span:before, .form-wrapper #speak-form .checkboxes label input:checked + span:before, .form-wrapper #nominate-form .checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .checkboxes label input:checked + span:before {
+  .form-wrapper #newsletter-form .checkboxes label input:checked + span:before, .form-wrapper #newsletter-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #speak-form .checkboxes label input:checked + span:before, .form-wrapper #speak-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #nominate-form .checkboxes label input:checked + span:before, .form-wrapper #nominate-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .checkboxes label input:checked + span:before, .form-wrapper #sponsor-form .ctct-checkboxes label input:checked + span:before, .form-wrapper #cc_form_1 .checkboxes label input:checked + span:before, .form-wrapper #cc_form_1 .ctct-checkboxes label input:checked + span:before {
     content: "";
     display: block;
     width: 18px;
     height: 18px;
     background: #d64949;
     position: relative; }
-.form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit {
+.form-wrapper #newsletter-form .submit, .form-wrapper #speak-form .submit, .form-wrapper #nominate-form .submit, .form-wrapper #sponsor-form .submit, .form-wrapper #cc_form_1 .submit {
   margin-top: 65px;
   text-align: center; }
-  .form-wrapper #newsletter-form .submit input, .form-wrapper #speak-form .submit input, .form-wrapper #nominate-form .submit input, .form-wrapper #sponsor-form .submit input {
+  .form-wrapper #newsletter-form .submit input, .form-wrapper #speak-form .submit input, .form-wrapper #nominate-form .submit input, .form-wrapper #sponsor-form .submit input, .form-wrapper #cc_form_1 .submit input {
     border: none;
     font-family: "DINNextLTPro-Light", serif;
     font-size: 24px;
@@ -886,13 +892,13 @@ body.page-template-star_networking_homepage-php {
     padding: 22px 100px 20px;
     border-radius: 10px;
     cursor: pointer; }
-.form-wrapper #newsletter-form .textarea label, .form-wrapper #speak-form .textarea label, .form-wrapper #nominate-form .textarea label, .form-wrapper #sponsor-form .textarea label {
+.form-wrapper #newsletter-form .textarea label, .form-wrapper #speak-form .textarea label, .form-wrapper #nominate-form .textarea label, .form-wrapper #sponsor-form .textarea label, .form-wrapper #cc_form_1 .textarea label {
   color: #707070;
   font-family: "DINNextLTPro-Light", serif;
   font-size: 21px;
   font-weight: normal;
   font-style: normal; }
-.form-wrapper #newsletter-form .textarea textarea, .form-wrapper #speak-form .textarea textarea, .form-wrapper #nominate-form .textarea textarea, .form-wrapper #sponsor-form .textarea textarea {
+.form-wrapper #newsletter-form .textarea textarea, .form-wrapper #speak-form .textarea textarea, .form-wrapper #nominate-form .textarea textarea, .form-wrapper #sponsor-form .textarea textarea, .form-wrapper #cc_form_1 .textarea textarea {
   background: #f2f2f2;
   border: 1px solid #e1e1e1;
   font-family: "DINNextLTPro-Light", serif;
@@ -904,7 +910,7 @@ body.page-template-star_networking_homepage-php {
   border-radius: 10px;
   height: 200px;
   resize: none; }
-  .form-wrapper #newsletter-form .textarea textarea.error, .form-wrapper #speak-form .textarea textarea.error, .form-wrapper #nominate-form .textarea textarea.error, .form-wrapper #sponsor-form .textarea textarea.error {
+  .form-wrapper #newsletter-form .textarea textarea.error, .form-wrapper #speak-form .textarea textarea.error, .form-wrapper #nominate-form .textarea textarea.error, .form-wrapper #sponsor-form .textarea textarea.error, .form-wrapper #cc_form_1 .textarea textarea.error {
     border: 1px solid red; }
 
 .ajax-success {

@@ -822,7 +822,11 @@ body.page-template-star_networking_homepage-php {
 /* Star Network Additional Page. End */
 
 .form-wrapper {
-  #newsletter-form, #speak-form, #nominate-form, #sponsor-form {
+    #cc_form_1{
+        margin: 0 auto;
+        width: 70%;
+    }
+    #newsletter-form, #speak-form, #nominate-form, #sponsor-form, #cc_form_1 {
     label.error {
       display: none !important;
     }
@@ -871,7 +875,7 @@ body.page-template-star_networking_homepage-php {
       }
     }
 
-    .checkboxes {
+    .checkboxes, .ctct-checkboxes {
       .checkboxes-title {
         @include fontCall("DINNextLTPro-Regular", 18);
         color: #464646;
@@ -884,9 +888,9 @@ body.page-template-star_networking_homepage-php {
       label {
         @include fontCall("DINNextLTPro-Light", 21);
         color: #707070;
-        input {
+/*        input {
           display: none;
-        }
+        }*/
         .custom.checkbox {
           border: 1px solid #636363;
           width: 20px;

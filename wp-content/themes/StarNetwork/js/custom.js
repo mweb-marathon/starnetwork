@@ -73,6 +73,7 @@ jQuery(document).ready(function ($) {
         $_this.toggleClass('expanded');
     });
 
+    $('.form-wrapper').find('style').remove();
     $('li.search a').live('click', function(e){
        e.preventDefault();
        $('.search-form', '.header-main-menu').toggleClass('hide');
