@@ -892,7 +892,13 @@ function get_single_event_additional_people_data($data)
 
         $collector = array();
         foreach ($data as $value) {
-            $collector[ $value['people_role'] ] [$value['people'].' '.$value['id'] ]  = $value;
+            $people = explode(' ', $value['people'], 2);
+            if (count($people) == 2) {
+                $last_first_name = $people[1].' '.$people[0];
+            } else {
+                $last_first_name = $value['people'];
+            }
+            $collector[ $value['people_role'] ] [$last_first_name.' '.$value['id'] ]  = $value;
         }
         $collector_reordered = array();
         foreach ($people_role as $key => $role) {
