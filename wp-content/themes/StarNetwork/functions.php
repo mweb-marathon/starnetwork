@@ -449,7 +449,7 @@ function get_image_for_sponsor_people_2($titletext, $the_ID, $post)
     }
     ?>
 
-    <?php if ($thumb): ?>
+<?php if ($thumb): ?>
     <?php print_thumbnail($thumb, true, $titletext, $width, $height, $classtext, true, false, true, $post); ?>
 <?php else: ?>
     <div class="no-image">
@@ -883,7 +883,7 @@ function get_single_event_additional_people_data($data)
         'special_honoree' => 'Special Honoree(s)',
         'keynote_speaker' => 'Keynote Speaker',
         'moderator' => 'Moderator',
-        'honorees' => 'Honorees',
+        'honorees' => 'Honoree',
         'speakers' => 'Speakers'
     );
     $ids = array();
@@ -973,8 +973,7 @@ function get_single_event_additional_people_data($data)
                     <div class="image">
                         <div class="circle-img-box">
                             <?php echo !empty($post_meta['schneps_people_link'][0]) ? '<a href="'.$post_meta['schneps_people_link'][0].'">' : ''?>
-                            
-                                <?php get_image_for_sponsor_people_2($titletext, $people['id'], $posts_records[$people['id']]['post']); ?>
+                                                            <?php get_image_for_sponsor_people_2($titletext, $people['id'], $posts_records[$people['id']]['post']); ?>
                             <?php echo !empty($post_meta['schneps_people_link'][0]) ? '</a>' : '' ?>
                         </div>
                         <div class="headshot">
