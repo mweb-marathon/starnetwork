@@ -16,6 +16,8 @@
                     <?php include 'partials/logo/logo_star.php'; ?>
                 </div>
             </div>
+            <?php else: ?>
+                <?php include 'partials/banner/banner.php'; ?>
             <?php endif; ?>
         </header>
     </div>
