@@ -12,6 +12,7 @@
                 <input type="hidden" name="post_type[]" value="event" />
                 <input type="hidden" name="post_type[]" value="post" />
                 <input type="submit" value="find" class="search-btn"/>
+                <div class="float-none"></div>
             </form>
         </div>
         <div class="auth-links right">

@@ -4,7 +4,7 @@
  * @copyright maxim 1/2/15 | 12:28 PM
  */
  ?>
-<div class="large-9 columns menu">
+<div class="large-9 columns menu top-block">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">

@@ -1373,4 +1373,39 @@ body.page-template-star_networking_homepage-php {
             @include fontCall("DINNextLTPro-Medium", 40);
         }
     }
+    .top-block{
+        height: 45px !important;
+    }
+    .menu-main-social-container{
+        width: 170px;
+        margin: 0 auto;
+        @include headerAuthLink;
+    }
+    .auth-link-wrapper{ 
+        padding: 0;
+        .right{
+            float: none !important;
+        }
+    }
+    .search-form{
+        width: 100%;
+        height: 60px;
+    }
+    
+    .search-input{
+        width: 85% !important;
+        float: left;
+        
+    }
+    
+    .search-btn {
+        background: #ed5050 url("../img/search.png") no-repeat center;
+        width: 42px;
+        height: 42px;
+        border: none;
+        float: right;
+        margin-left: 10px;
+        color: transparent;
+    }
+    
 }
