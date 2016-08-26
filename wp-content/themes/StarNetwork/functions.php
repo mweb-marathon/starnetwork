@@ -880,7 +880,8 @@ function get_single_event_additional_people_data($data)
 {
     $people_role = array(
         'emcee' => 'Emcee',
-        'special_honoree' => 'Special Honoree(s)',
+//        'special_honoree' => 'Special Honoree(s)',
+        'hall_of_fame' => 'Hall of Fame',
         'keynote_speaker' => 'Keynote Speaker',
         'moderator' => 'Moderator',
         'honorees' => 'Honoree',
@@ -964,8 +965,7 @@ function get_single_event_additional_people_data($data)
                 }
                 $i++;
 
-//                $wp_query_not_sticky->the_post();
-                $post_meta = $people['post_meta'];
+                $post_meta = $posts_records[$people['id']]['post_meta'];
                 $name = $titletext = $people['people'];
 
                 $company = $post_meta['schneps_people_company_or_organization'][0];

@@ -45,8 +45,8 @@ function dynamic_inner_people_box()
                                 Emcee
                             </option>
                             <option
-                                value="special_honoree" <?php echo $value['people_role'] == 'special_honoree' ? 'selected' : ''; ?>>
-                                Special Honoree(s)
+                                value="hall_of_fame" <?php echo $value['people_role'] == 'hall_of_fame' ? 'selected' : ''; ?>>
+                                Hall of Fame
                             </option>
                             <option
                                 value="keynote_speaker" <?php echo $value['people_role'] == 'keynote_speaker' ? 'selected' : ''; ?>>
@@ -108,7 +108,8 @@ function dynamic_inner_people_box()
                         '<input type="hidden" name="event[' + count + '][id]">' +
                         '<select name="event[' + count + '][people_role]" id="people-role">' +
                         '<option value="emcee">Emcee</option>' +
-                        '<option value="special_honoree">Special Honoree(s)</option> ' +
+//                        '<option value="special_honoree">Special Honoree(s)</option> ' +
+                        '<option value="hall_of_fame">Hall of Fame</option> ' +
                         '<option value="keynote_speaker">Keynote Speaker</option>' +
                         '<option value="moderator">Moderator</option>' +
                         '<option value="honorees">Honorees</option>' +
