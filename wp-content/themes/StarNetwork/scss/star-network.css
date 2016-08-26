@@ -1210,6 +1210,23 @@ body.page-template-star_networking_homepage-php {
     border: none; }
 
 @media only screen and (max-width: 40em) {
+  .star-network-attend-pages .main-content .categories {
+    box-sizing: border-box;
+    margin-top: 25px;
+    height: auto; }
+    .star-network-attend-pages .main-content .categories ul li {
+      display: block !important;
+      z-index: 3;
+      width: 33%;
+      float: left;
+      height: 55px;
+      border: 1px solid #d64949;
+      margin-left: 0px;
+      padding-top: 10px; }
+    .star-network-attend-pages .main-content .categories ul a {
+      font-size: 14px !important;
+      padding: 0 !important; }
+
   .top-bar {
     position: absolute;
     top: 0;

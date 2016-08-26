@@ -1300,6 +1300,34 @@ body.page-template-star_networking_homepage-php {
 
 
 @media only screen and (max-width: 40em){
+    
+    .star-network-attend-pages {
+        .main-content {
+            .categories {
+              box-sizing: border-box;
+              margin-top: 25px;
+              height: auto;
+              
+              ul {
+                  li{
+                    display: block !important;
+                    z-index: 3;
+                    width: 33%;
+                    float: left;
+                    height: 55px;
+                    border: 1px solid $default-red;
+                    margin-left: 0px;
+                    padding-top: 10px;
+                  }
+                  a{
+                      font-size: 14px !important;
+                      padding: 0 !important;
+                      
+                  }
+              }
+            }
+        }
+    }
     .top-bar{
         position: absolute;
         top:0;
