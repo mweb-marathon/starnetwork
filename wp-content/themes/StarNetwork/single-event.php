@@ -105,11 +105,14 @@ $category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
                                 </div>
                                 <div class="star-network-additional-event-honoree">
                                     <div class="people-honoree-wrapper">
+                                        <?php if (wp_is_mobile()) : ?>
+                                        <div class="prew-arrow"></div>
+                                        <div class="next-arrow"></div>
+                                        <?php endif; ?>
                                         <div class="people-honoree-title">
                                             <?php echo $star_network_people_title_on_event_page; ?>
                                         </div>
                                         <div class="people-honoree-data">
-
                                             <?php if (!empty($additional_data['sponsor_people'])): ?>
                                                 <?php get_single_event_additional_people_data($additional_data['sponsor_people']); ?>
                                             <?php endif; ?>

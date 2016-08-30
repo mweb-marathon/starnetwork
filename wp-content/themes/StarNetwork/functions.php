@@ -453,10 +453,9 @@ function get_image_for_sponsor_people_2($titletext, $the_ID, $post)
     <?php print_thumbnail($thumb, true, $titletext, $width, $height, $classtext, true, false, true, $post); ?>
 <?php else: ?>
     <div class="no-image">
-        No Image
+        <img width="360" src="/wp-content/themes/StarNetwork/img/no-image.jpg" />
     </div>
 <?php endif; ?>
-
 <?php
 }
 

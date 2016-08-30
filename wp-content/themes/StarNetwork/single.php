@@ -12,12 +12,14 @@ get_header('star_network'); ?>
     <div id="primary" class="content-area news-photo-wrapper">
 
         <div id="content" class="row site-content" role="main">
+            <?php if (!wp_is_mobile()):  ?>
             <div id="right-sidebar" class="large-4 columns">
                 <?php if (is_active_sidebar('left_sidebar')) : ?>
                     <?php dynamic_sidebar('left_sidebar'); ?>
                 <?php endif; ?>
                 <div style="clear:both"></div>
             </div>
+            <?php endif; ?>
             <div class="large-8 columns">
                 <div class="content-wrapper">
                     <div class="post-social-button" id="post-social-button">
@@ -117,10 +119,16 @@ get_header('star_network'); ?>
                     <?php endwhile;
                     ?>
                 </div>
-
                 <div class="row post-footer-block news-photo-related-list" data-post-id="<?php the_ID(); ?>"></div>
             </div>
-
+            <?php if (wp_is_mobile()):  ?>
+            <div id="right-sidebar" class="large-4 columns">
+                <?php if (is_active_sidebar('left_sidebar')) : ?>
+                    <?php dynamic_sidebar('left_sidebar'); ?>
+                <?php endif; ?>
+                <div style="clear:both"></div>
+            </div>
+            <?php endif; ?>
         </div>
 
     </div>

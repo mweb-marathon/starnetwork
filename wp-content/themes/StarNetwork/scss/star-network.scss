@@ -523,6 +523,7 @@ body.page-template-star_networking_homepage-php {
 .events-case {
     .star-network-content-wrapper-bg {
         border: none;
+        padding: 0;
     }
 }
 
@@ -1300,7 +1301,9 @@ body.page-template-star_networking_homepage-php {
 
 
 @media only screen and (max-width: 40em){
-    
+    .single-event-category{
+        width: auto !important;
+    }
     .star-network-attend-pages {
         .main-content {
             .categories {
@@ -1333,6 +1336,7 @@ body.page-template-star_networking_homepage-php {
         top:0;
         right: 0;
         left:0;
+        z-index: 5 !important;
         .toggle-topbar{
             background-color: #FF060C;
             -webkit-border-radius: 17px 0px 0px 17px;
@@ -1368,7 +1372,10 @@ body.page-template-star_networking_homepage-php {
         padding: 20px !important;
     }
     .star-network-additional-page-content{
-        padding: 20px;
+        h1{
+            padding-left: 10px;
+        }
+        padding: 10px;
     }
     .event-btns-set{
         left: 0px;
@@ -1435,5 +1442,37 @@ body.page-template-star_networking_homepage-php {
         margin-left: 10px;
         color: transparent;
     }
-    
+
+    #right-sidebar{
+        .custom-widget{
+            width: 100%;
+        }
+    }
+    .star-network-additional-event-honoree {
+        .people-honoree-wrapper {
+            .next-arrow, .prew-arrow {
+                background: url("../img/arrow-sprite.png") no-repeat center;
+                width: 17px !important;
+                height: 42px !important;
+                top: 20%;
+                position: absolute;
+            }
+            .prew-arrow {
+                left: 0px;
+                background-position: 0 0;
+            }
+            .next-arrow {
+                right: 0px;
+                background-position: -18px 0;
+            }
+            position: relative;
+            .people-honoree-data{
+                ul {
+                    li:nth-of-type(4n) {
+                        margin-right: 15px !important;
+                    }
+                }
+            }
+        }
+    }
 }

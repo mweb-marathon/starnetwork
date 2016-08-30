@@ -524,7 +524,8 @@ body.page-template-star_networking_homepage-php {
   padding: 0 10px 90px; }
 
 .events-case .star-network-content-wrapper-bg {
-  border: none; }
+  border: none;
+  padding: 0; }
 
 .star-main-content-wrapper #content {
   margin-top: 0;
@@ -1210,6 +1211,9 @@ body.page-template-star_networking_homepage-php {
     border: none; }
 
 @media only screen and (max-width: 40em) {
+  .single-event-category {
+    width: auto !important; }
+
   .star-network-attend-pages .main-content .categories {
     box-sizing: border-box;
     margin-top: 25px;
@@ -1231,7 +1235,8 @@ body.page-template-star_networking_homepage-php {
     position: absolute;
     top: 0;
     right: 0;
-    left: 0; }
+    left: 0;
+    z-index: 5 !important; }
     .top-bar .toggle-topbar {
       background-color: #FF060C;
       -webkit-border-radius: 17px 0px 0px 17px;
@@ -1262,7 +1267,9 @@ body.page-template-star_networking_homepage-php {
     padding: 20px !important; }
 
   .star-network-additional-page-content {
-    padding: 20px; }
+    padding: 10px; }
+    .star-network-additional-page-content h1 {
+      padding-left: 10px; }
 
   .event-btns-set {
     left: 0px; }
@@ -1354,6 +1361,26 @@ body.page-template-star_networking_homepage-php {
     border: none;
     float: right;
     margin-left: 10px;
-    color: transparent; } }
+    color: transparent; }
+
+  #right-sidebar .custom-widget {
+    width: 100%; }
+
+  .star-network-additional-event-honoree .people-honoree-wrapper {
+    position: relative; }
+    .star-network-additional-event-honoree .people-honoree-wrapper .next-arrow, .star-network-additional-event-honoree .people-honoree-wrapper .prew-arrow {
+      background: url("../img/arrow-sprite.png") no-repeat center;
+      width: 17px !important;
+      height: 42px !important;
+      top: 20%;
+      position: absolute; }
+    .star-network-additional-event-honoree .people-honoree-wrapper .prew-arrow {
+      left: 0px;
+      background-position: 0 0; }
+    .star-network-additional-event-honoree .people-honoree-wrapper .next-arrow {
+      right: 0px;
+      background-position: -18px 0; }
+    .star-network-additional-event-honoree .people-honoree-wrapper .people-honoree-data ul li:nth-of-type(4n) {
+      margin-right: 15px !important; } }
 
 /*# sourceMappingURL=star-network.css.map */
