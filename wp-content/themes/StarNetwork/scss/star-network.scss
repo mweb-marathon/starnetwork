@@ -1301,6 +1301,14 @@ body.page-template-star_networking_homepage-php {
 
 
 @media only screen and (max-width: 40em){
+    .ssba{
+        div{
+            text-align: center !important;
+        }
+    }
+    .star-network-additional-page-content-wrapper{
+        padding-top: 15px !important;
+    }
     .single-event-category{
         width: auto !important;
     }

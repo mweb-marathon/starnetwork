@@ -1035,7 +1035,7 @@ function get_single_event_additional_sponsor_data($data)
                 $sponsor_meta[get_the_ID()] = $post_meta;
             }
             if (!empty($sort_data['presenting'])) {
-                echo '<div class="event-sponsor-title">Presenting Sponsors</div>';
+                echo '<div class="event-sponsor-title">Presenting Sponsor(s)</div>';
                 echo '<ul class="presenting-wrapper">';
                 foreach ($sort_data['presenting'] as $val) {
                     echo '<li class="presenting"><a href="' . $sponsor_meta[$val]['schneps_sponsor_link'][0] . '">' . get_the_post_thumbnail($val) . '</a></li>';

@@ -56,11 +56,13 @@ $category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
     <div class="star-main-content-wrapper single-event-page"
          style="background: url('<?php echo $sponsored_image[0]; ?>') no-repeat center top; min-height: 600px;">
         <div id="content" class="row widecolumn extra-pages">
+            <?php if (!wp_is_mobile()): ?>
             <div class="post-social-button hide-for-small" id="post-social-button">
                 <div class="post-social-button-wrapper">
                     <?php echo do_shortcode('[ssba]'); ?>
                 </div>
             </div>
+            <?php endif; ?>
             <div class="star-network-content">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
@@ -95,6 +97,12 @@ $category_name = EM_Events::getEventOneCategoryNameByPostId(get_the_ID());
                         <?php if (get_the_content() !== ''): ?>
                             <?php $post_meta = get_post_meta(get_the_ID()); ?>
                             <div class="star-network-additional-page-content-wrapper">
+                                <?php if (wp_is_mobile()): ?>
+                                <div class="post-social-button-wrapper">
+                                    <?php echo do_shortcode('[ssba]'); ?>
+                                </div>
+                                <?php endif; ?>
+
                                 <div class="star-network-additional-page-content middle-row">
 <!--                                    <div class="excerpt">
                                         <?php echo schneps_datetime_of_event($post_meta) ?>
