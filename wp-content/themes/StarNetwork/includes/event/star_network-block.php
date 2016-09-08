@@ -27,11 +27,11 @@ $ticket_link = !empty($post_meta['event_post_ticket_link'][0]) ? $post_meta['eve
                 <?php echo apply_filters('filter_date', array('string' => $start_event, "format" => "d")); ?>
             </div>
         </div>
-        <div class="rsvp">
+<!--        <div class="rsvp">
             <?php if ($is_sponsored == 'networking' || $is_sponsored == 'sponsored'): ?>
                 <div class="rsvpt">rsvpt</div>
             <?php endif; ?>
-        </div>
+        </div>-->
     </div>
     </a>
     <a href="<?php the_permalink(); ?>">
