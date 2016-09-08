@@ -22,14 +22,21 @@ get_header('star_network'); ?>
             <?php endif; ?>
             <div class="large-8 columns">
                 <div class="content-wrapper">
-                    <div class="post-social-button" id="post-social-button">
+                    <?php if (!wp_is_mobile()): ?>
+                    <div class="post-social-button hide-for-small" id="post-social-button">
                         <div class="post-social-button-wrapper">
                             <?php echo do_shortcode('[ssba]'); ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <?php while (have_posts()) : the_post();
                         $story_meta = get_post_meta(get_the_ID());
                         ?>
+                         <?php if (wp_is_mobile()): ?>
+                        <div class="post-social-button-wrapper">
+                            <?php echo do_shortcode('[ssba]'); ?>
+                        </div>
+                        <?php endif; ?>
                         <div class="extra-post-header">
                             <div class="post-info-additional">
                                 <h1 class="headline"><?php echo get_the_title(); ?></h1>
