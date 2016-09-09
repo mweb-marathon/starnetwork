@@ -1187,22 +1187,11 @@ function schneps_datetime_of_event($post_meta) {
 
 function shnepsPopularStoryAdrotate($option_name) {
     $popular_story_id = get_option($option_name);
-    $popular_story_record = schneps_get_adrotate_ads_data($popular_story_id);
-    $explodeId = explode(' ', $popular_story_id);
-    if(count($explodeId) > 1) {
-        $ad_gr_object_key = strtolower($explodeId[0]).'_object'; // 'ad_object' or 'group_object'
-    }
-
-    if (!empty($popular_story_record[ $ad_gr_object_key ])):
     ?>
     <div class="popular-story-adrotate">
-    <a href="<?php echo esc_url($popular_story_record[$ad_gr_object_key]->link); ?>">
-        <img src="<?php echo esc_attr($popular_story_record[$ad_gr_object_key]->image); ?>"
-             alt="<?php echo esc_attr(get_bloginfo('name')); ?>"/>
-    </a>
+        <?php echo schneps_get_adrotate_($popular_story_id); ?>
     </div>
     <?php
-    endif;
 }
 
 function scheps_get_event_category_image($slug) {
