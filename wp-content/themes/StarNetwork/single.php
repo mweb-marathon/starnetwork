@@ -96,7 +96,7 @@ get_header('star_network'); ?>
                                 $content_post = get_the_content();
                                 $gallery_short = array();
 
-                                $gallery_regex = '/\[gallery\s{1,}id.*\]/';
+                                $gallery_regex = '/\[gallery.*id.*\]/';
                                 preg_match($gallery_regex, $content_post, $gallery_short);
                                 $gallery_short = $gallery_short[0];
                                 if (!empty($gallery_short)) {
