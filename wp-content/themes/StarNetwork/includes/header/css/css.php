@@ -11,6 +11,8 @@ $CSS_ARRAY = array(
     'jquery.fancybox',
     'foundation/foundation',
     'bxslider/jquery.bxslider',
+    'gallery/style',
+    'gallery/magnific-popup',
 
 );
 

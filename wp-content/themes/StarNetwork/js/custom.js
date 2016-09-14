@@ -79,4 +79,18 @@ jQuery(document).ready(function ($) {
        $('.search-form', '.header-main-menu').toggleClass('hide');
        $('.search-form input[type="text"]', '.header-main-menu').focus()
     });
+
+    $('#photos-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        image: {
+            cursor: null,
+            titleSrc: 'title'
+        },
+        gallery: {
+            enabled: true,
+            preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+            navigateByImgClick: true
+        }
+    });
 });
