@@ -94,30 +94,30 @@ get_header('star_network'); ?>
                             <div class="extra-post-content">
                                 <?php
                                 $content_post = get_the_content();
-                                $gallery_short = array();
-
-                                $gallery_regex = '/\[gallery.*id.*\]/';
-                                preg_match($gallery_regex, $content_post, $gallery_short);
-                                $gallery_short = $gallery_short[0];
-                                if (!empty($gallery_short)) {
-                                    $img_ids = array();
-                                    preg_match_all('/\d{1,}/', $gallery_short, $img_ids);
-                                    $img_ids = $img_ids[0];
-                                    $gallery_html = '';
-                                    if (!empty($img_ids) && count($img_ids)) {
-                                        $gallery_html = '<ul class="shneps-post-gallery">';
-                                        foreach ($img_ids as $img_id) {
-                                            $image_record = get_post($img_id);
-                                            $attachmenturl = wp_get_attachment_url($image_record->ID);
-                                            $attachmentimage = wp_get_attachment_image($image_record->ID);
-                                            $gallery_html .= '<li><a href="'.$attachmenturl.'">' . $attachmentimage .'</a></li>';
-
-                                        }
-                                        $gallery_html .= '</ul>';
-                                        $gallery_html .= '<label></label>';
-                                        $content_post = preg_replace($gallery_regex, $gallery_html, $content_post);
-                                    }
-                                }
+//                                $gallery_short = array();
+//
+//                                $gallery_regex = '/\[gallery.*id.*\]/';
+//                                preg_match($gallery_regex, $content_post, $gallery_short);
+//                                $gallery_short = $gallery_short[0];
+//                                if (!empty($gallery_short)) {
+//                                    $img_ids = array();
+//                                    preg_match_all('/\d{1,}/', $gallery_short, $img_ids);
+//                                    $img_ids = $img_ids[0];
+//                                    $gallery_html = '';
+//                                    if (!empty($img_ids) && count($img_ids)) {
+//                                        $gallery_html = '<ul class="shneps-post-gallery">';
+//                                        foreach ($img_ids as $img_id) {
+//                                            $image_record = get_post($img_id);
+//                                            $attachmenturl = wp_get_attachment_url($image_record->ID);
+//                                            $attachmentimage = wp_get_attachment_image($image_record->ID);
+//                                            $gallery_html .= '<li><a href="'.$attachmenturl.'">' . $attachmentimage .'</a></li>';
+//
+//                                        }
+//                                        $gallery_html .= '</ul>';
+//                                        $gallery_html .= '<label></label>';
+//                                        $content_post = preg_replace($gallery_regex, $gallery_html, $content_post);
+//                                    }
+//                                }
                                 ?>
                                 <?php echo html_entity_decode(wpautop($content_post)); ?>
                             </div>
